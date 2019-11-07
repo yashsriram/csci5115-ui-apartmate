@@ -5,17 +5,25 @@ import java.util.ArrayList;
 public class DataManager {
 
     // Add public data to access here
+    
     public ArrayList<Apartment> apartments = new ArrayList<Apartment>();
 
+
+    // end public accessible data
 
 
     private static DataManager soleInstance;
 
     private DataManager(){
 
-        // add default data here
-        apartments.add(new Apartment());
+        ////// START CREATE DEFAULT DATA
 
+        apartments.add(new Apartment()); // example
+
+
+
+
+        ////// END CREATE DEFAULT DATA
 
 
         if (soleInstance != null){
