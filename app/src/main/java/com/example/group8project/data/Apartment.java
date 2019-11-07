@@ -1,4 +1,4 @@
 package com.example.group8project.data;
 
-public class Appartment {
+public class Apartment {
 }

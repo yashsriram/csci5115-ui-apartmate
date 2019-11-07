@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class DataManager {
 
     // Add public data to access here
-    public ArrayList<Appartment> appartments = new ArrayList<Appartment>();
+    public ArrayList<Apartment> apartments = new ArrayList<Apartment>();
 
 
 
@@ -14,7 +14,7 @@ public class DataManager {
     private DataManager(){
 
         // add default data here
-        appartments.add(new Appartment());
+        apartments.add(new Apartment());
 
 
 
