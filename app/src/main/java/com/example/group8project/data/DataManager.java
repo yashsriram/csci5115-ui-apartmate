@@ -1,12 +1,23 @@
-package com.example.group8project;
+package com.example.group8project.data;
+
+import java.util.ArrayList;
 
 public class DataManager {
 
-    // Add public data and methods here
+    // Add public data to access here
+    public ArrayList<Appartment> appartments = new ArrayList<Appartment>();
+
+
 
     private static DataManager soleInstance;
 
     private DataManager(){
+
+        // add default data here
+        appartments.add(new Appartment());
+
+
+
         if (soleInstance != null){
             throw new RuntimeException("Use getInstance() method to get the single instance of this class.");
         }
