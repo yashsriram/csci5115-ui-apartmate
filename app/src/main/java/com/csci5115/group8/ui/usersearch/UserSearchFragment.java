@@ -1,5 +1,6 @@
 package com.csci5115.group8.ui.usersearch;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+
+import com.csci5115.group8.EditYourProfile;
 import com.csci5115.group8.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -34,7 +37,8 @@ public class UserSearchFragment extends Fragment {
         editYourProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                Intent intent = new Intent(getContext(), EditYourProfile.class);
+                startActivity(intent);
             }
         });
         final FloatingActionButton searchUsers = root.findViewById(R.id.search_users);
