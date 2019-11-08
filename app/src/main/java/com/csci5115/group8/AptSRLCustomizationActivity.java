@@ -19,7 +19,7 @@ public class AptSRLCustomizationActivity extends AppCompatActivity {
 
 
         // init visibilities of all features and bind callback for switches-features
-        final ConstraintLayout layout = findViewById(R.id.apt_srl_customization);
+        final ConstraintLayout layout = findViewById(R.id.activity_apt_srl_customization);
 
         final Switch nameSwitch = layout.findViewById(R.id.nameSwitch);
         nameSwitch.setChecked(ApartmentSRL.nameVisible);

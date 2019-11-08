@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_apt_search">
+    app:startDestination="@+id/dashboard_apt_search">
 
     <fragment
-        android:id="@+id/navigation_apt_search"
+        android:id="@+id/dashboard_apt_search"
         android:name="com.csci5115.group8.ui.aptsearch.AptSearchFragment"
         android:label="Apartments"
         tools:layout="@layout/fragment_apt_search" />
 
     <fragment
-        android:id="@+id/navigation_user_search"
+        android:id="@+id/dashboard_user_search"
         android:name="com.csci5115.group8.ui.usersearch.UserSearchFragment"
         android:label="Roommates"
         tools:layout="@layout/fragment_user_search" />
 
     <fragment
-        android:id="@+id/navigation_chat"
+        android:id="@+id/dashboard_chat"
         android:name="com.csci5115.group8.ui.chat.ChatFragment"
         android:label="Chat"
         tools:layout="@layout/fragment_chat" />
