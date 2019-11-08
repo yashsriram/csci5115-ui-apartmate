@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -16,6 +17,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 public class DashboardActivity extends AppCompatActivity {
+
+    private boolean firstExitTry = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,5 +58,16 @@ public class DashboardActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (firstExitTry) {
+            Toast.makeText(this, "Press again to exit", Toast.LENGTH_SHORT).show();
+            firstExitTry = false;
+            return;
+        }
+        firstExitTry = true;
+        super.onBackPressed();
     }
 }
