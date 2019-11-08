@@ -34,7 +34,7 @@ public class DashboardActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_activity_top_nav_menu, menu);
+        inflater.inflate(R.menu.dashboard_activity_top_nav_menu, menu);
         return true;
     }
 
