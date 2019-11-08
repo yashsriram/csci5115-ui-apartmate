@@ -2,6 +2,16 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
+        android:id="@+id/create_apartment_lisiting"
+        android:icon="@drawable/ic_add_black_24dp"
+        android:title="Create new apartment listing"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/edit_your_profile"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="Edit your profile"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/customize_apt_srl"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="Customize apartment search result"

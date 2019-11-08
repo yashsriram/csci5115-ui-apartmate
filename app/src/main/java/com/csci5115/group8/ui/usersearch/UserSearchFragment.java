@@ -34,14 +34,6 @@ public class UserSearchFragment extends Fragment {
                 textView.setText(s);
             }
         });
-        final FloatingActionButton editYourProfile = root.findViewById(R.id.edit_your_profile);
-        editYourProfile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), EditYourProfileActivity.class);
-                startActivity(intent);
-            }
-        });
         final FloatingActionButton searchUsers = root.findViewById(R.id.search_users);
         searchUsers.setOnClickListener(new View.OnClickListener() {
             @Override

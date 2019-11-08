@@ -47,6 +47,12 @@ public class DashboardActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
+            case R.id.create_apartment_lisiting:
+                Intent i3 = new Intent(this, CreateApartmentListingActivity.class);
+                startActivity(i3);
+            case R.id.edit_your_profile:
+                Intent i4 = new Intent(this, EditYourProfileActivity.class);
+                startActivity(i4);
             case R.id.customize_apt_srl:
                 Intent i1 = new Intent(this, AptSRLCustomizationActivity.class);
                 startActivity(i1);

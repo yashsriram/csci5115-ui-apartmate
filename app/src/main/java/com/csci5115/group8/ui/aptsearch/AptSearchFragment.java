@@ -33,14 +33,6 @@ public class AptSearchFragment extends Fragment {
                 textView.setText(s);
             }
         });
-        final FloatingActionButton createAptListing = root.findViewById(R.id.create_apt_listing);
-        createAptListing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), CreateApartmentListingActivity.class);
-                startActivity(intent);
-            }
-        });
         final FloatingActionButton searchApartments = root.findViewById(R.id.search_apartments);
         searchApartments.setOnClickListener(new View.OnClickListener() {
             @Override
