@@ -45,29 +45,23 @@ public class DashboardActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
+        Intent intent;
         switch (item.getItemId()) {
+            case R.id.create_apartment_lisiting:
+                intent = new Intent(this, CreateApartmentListingActivity.class);
+                startActivity(intent);
+                return true;
+            case R.id.edit_your_profile:
+                intent = new Intent(this, EditYourProfileActivity.class);
+                startActivity(intent);
+                return true;
             case R.id.customize_apt_srl:
-                Intent i1 = new Intent(this, AptSRLCustomizationActivity.class);
-                startActivity(i1);
+                intent = new Intent(this, AptSRLCustomizationActivity.class);
+                startActivity(intent);
                 return true;
             case R.id.customize_user_srl:
-                Intent i2 = new Intent(this, UserSRLCustomizationActivity.class);
-                startActivity(i2);
-            case R.id.create_apartment_lisiting:
-                Intent i3 = new Intent(this, CreateApartmentListingActivity.class);
-                startActivity(i3);
-            case R.id.edit_your_profile:
-                Intent i4 = new Intent(this, EditYourProfileActivity.class);
-                startActivity(i4);
-                return true;
-            case R.id.create_apartment_lisiting:
-                Intent i3 = new Intent(this, CreateApartmentListingActivity.class);
-                startActivity(i3);
-                return true;
-            case R.id.edit_your_profile:
-                Intent i4 = new Intent(this, EditYourProfileActivity.class);
-                startActivity(i4);
+                intent = new Intent(this, UserSRLCustomizationActivity.class);
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
