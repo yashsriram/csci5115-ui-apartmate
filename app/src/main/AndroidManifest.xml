@@ -10,9 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".UserSearchActivity"
+            android:label="User search"
+            android:parentActivityName=".DashboardActivity"></activity>
+        <activity
+            android:name=".ApartmentSearchActivity"
+            android:label="Apartment search"
+            android:parentActivityName=".DashboardActivity" />
+        <activity
             android:name=".EditYourProfileActivity"
             android:label="Update your profile"
-            android:parentActivityName=".DashboardActivity"></activity>
+            android:parentActivityName=".DashboardActivity" />
         <activity
             android:name=".CreateApartmentListingActivity"
             android:label="Create new apartment listing"

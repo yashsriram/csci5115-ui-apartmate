@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.csci5115.group8.EditYourProfileActivity;
 import com.csci5115.group8.R;
+import com.csci5115.group8.UserSearchActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -45,7 +46,8 @@ public class UserSearchFragment extends Fragment {
         searchUsers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                Intent intent = new Intent(getContext(), UserSearchActivity.class);
+                startActivity(intent);
             }
         });
         return root;

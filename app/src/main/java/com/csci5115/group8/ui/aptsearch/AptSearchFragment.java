@@ -13,10 +13,10 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.csci5115.group8.ApartmentSearchActivity;
 import com.csci5115.group8.CreateApartmentListingActivity;
 import com.csci5115.group8.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 public class AptSearchFragment extends Fragment {
 
@@ -45,7 +45,8 @@ public class AptSearchFragment extends Fragment {
         searchApartments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Here's a Snackbar", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                Intent intent = new Intent(getContext(), ApartmentSearchActivity.class);
+                startActivity(intent);
             }
         });
 
