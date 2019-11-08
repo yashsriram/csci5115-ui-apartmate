@@ -32,6 +32,7 @@ public class AptSRLCustomizationActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 name.setVisibility(b ? View.VISIBLE : View.GONE);
+                ApartmentSRL.nameVisible = b;
             }
         });
 
@@ -43,6 +44,7 @@ public class AptSRLCustomizationActivity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 address.setVisibility(b ? View.VISIBLE : View.GONE);
+                ApartmentSRL.addressVisible = b;
             }
         });
 
