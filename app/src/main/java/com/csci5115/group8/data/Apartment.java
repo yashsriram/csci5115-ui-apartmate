@@ -1,9 +1,9 @@
 package com.csci5115.group8.data;
 
-import java.util.Date;
 import java.util.List;
 
 class Unit {
+    public int number;
     public int numBathrooms;
     public int numBedrooms;
     public float areaInSqFt;
@@ -22,14 +22,16 @@ class Unit {
 
 class PerUnitAmenities {
     public boolean refrigerator;
+    public boolean oven;
     public boolean microwave;
     public boolean dishwasher;
     public boolean washingMachine;
     public boolean heating;
     public boolean cooling;
 
-    public PerUnitAmenities(boolean refrigerator, boolean microwave, boolean dishwasher, boolean washingMachine, boolean heating, boolean cooling) {
+    public PerUnitAmenities(boolean refrigerator, boolean oven, boolean microwave, boolean dishwasher, boolean washingMachine, boolean heating, boolean cooling) {
         this.refrigerator = refrigerator;
+        this.oven = oven;
         this.microwave = microwave;
         this.dishwasher = dishwasher;
         this.washingMachine = washingMachine;
@@ -40,16 +42,17 @@ class PerUnitAmenities {
 
 class CommonAmenities {
     public boolean laundryRoom;
-    public boolean commonArea;
+    public boolean longue;
     public boolean printingService;
     public boolean reception;
     public boolean parking;
 
-    public CommonAmenities(boolean laundryRoom, boolean commonArea, boolean printingService, boolean reception) {
+    public CommonAmenities(boolean laundryRoom, boolean longue, boolean printingService, boolean reception, boolean parking) {
         this.laundryRoom = laundryRoom;
-        this.commonArea = commonArea;
+        this.longue = longue;
         this.printingService = printingService;
         this.reception = reception;
+        this.parking = parking;
     }
 }
 
@@ -70,9 +73,8 @@ class SecurityFeatures {
 public class Apartment {
     public String name;
     public String address;
-    public List<Unit> units;
     public PerUnitAmenities perUnitAmenities;
     public CommonAmenities commonAmenities;
     public SecurityFeatures securityFeatures;
-    public Date leasingDate;
+    public List<Unit> units;
 }

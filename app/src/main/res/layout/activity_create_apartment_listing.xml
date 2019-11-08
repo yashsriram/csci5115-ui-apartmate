@@ -7,6 +7,245 @@
     android:layout_height="match_parent"
     tools:context="com.csci5115.group8.CreateApartmentListingActivity">
 
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:ems="10"
+        android:hint="Address"
+        android:inputType="textPostalAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/perUnitAmenitiesHint"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Per Unit Amenities"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address" />
+
+    <TableLayout
+        android:id="@+id/perUnitAmenities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/perUnitAmenitiesHint">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/refrigerator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Refrigerator"
+
+                />
+
+            <CheckBox
+                android:id="@+id/oven"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Oven"
+
+                app:layout_constraintTop_toTopOf="@id/refrigerator" />
+
+            <CheckBox
+                android:id="@+id/microwave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Microwave"
+
+                app:layout_constraintTop_toTopOf="@id/oven" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/dishwasher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dishwasher"
+
+                app:layout_constraintTop_toTopOf="@id/microwave" />
+
+            <CheckBox
+                android:id="@+id/washingMachine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Washing Machine"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <CheckBox
+                android:id="@+id/heating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heating"
+
+                tools:layout_editor_absoluteX="150dp" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/cooling"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cooling" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/commonAmenitiesHint"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Common Amenities"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/perUnitAmenities" />
+
+    <TableLayout
+        android:id="@+id/commonAmenities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/commonAmenitiesHint">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/laundryRoom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Laundry Room"
+
+                />
+
+            <CheckBox
+                android:id="@+id/longue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Longue"
+
+                app:layout_constraintTop_toTopOf="@id/refrigerator" />
+
+            <CheckBox
+                android:id="@+id/printingService"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Printing Service"
+
+                app:layout_constraintTop_toTopOf="@id/oven" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/reception"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reception"
+
+                app:layout_constraintTop_toTopOf="@id/microwave" />
+
+            <CheckBox
+                android:id="@+id/parking"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Parking"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/securityFeaturesHint"
+        style="@style/TextAppearance.AppCompat.Medium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Security Features"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/commonAmenities" />
+
+    <TableLayout
+        android:id="@+id/securityFeatures"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/securityFeaturesHint">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/securityCameras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Security Cameras" />
+
+            <CheckBox
+                android:id="@+id/smokeDetectors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Smoke Detectors" />
+
+            <CheckBox
+                android:id="@+id/sprinklers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sprinklers" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:id="@+id/buildingLock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Building Lock" />
+
+        </TableRow>
+
+    </TableLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/submit_new_apartment_listing"
         android:layout_width="wrap_content"
@@ -16,5 +255,6 @@
         android:src="@drawable/ic_done_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,7 +21,9 @@ public class CreateApartmentListingActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Replace with your own action", Toast.LENGTH_LONG).show();
+                // Validate fields
+                // Check for duplicates
+                // Save apartment
                 finish();
             }
         });
