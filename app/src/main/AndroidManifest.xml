@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".CreateApartmentListing"
+            android:label="Create new apartment listing"
+            android:parentActivityName=".DashboardActivity" />
+        <activity
             android:name=".LoginActivity"
             android:label="Login">
             <intent-filter>
@@ -26,7 +30,7 @@
             android:name=".AptSRLCustomizationActivity"
             android:label="Customize Apartment Layout"
             android:parentActivityName=".DashboardActivity" />
-        <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".DashboardActivity" />
     </application>
 
 </manifest>
