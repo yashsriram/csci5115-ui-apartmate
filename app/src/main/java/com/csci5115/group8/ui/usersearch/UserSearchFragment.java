@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.csci5115.group8.EditYourProfile;
+import com.csci5115.group8.EditYourProfileActivity;
 import com.csci5115.group8.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -37,7 +37,7 @@ public class UserSearchFragment extends Fragment {
         editYourProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), EditYourProfile.class);
+                Intent intent = new Intent(getContext(), EditYourProfileActivity.class);
                 startActivity(intent);
             }
         });

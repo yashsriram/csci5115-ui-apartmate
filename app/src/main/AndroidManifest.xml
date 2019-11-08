@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".EditYourProfile"
+            android:name=".EditYourProfileActivity"
             android:label="Update your profile"
             android:parentActivityName=".DashboardActivity"></activity>
         <activity
-            android:name=".CreateApartmentListing"
+            android:name=".CreateApartmentListingActivity"
             android:label="Create new apartment listing"
             android:parentActivityName=".DashboardActivity" />
         <activity

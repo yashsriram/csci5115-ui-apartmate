@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class EditYourProfile extends AppCompatActivity {
+public class EditYourProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

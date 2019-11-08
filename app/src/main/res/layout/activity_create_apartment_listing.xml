@@ -5,7 +5,7 @@
     android:id="@+id/activity_create_apartment_listing"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.csci5115.group8.CreateApartmentListing">
+    tools:context="com.csci5115.group8.CreateApartmentListingActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/submit_new_apartment_listing"

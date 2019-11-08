@@ -5,7 +5,7 @@
     android:id="@+id/activity_edit_your_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.csci5115.group8.EditYourProfile">
+    tools:context="com.csci5115.group8.EditYourProfileActivity">
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/submit_edited_user_profile"

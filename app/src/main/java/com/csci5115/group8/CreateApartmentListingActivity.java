@@ -9,7 +9,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class CreateApartmentListing extends AppCompatActivity {
+public class CreateApartmentListingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

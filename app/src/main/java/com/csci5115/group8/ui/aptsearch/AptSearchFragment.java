@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.csci5115.group8.CreateApartmentListing;
+import com.csci5115.group8.CreateApartmentListingActivity;
 import com.csci5115.group8.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -37,7 +37,7 @@ public class AptSearchFragment extends Fragment {
         createAptListing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), CreateApartmentListing.class);
+                Intent intent = new Intent(getContext(), CreateApartmentListingActivity.class);
                 startActivity(intent);
             }
         });
