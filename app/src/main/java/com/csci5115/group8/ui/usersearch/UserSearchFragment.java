@@ -1,4 +1,4 @@
-package com.example.group8project.ui.usersearch;
+package com.csci5115.group8.ui.usersearch;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import com.example.group8project.R;
+import com.csci5115.group8.R;
 
 public class UserSearchFragment extends Fragment {
 

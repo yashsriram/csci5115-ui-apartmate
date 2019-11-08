@@ -1,4 +1,4 @@
-package com.example.group8project.data;
+package com.csci5115.group8.data;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.group8project;
+package com.csci5115.group8;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;

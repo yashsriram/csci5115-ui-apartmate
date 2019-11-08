@@ -1,4 +1,4 @@
-package com.example.group8project.ui.aptsearch;
+package com.csci5115.group8.ui.chat;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,19 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
-import com.example.group8project.R;
+import com.csci5115.group8.R;
 
-public class AptSearchFragment extends Fragment {
+public class ChatFragment extends Fragment {
 
-    private AptSearchViewModel aptSearchViewModel;
+    private ChatViewModel chatViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
             ViewGroup container, Bundle savedInstanceState) {
-        aptSearchViewModel =
-                ViewModelProviders.of(this).get(AptSearchViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_apt_search, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        aptSearchViewModel.getText().observe(this, new Observer<String>() {
+        chatViewModel =
+                ViewModelProviders.of(this).get(ChatViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_chat, container, false);
+        final TextView textView = root.findViewById(R.id.text_notifications);
+        chatViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

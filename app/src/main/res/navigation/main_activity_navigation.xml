@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_apt_search"
-        android:name="com.example.group8project.ui.aptsearch.AptSearchFragment"
+        android:name="com.csci5115.group8.ui.aptsearch.AptSearchFragment"
         android:label="Apartments"
         tools:layout="@layout/fragment_apt_search" />
 
     <fragment
         android:id="@+id/navigation_user_search"
-        android:name="com.example.group8project.ui.usersearch.UserSearchFragment"
+        android:name="com.csci5115.group8.ui.usersearch.UserSearchFragment"
         android:label="Roommates"
         tools:layout="@layout/fragment_user_search" />
 
     <fragment
         android:id="@+id/navigation_chat"
-        android:name="com.example.group8project.ui.chat.ChatFragment"
+        android:name="com.csci5115.group8.ui.chat.ChatFragment"
         android:label="Chat"
         tools:layout="@layout/fragment_chat" />
 </navigation>

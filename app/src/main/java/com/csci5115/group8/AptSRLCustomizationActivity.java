@@ -1,17 +1,14 @@
-package com.example.group8project;
+package com.csci5115.group8;
 
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.group8project.data.Apartment;
-import com.example.group8project.data.ApartmentSRL;
+import com.csci5115.group8.data.ApartmentSRL;
 
 public class AptSRLCustomizationActivity extends AppCompatActivity {
 

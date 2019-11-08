@@ -1,16 +1,16 @@
-package com.example.group8project.ui.chat;
+package com.csci5115.group8.ui.aptsearch;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ChatViewModel extends ViewModel {
+public class AptSearchViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public ChatViewModel() {
+    public AptSearchViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is chat fragment");
+        mText.setValue("This is apartment search fragment");
     }
 
     public LiveData<String> getText() {
