@@ -10,7 +10,7 @@ public class UserSearchViewModel extends ViewModel {
 
     public UserSearchViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+        mText.setValue("This is user seach fragment");
     }
 
     public LiveData<String> getText() {

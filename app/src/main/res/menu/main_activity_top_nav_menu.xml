@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/customize_apt_srl"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="Customize apartment search result"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/customize_user_srl"
+        android:icon="@drawable/ic_group_black_24dp"
+        android:title="Customize user search result"
+        app:showAsAction="ifRoom" />
+</menu>

@@ -10,7 +10,7 @@ public class AptSearchViewModel extends ViewModel {
 
     public AptSearchViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mText.setValue("This is apartment search fragment");
     }
 
     public LiveData<String> getText() {
