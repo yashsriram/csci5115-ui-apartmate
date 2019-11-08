@@ -43,10 +43,12 @@ public class DashboardActivity extends AppCompatActivity {
         // Handle item selection
         switch (item.getItemId()) {
             case R.id.customize_apt_srl:
-                Intent intent = new Intent(this, AptSRLCustomizationActivity.class);
-                startActivity(intent);
+                Intent i1 = new Intent(this, AptSRLCustomizationActivity.class);
+                startActivity(i1);
                 return true;
             case R.id.customize_user_srl:
+                Intent i2 = new Intent(this, UserSRLCustomizationActivity.class);
+                startActivity(i2);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

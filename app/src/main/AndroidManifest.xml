@@ -9,11 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".UserSRLCustomizationActivity"
+            android:label="Customize Apt Search Result Layout"
+            android:parentActivityName=".DashboardActivity" ></activity>
         <activity
             android:name=".AptSRLCustomizationActivity"
             android:label="Customize Apt Search Result Layout"
-            android:parentActivityName=".DashboardActivity"></activity>
-
+            android:parentActivityName=".DashboardActivity" />
         <activity
             android:name=".DashboardActivity"
             android:label="@string/app_name">
