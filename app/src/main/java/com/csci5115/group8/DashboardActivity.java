@@ -54,6 +54,12 @@ public class DashboardActivity extends AppCompatActivity {
             case R.id.customize_user_srl:
                 Intent i2 = new Intent(this, UserSRLCustomizationActivity.class);
                 startActivity(i2);
+            case R.id.create_apartment_lisiting:
+                Intent i3 = new Intent(this, CreateApartmentListingActivity.class);
+                startActivity(i3);
+            case R.id.edit_your_profile:
+                Intent i4 = new Intent(this, EditYourProfileActivity.class);
+                startActivity(i4);
                 return true;
             case R.id.create_apartment_lisiting:
                 Intent i3 = new Intent(this, CreateApartmentListingActivity.class);
