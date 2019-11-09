@@ -45,5 +45,17 @@ public class AptSRLCustomizationActivity extends AppCompatActivity {
             }
         });
 
+        final Switch perUnitAmenitiesSwitch = layout.findViewById(R.id.perUnitAmenitiesSwitch);
+        perUnitAmenitiesSwitch.setChecked(ApartmentSRL.perUnitAmenitiesVisible);
+        final View perUnitAmenities = layout.findViewById(R.id.perUnitAmenities);
+        perUnitAmenities.setVisibility(ApartmentSRL.perUnitAmenitiesVisible ? View.VISIBLE : View.GONE);
+        perUnitAmenitiesSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                perUnitAmenities.setVisibility(b ? View.VISIBLE : View.GONE);
+                ApartmentSRL.perUnitAmenitiesVisible = b;
+            }
+        });
+
     }
 }
