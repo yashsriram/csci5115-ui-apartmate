@@ -3,6 +3,7 @@ package com.csci5115.group8;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -64,9 +65,10 @@ public class ApartmentSearchActivity extends AppCompatActivity {
                     Snackbar.make(view, "Please enter something in search bar", Snackbar.LENGTH_LONG).show();
                     return;
                 }
-                // Collect data
-                // Serialize
-                // Put in intent
+                // Collect data, serialize and put in intent
+                Intent returnIntent = new Intent();
+                returnIntent.putExtra("searchText", searchText.getText().toString());
+                setResult(AppCompatActivity.RESULT_OK, returnIntent);
                 // Finish
                 finish();
             }

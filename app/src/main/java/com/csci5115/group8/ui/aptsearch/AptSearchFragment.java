@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -38,10 +40,27 @@ public class AptSearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), ApartmentSearchActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, 1);
             }
         });
 
         return root;
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1) {
+            switch (resultCode) {
+                case AppCompatActivity.RESULT_OK:
+                    String searchText = data.getStringExtra("searchText");
+                    Toast.makeText(getContext(), searchText, Toast.LENGTH_SHORT).show();
+                    break;
+                case AppCompatActivity.RESULT_CANCELED:
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
 }

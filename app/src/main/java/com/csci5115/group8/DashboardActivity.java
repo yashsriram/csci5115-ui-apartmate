@@ -16,7 +16,6 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.csci5115.group8.data.Thread;
 import com.csci5115.group8.ui.chatThread.ChatThreadFragment;
-import com.csci5115.group8.ui.chatThread.thread.ThreadContent;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class DashboardActivity extends AppCompatActivity implements ChatThreadFragment.OnListFragmentInteractionListener {
@@ -43,7 +42,7 @@ public class DashboardActivity extends AppCompatActivity implements ChatThreadFr
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.dashboard_apt_search, R.id.dashboard_user_search, R.id.dashboard_chat)
                 .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavController navController = Navigation.findNavController(this, R.id.dashboard_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
     }
@@ -90,4 +89,10 @@ public class DashboardActivity extends AppCompatActivity implements ChatThreadFr
         firstExitTry = true;
         super.onBackPressed();
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
 }
