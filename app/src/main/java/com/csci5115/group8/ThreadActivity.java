@@ -1,12 +1,10 @@
 package com.csci5115.group8;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.Thread;
-import com.csci5115.group8.ui.chatThread.ChatThreadFragment;
-import com.csci5115.group8.ui.dummy.DummyContent;
+import com.csci5115.group8.data.ThreadMessage;
 import com.csci5115.group8.ui.threadMessage.threadMessagesFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +15,22 @@ public class ThreadActivity extends AppCompatActivity implements threadMessagesF
 
     private Thread thread;
 
+    public Thread getThread() {
+        if (thread == null) {
+            String thread_fname = getIntent().getStringExtra("thread_fname");
+            String thread_lname = getIntent().getStringExtra("thread_lname");
+            for(Thread t : DataManager.getInstance().threads) {
+                if(t.first_name.equals(thread_fname) && t.last_name.equals(thread_lname)) {
+                    this.thread = t;
+                    break;
+                }
+            }
+        }
+        return this.thread;
+    }
+
     @Override
-    public void onListFragmentInteraction(DummyContent.DummyItem item) {
+    public void onListFragmentInteraction(ThreadMessage item) {
 
     }
 
@@ -29,17 +41,9 @@ public class ThreadActivity extends AppCompatActivity implements threadMessagesF
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        String thread_fname = getIntent().getStringExtra("thread_fname");
-        String thread_lname = getIntent().getStringExtra("thread_lname");
-        for(Thread t : DataManager.getInstance().threads) {
-            if(t.first_name.equals(thread_fname) && t.last_name.equals(thread_lname)) {
-                this.thread = t;
-                break;
-            }
-        }
         System.out.println("GOT");
-        System.out.println(this.thread.first_name);
-        setTitle("Chat - " + this.thread.first_name + " " + this.thread.last_name);
+        System.out.println(this.getThread().first_name);
+        setTitle("Chat - " + this.getThread().first_name + " " + this.getThread().last_name);
     }
 
 }

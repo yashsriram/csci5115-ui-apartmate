@@ -12,8 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.csci5115.group8.R;
-import com.csci5115.group8.ui.dummy.DummyContent;
-import com.csci5115.group8.ui.dummy.DummyContent.DummyItem;
+import com.csci5115.group8.ThreadActivity;
+import com.csci5115.group8.data.DataManager;
+import com.csci5115.group8.data.ThreadMessage;
 
 /**
  * A fragment representing a list of Items.
@@ -69,7 +70,7 @@ public class threadMessagesFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MythreadMessagesRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MythreadMessagesRecyclerViewAdapter(((ThreadActivity)getActivity()).getThread().messages, mListener));
         }
         return view;
     }
@@ -104,6 +105,6 @@ public class threadMessagesFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(ThreadMessage item);
     }
 }

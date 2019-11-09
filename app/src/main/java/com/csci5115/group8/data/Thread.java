@@ -11,4 +11,8 @@ public class Thread {
         this.first_name = first_name;
         this.last_name = last_name;
     }
+
+    public void addMessage(String message, Boolean isMe) {
+        messages.add(new ThreadMessage(message, isMe));
+    }
 }
