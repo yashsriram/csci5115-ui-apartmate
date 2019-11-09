@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.csci5115.group8.R;
+import com.csci5115.group8.data.Thread;
 import com.csci5115.group8.ui.chatThread.ChatThreadFragment.OnListFragmentInteractionListener;
 import com.csci5115.group8.ui.chatThread.thread.ThreadContent.ThreadItem;
 
@@ -20,10 +21,10 @@ import java.util.List;
  */
 public class MyChatThreadRecyclerViewAdapter extends RecyclerView.Adapter<MyChatThreadRecyclerViewAdapter.ViewHolder> {
 
-    private final List<ThreadItem> mValues;
+    private final List<Thread> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyChatThreadRecyclerViewAdapter(List<ThreadItem> items, OnListFragmentInteractionListener listener) {
+    public MyChatThreadRecyclerViewAdapter(List<Thread> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -38,8 +39,8 @@ public class MyChatThreadRecyclerViewAdapter extends RecyclerView.Adapter<MyChat
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText("id");
+        holder.mContentView.setText(mValues.get(position).first_name);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,7 +63,7 @@ public class MyChatThreadRecyclerViewAdapter extends RecyclerView.Adapter<MyChat
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public ThreadItem mItem;
+        public Thread mItem;
 
         public ViewHolder(View view) {
             super(view);

@@ -13,8 +13,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.csci5115.group8.R;
-import com.csci5115.group8.ui.chatThread.thread.ThreadContent;
-import com.csci5115.group8.ui.chatThread.thread.ThreadContent.ThreadItem;
+import com.csci5115.group8.data.DataManager;
+import com.csci5115.group8.data.Thread;
 
 /**
  * A fragment representing a list of Items.
@@ -70,7 +70,7 @@ public class ChatThreadFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyChatThreadRecyclerViewAdapter(ThreadContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyChatThreadRecyclerViewAdapter(DataManager.getInstance().threads, mListener));
         }
         return view;
     }
@@ -105,6 +105,6 @@ public class ChatThreadFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(ThreadItem item);
+        void onListFragmentInteraction(Thread item);
     }
 }
