@@ -1,9 +1,10 @@
 package com.csci5115.group8.data;
 
 public class ApartmentSRL {
-    public static boolean nameVisible = true;
+    // Name always visible by default in search results
+    public final static boolean nameVisible = true;
     public static boolean addressVisible = true;
-    public static boolean perUnitAmenitiesVisible = false;
-    public static boolean commonVisible = false;
-    public static boolean securityFeaturesVisible = false;
+    public static boolean perUnitAmenitiesVisible = true;
+    public static boolean commonAmenitiesVisible = true;
+    public static boolean securityFeaturesVisible = true;
 }
