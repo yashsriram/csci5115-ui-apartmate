@@ -24,7 +24,8 @@ public class DashboardActivity extends AppCompatActivity implements ChatThreadFr
 
     @Override
     public void onListFragmentInteraction(ThreadContent.ThreadItem item) {
-
+        Intent threadIntent = new Intent(DashboardActivity.this, ThreadActivity.class);
+        startActivity(threadIntent);
     }
 
     @Override

@@ -7,6 +7,7 @@ public class DataManager {
     // Add public data to access here
 
     public ArrayList<Apartment> apartments = new ArrayList<Apartment>();
+    public ArrayList<Thread> threads = new ArrayList<Thread>();
 
 
     // end public accessible data
@@ -19,6 +20,9 @@ public class DataManager {
         ////// START CREATE DEFAULT DATA
 
         apartments.add(new Apartment()); // example
+
+        // populate threads
+        threads.add(new Thread("Bob"));
 
 
         ////// END CREATE DEFAULT DATA
