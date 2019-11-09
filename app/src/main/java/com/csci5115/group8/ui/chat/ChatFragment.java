@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.csci5115.group8.R;
 import com.csci5115.group8.ui.chat.message.MessageContent;
@@ -59,12 +60,14 @@ public class ChatFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_chat_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_chat_page, container, false);
+
+        RecyclerView rv = view.findViewById(R.id.list);
 
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+        if (rv instanceof RecyclerView) {
+            Context context = rv.getContext();
+            RecyclerView recyclerView = (RecyclerView) rv;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
@@ -72,6 +75,7 @@ public class ChatFragment extends Fragment {
             }
             recyclerView.setAdapter(new MychatRecyclerViewAdapter(MessageContent.ITEMS, mListener));
         }
+
         return view;
     }
 
