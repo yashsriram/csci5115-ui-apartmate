@@ -12,9 +12,502 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginBottom="80dp"
         android:src="@drawable/ic_done_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/searchBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/searchText"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="0.9"
+            android:hint="Type name or address"
+            android:inputType="textPersonName" />
+
+        <TextView
+            android:id="@+id/numMatches"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="0.1"
+            android:text="0 matches"
+            app:layout_constraintLeft_toRightOf="@+id/searchText" />
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchBarLayout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/filterHints"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="20dp"
+                app:layout_constraintTop_toBottomOf="@id/searchBarLayout">
+
+                <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                    android:layout_width="30dp"
+                    android:layout_height="15dp"
+                    android:layout_weight="0.1"
+                    app:tbDefaultStatus="off"
+                    app:tbMidColor="#BB0909"
+                    app:tbOffColor="#B8B8B8" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="0.1"
+                    android:text="No condition" />
+
+                <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                    android:layout_width="30dp"
+                    android:layout_height="15dp"
+                    android:layout_weight="0.1"
+                    app:tbDefaultStatus="mid"
+                    app:tbMidColor="#BB0909"
+                    app:tbOffColor="#B8B8B8" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="0.1"
+                    android:text="Should not be" />
+
+                <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                    android:layout_width="30dp"
+                    android:layout_height="15dp"
+                    android:layout_weight="0.1"
+                    app:tbDefaultStatus="on"
+                    app:tbMidColor="#BB0909"
+                    app:tbOffColor="#B8B8B8" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="0.1"
+                    android:text="Should be" />
+
+            </LinearLayout>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="20dp">
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Per Unit Filters" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Refrigerator" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/refrigerator"
+                        android:layout_weight="0.1"
+
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Oven" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/oven"
+                        android:layout_weight="0.1"
+
+                        app:layout_constraintTop_toTopOf="@id/refrigerator"
+
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Microwave" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/microwave"
+                        android:layout_weight="0.1"
+
+                        app:layout_constraintTop_toTopOf="@id/oven"
+
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Dishwasher" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/dishwasher"
+                        android:layout_weight="0.1"
+
+                        app:layout_constraintTop_toTopOf="@id/microwave"
+
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Washing Machine" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/washingMachine"
+                        android:layout_weight="0.1"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Heating" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/heating"
+                        android:layout_weight="0.1"
+
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8"
+
+                        tools:layout_editor_absoluteX="150dp" />
+
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Cooling" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/cooling"
+                        android:layout_weight="0.1"
+
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+
+                </TableRow>
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Commons Filters" />
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Laundry Room" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/laundryRoom"
+                        android:layout_weight="0.1"
+
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8"
+
+                        />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Longue" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/longue"
+                        android:layout_weight="0.1"
+
+                        app:layout_constraintTop_toTopOf="@id/refrigerator"
+
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Printing Services" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/printingService"
+                        android:layout_weight="0.1"
+
+                        app:layout_constraintTop_toTopOf="@id/oven"
+
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Reception" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/reception"
+                        android:layout_weight="0.1"
+
+                        app:layout_constraintTop_toTopOf="@id/microwave"
+
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Parking" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/parking"
+                        android:layout_weight="0.1"
+
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+
+                </TableRow>
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Security Filters" />
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Cameras" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/securityCameras"
+                        android:layout_weight="0.1"
+
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Smoke Detectors" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/smokeDetectors"
+                        android:layout_weight="0.1"
+
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Sprinklers" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/sprinklers"
+                        android:layout_weight="0.1"
+
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="5dp">
+
+                    <TextView
+                        style="@style/TextAppearance.AppCompat.Medium"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:layout_weight="0.9"
+                        android:text="Building Lock" />
+
+                    <it.beppi.tristatetogglebutton_library.TriStateToggleButton
+                        android:id="@+id/buildingLock"
+                        android:layout_weight="0.1"
+                        app:tbMidColor="#BB0909"
+                        app:tbOffColor="#B8B8B8" />
+
+                </TableRow>
+
+            </TableLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
