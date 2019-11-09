@@ -2,14 +2,19 @@ package com.csci5115.group8.ui.threadMessage;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.csci5115.group8.R;
+import com.csci5115.group8.data.ThreadMessage;
 import com.csci5115.group8.ui.threadMessage.threadMessagesFragment.OnListFragmentInteractionListener;
-import com.csci5115.group8.ui.dummy.DummyContent.DummyItem;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -20,10 +25,14 @@ import java.util.List;
  */
 public class MythreadMessagesRecyclerViewAdapter extends RecyclerView.Adapter<MythreadMessagesRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final List<ThreadMessage> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MythreadMessagesRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public void refresh() {
+        notifyDataSetChanged();
+    }
+
+    public MythreadMessagesRecyclerViewAdapter(List<ThreadMessage> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -38,8 +47,23 @@ public class MythreadMessagesRecyclerViewAdapter extends RecyclerView.Adapter<My
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mContentView.setText(mValues.get(position).message);
+        holder.mContentView.setPadding(30,10, 30,10);
+        if (!mValues.get(position).me) {
+            if (!holder.isRemoved) {
+                holder.mLinearLayout.removeView(holder.mSpacerView);
+                holder.isRemoved = true;
+            }
+            holder.mContentView.setTextColor(Color.parseColor("black"));
+            holder.mContentView.setBackgroundColor(Color.parseColor("#D3D3D3"));
+        } else {
+            if (holder.isRemoved) {
+                holder.mLinearLayout.addView(holder.mSpacerView, 0);
+                holder.isRemoved = false;
+            }
+            holder.mContentView.setBackgroundColor(Color.parseColor("#147efb"));
+            holder.mContentView.setTextColor(Color.parseColor("white"));
+        }
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,15 +84,18 @@ public class MythreadMessagesRecyclerViewAdapter extends RecyclerView.Adapter<My
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public final TextView mSpacerView;
+        public final LinearLayout mLinearLayout;
+        public ThreadMessage mItem;
+        public Boolean isRemoved = false;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
+            mSpacerView = (TextView) view.findViewById(R.id.spacer);
             mContentView = (TextView) view.findViewById(R.id.content);
+            mLinearLayout = (LinearLayout) view.findViewById(R.id.linearLayout);
         }
 
         @Override

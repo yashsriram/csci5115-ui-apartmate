@@ -39,7 +39,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <fragment
-        android:id="@+id/fragment"
+        android:id="@+id/threadMessagesFrag"
         android:name="com.csci5115.group8.ui.threadMessage.threadMessagesFragment"
         android:layout_width="411dp"
         android:layout_height="0dp"

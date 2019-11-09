@@ -22,7 +22,15 @@ public class DataManager {
         apartments.add(new Apartment()); // example
 
         // populate threads
-        threads.add(new Thread("Bob", "Dylan"));
+        Thread thread1 = new Thread("Bob", "Dylan");
+        thread1.addMessage("Hi hows it going, BOB", true);
+        thread1.addMessage("not too bad", false);
+        threads.add(thread1);
+
+        Thread thread2 = new Thread("Jim", "Smith");
+        thread2.addMessage("Hi hows it going, JIM", true);
+        thread2.addMessage("pretty good yo", false);
+        threads.add(thread2);
 
 
         ////// END CREATE DEFAULT DATA
