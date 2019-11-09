@@ -10,9 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ThreadActivity"
+            android:label="@string/title_activity_thread"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".UserSearchActivity"
             android:label="User search"
-            android:parentActivityName=".DashboardActivity"></activity>
+            android:parentActivityName=".DashboardActivity" />
         <activity
             android:name=".ApartmentSearchActivity"
             android:label="Apartment search"
@@ -25,8 +29,7 @@
             android:name=".CreateApartmentListingActivity"
             android:label="Create new apartment listing"
             android:parentActivityName=".DashboardActivity" />
-        <activity
-            android:name=".LoginActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -14,11 +14,23 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.csci5115.group8.data.Thread;
+import com.csci5115.group8.ui.chatThread.ChatThreadFragment;
+import com.csci5115.group8.ui.chatThread.thread.ThreadContent;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class DashboardActivity extends AppCompatActivity {
+public class DashboardActivity extends AppCompatActivity implements ChatThreadFragment.OnListFragmentInteractionListener {
 
     private boolean firstExitTry = true;
+
+    @Override
+    public void onListFragmentInteraction(Thread item) {
+        Intent threadIntent = new Intent(DashboardActivity.this, ThreadActivity.class);
+        // i cant believe there isn't an easier way to pass objects between activities
+        threadIntent.putExtra("thread_fname", item.first_name);
+        threadIntent.putExtra("thread_lname", item.last_name);
+        startActivity(threadIntent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

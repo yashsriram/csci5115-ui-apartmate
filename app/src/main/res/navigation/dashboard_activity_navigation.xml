@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/dashboard_chat"
-        android:name="com.csci5115.group8.ui.chat.ChatFragment"
+        android:name="com.csci5115.group8.ui.chatThread.ChatThreadFragment"
         android:label="Chat"
-        tools:layout="@layout/fragment_chat" />
+        tools:layout="@layout/fragment_chatthread" />
 </navigation>
