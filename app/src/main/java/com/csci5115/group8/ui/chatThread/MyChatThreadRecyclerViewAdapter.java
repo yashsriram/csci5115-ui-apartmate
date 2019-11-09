@@ -1,4 +1,4 @@
-package com.csci5115.group8.ui.chat;
+package com.csci5115.group8.ui.chatThread;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -8,22 +8,22 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.csci5115.group8.R;
-import com.csci5115.group8.ui.chat.ChatFragment.OnListFragmentInteractionListener;
-import com.csci5115.group8.ui.chat.message.MessageContent.MessageItem;
+import com.csci5115.group8.ui.chatThread.ChatThreadFragment.OnListFragmentInteractionListener;
+import com.csci5115.group8.ui.chatThread.thread.ThreadContent.ThreadItem;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link MessageItem} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link ThreadItem} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
  * TODO: Replace the implementation with code for your data type.
  */
-public class MychatRecyclerViewAdapter extends RecyclerView.Adapter<MychatRecyclerViewAdapter.ViewHolder> {
+public class MyChatThreadRecyclerViewAdapter extends RecyclerView.Adapter<MyChatThreadRecyclerViewAdapter.ViewHolder> {
 
-    private final List<MessageItem> mValues;
+    private final List<ThreadItem> mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MychatRecyclerViewAdapter(List<MessageItem> items, OnListFragmentInteractionListener listener) {
+    public MyChatThreadRecyclerViewAdapter(List<ThreadItem> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -31,7 +31,7 @@ public class MychatRecyclerViewAdapter extends RecyclerView.Adapter<MychatRecycl
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_chat, parent, false);
+                .inflate(R.layout.fragment_chatthread, parent, false);
         return new ViewHolder(view);
     }
 
@@ -62,7 +62,7 @@ public class MychatRecyclerViewAdapter extends RecyclerView.Adapter<MychatRecycl
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public MessageItem mItem;
+        public ThreadItem mItem;
 
         public ViewHolder(View view) {
             super(view);

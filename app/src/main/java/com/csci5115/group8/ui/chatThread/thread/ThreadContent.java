@@ -1,4 +1,4 @@
-package com.csci5115.group8.ui.chat.message;
+package com.csci5115.group8.ui.chatThread.thread;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,17 +11,17 @@ import java.util.Map;
  * <p>
  * TODO: Replace all uses of this class before publishing your app.
  */
-public class MessageContent {
+public class ThreadContent {
 
     /**
      * An array of sample (dummy) items.
      */
-    public static final List<MessageItem> ITEMS = new ArrayList<MessageItem>();
+    public static final List<ThreadItem> ITEMS = new ArrayList<ThreadItem>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static final Map<String, MessageItem> ITEM_MAP = new HashMap<String, MessageItem>();
+    public static final Map<String, ThreadItem> ITEM_MAP = new HashMap<String, ThreadItem>();
 
     private static final int COUNT = 25;
 
@@ -32,13 +32,13 @@ public class MessageContent {
         }
     }
 
-    private static void addItem(MessageItem item) {
+    private static void addItem(ThreadItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
     }
 
-    private static MessageItem createDummyItem(int position) {
-        return new MessageItem(String.valueOf(position), "Item " + position, makeDetails(position));
+    private static ThreadItem createDummyItem(int position) {
+        return new ThreadItem(String.valueOf(position), "Item " + position, makeDetails(position));
     }
 
     private static String makeDetails(int position) {
@@ -53,12 +53,12 @@ public class MessageContent {
     /**
      * A dummy item representing a piece of content.
      */
-    public static class MessageItem {
+    public static class ThreadItem {
         public final String id;
         public final String content;
         public final String details;
 
-        public MessageItem(String id, String content, String details) {
+        public ThreadItem(String id, String content, String details) {
             this.id = id;
             this.content = content;
             this.details = details;

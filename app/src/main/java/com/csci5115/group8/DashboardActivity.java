@@ -14,16 +14,16 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.csci5115.group8.ui.chat.ChatFragment;
-import com.csci5115.group8.ui.chat.message.MessageContent;
+import com.csci5115.group8.ui.chatThread.ChatThreadFragment;
+import com.csci5115.group8.ui.chatThread.thread.ThreadContent;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class DashboardActivity extends AppCompatActivity implements ChatFragment.OnListFragmentInteractionListener {
+public class DashboardActivity extends AppCompatActivity implements ChatThreadFragment.OnListFragmentInteractionListener {
 
     private boolean firstExitTry = true;
 
     @Override
-    public void onListFragmentInteraction(MessageContent.MessageItem item) {
+    public void onListFragmentInteraction(ThreadContent.ThreadItem item) {
 
     }
 

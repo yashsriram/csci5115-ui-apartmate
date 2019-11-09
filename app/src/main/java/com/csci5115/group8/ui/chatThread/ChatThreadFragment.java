@@ -1,4 +1,4 @@
-package com.csci5115.group8.ui.chat;
+package com.csci5115.group8.ui.chatThread;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -11,11 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.csci5115.group8.R;
-import com.csci5115.group8.ui.chat.message.MessageContent;
-import com.csci5115.group8.ui.chat.message.MessageContent.MessageItem;
+import com.csci5115.group8.ui.chatThread.thread.ThreadContent;
+import com.csci5115.group8.ui.chatThread.thread.ThreadContent.ThreadItem;
 
 /**
  * A fragment representing a list of Items.
@@ -23,7 +22,7 @@ import com.csci5115.group8.ui.chat.message.MessageContent.MessageItem;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class ChatFragment extends Fragment {
+public class ChatThreadFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
@@ -35,13 +34,13 @@ public class ChatFragment extends Fragment {
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ChatFragment() {
+    public ChatThreadFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static ChatFragment newInstance(int columnCount) {
-        ChatFragment fragment = new ChatFragment();
+    public static ChatThreadFragment newInstance(int columnCount) {
+        ChatThreadFragment fragment = new ChatThreadFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -60,22 +59,19 @@ public class ChatFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_chat_page, container, false);
-
-        RecyclerView rv = view.findViewById(R.id.list);
+        View view = inflater.inflate(R.layout.fragment_chatthread_list, container, false);
 
         // Set the adapter
-        if (rv instanceof RecyclerView) {
-            Context context = rv.getContext();
-            RecyclerView recyclerView = (RecyclerView) rv;
+        if (view instanceof RecyclerView) {
+            Context context = view.getContext();
+            RecyclerView recyclerView = (RecyclerView) view;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MychatRecyclerViewAdapter(MessageContent.ITEMS, mListener));
+            recyclerView.setAdapter(new MyChatThreadRecyclerViewAdapter(ThreadContent.ITEMS, mListener));
         }
-
         return view;
     }
 
@@ -109,6 +105,6 @@ public class ChatFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(MessageItem item);
+        void onListFragmentInteraction(ThreadItem item);
     }
 }
