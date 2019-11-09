@@ -20,18 +20,6 @@ public class UserSRLCustomizationActivity extends AppCompatActivity {
         // init visibilities of all features and bind callback for switches-features
         final ConstraintLayout layout = findViewById(R.id.user_srl_customization);
 
-        final Switch nameSwitch = layout.findViewById(R.id.nameSwitch);
-        nameSwitch.setChecked(UserSRL.nameVisible);
-        final View name = layout.findViewById(R.id.name);
-        name.setVisibility(UserSRL.nameVisible ? View.VISIBLE : View.GONE);
-        nameSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                name.setVisibility(b ? View.VISIBLE : View.GONE);
-                UserSRL.nameVisible = b;
-            }
-        });
-
         final Switch ageSwitch = layout.findViewById(R.id.ageSwitch);
         ageSwitch.setChecked(UserSRL.ageVisible);
         final View age = layout.findViewById(R.id.age);
