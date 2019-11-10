@@ -37,18 +37,18 @@
         android:text="password123456" />
 
     <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Login" />
+
+    <Button
         android:layout_marginTop="15dp"
         android:id="@+id/create_account"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" Create Account" />
-
-    <Button
-        android:layout_marginTop="15dp"
-        android:id="@+id/login"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit" />
+        android:text=" Create Account?" />
 
     <Button
         android:layout_marginTop="15dp"
