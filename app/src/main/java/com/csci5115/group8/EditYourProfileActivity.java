@@ -1,41 +1,40 @@
 package com.csci5115.group8;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class EditYourProfileActivity extends AppCompatActivity {
 
-   String firstName, lastName, city, college;
-   int age;
+    String firstName, lastName, city, college;
+    int age;
 
-   //private static final int RESULT_LOAD_IMAGE;
-   EditText firstNameInput, lastNameInput, ageInput, cityInput, collegeInput;
-   Button submit;
-   ImageView imageToUpload;
-   Button uploadImage;
+    //private static final int RESULT_LOAD_IMAGE;
+    EditText firstNameInput, lastNameInput, ageInput, cityInput, collegeInput;
+    Button submit;
+    ImageView imageToUpload;
+    Button uploadImage;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_edit_your_profile);
 
-        firstNameInput = (EditText) findViewById(R.id.firstNameInput);
-        lastNameInput = (EditText) findViewById(R.id.surnameInput);
-        ageInput = (EditText) findViewById(R.id.ageInput);
-        cityInput = (EditText) findViewById(R.id.cityInput);
-        collegeInput = (EditText) findViewById(R.id.collegeInput);
+        firstNameInput = findViewById(R.id.firstNameInput);
+        lastNameInput = findViewById(R.id.surnameInput);
+        ageInput = findViewById(R.id.ageInput);
+        cityInput = findViewById(R.id.cityInput);
+        collegeInput = findViewById(R.id.collegeInput);
 
-        imageToUpload = (ImageView) findViewById(R.id.imageToUpload);
-        uploadImage = (Button) findViewById(R.id.uploadImage);
+        imageToUpload = findViewById(R.id.imageToUpload);
+        uploadImage = findViewById(R.id.uploadImage);
 
-        submit = (Button) findViewById(R.id.submit);
+        submit = findViewById(R.id.submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
