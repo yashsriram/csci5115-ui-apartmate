@@ -2,20 +2,20 @@ package com.csci5115.group8.ui.aptsearch;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.csci5115.group8.ApartmentSearchActivity;
+import com.csci5115.group8.ApartmentSearchResultsAdapter;
+import com.csci5115.group8.ApartmentUnitAdapter;
 import com.csci5115.group8.R;
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.apartment.Apartment;
@@ -28,18 +28,14 @@ import java.util.regex.Pattern;
 public class ApartmentSearchFragment extends Fragment {
 
     private ApartmentSearchViewModel apartmentSearchViewModel;
+    private RecyclerView recyclerView;
+    private List<Apartment> apartmentSearchResults = DataManager.getInstance().apartments;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         apartmentSearchViewModel = ViewModelProviders.of(this).get(ApartmentSearchViewModel.class);
         View root = inflater.inflate(R.layout.fragment_apartment_search, container, false);
-        final TextView textView = root.findViewById(R.id.text_home);
-        apartmentSearchViewModel.getText().observe(this, new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
         final FloatingActionButton searchApartments = root.findViewById(R.id.search_apartments);
         searchApartments.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +44,10 @@ public class ApartmentSearchFragment extends Fragment {
                 startActivityForResult(intent, 1);
             }
         });
+
+        recyclerView = root.findViewById(R.id.apartment_search_results);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(new ApartmentSearchResultsAdapter(getContext(), apartmentSearchResults, null));
 
         return root;
     }
@@ -77,7 +77,7 @@ public class ApartmentSearchFragment extends Fragment {
                     int sprinklers = data.getIntExtra("sprinklers", -1);
                     int buildingLock = data.getIntExtra("buildingLock", -1);
 
-                    List<Apartment> searchResults = searchApartments(
+                    apartmentSearchResults = searchApartments(
                             searchText,
                             // Per unit amenities
                             refrigerator,
@@ -99,6 +99,7 @@ public class ApartmentSearchFragment extends Fragment {
                             sprinklers,
                             buildingLock
                     );
+                    recyclerView.setAdapter(new ApartmentSearchResultsAdapter(getContext(), apartmentSearchResults, null));
 
                     break;
                 case AppCompatActivity.RESULT_CANCELED:
