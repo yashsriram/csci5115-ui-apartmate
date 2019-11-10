@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/dashboard_apt_search"
-        android:name="com.csci5115.group8.ui.aptsearch.AptSearchFragment"
+        android:name="com.csci5115.group8.ui.aptsearch.ApartmentSearchFragment"
         android:label="Apartments"
-        tools:layout="@layout/fragment_apt_search" />
+        tools:layout="@layout/fragment_apartment_search" />
 
     <fragment
         android:id="@+id/dashboard_user_search"

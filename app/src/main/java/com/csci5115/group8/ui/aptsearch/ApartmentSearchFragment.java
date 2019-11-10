@@ -16,20 +16,19 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.csci5115.group8.ApartmentSearchActivity;
-import com.csci5115.group8.CreateApartmentListingActivity;
 import com.csci5115.group8.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class AptSearchFragment extends Fragment {
+public class ApartmentSearchFragment extends Fragment {
 
-    private AptSearchViewModel aptSearchViewModel;
+    private ApartmentSearchViewModel apartmentSearchViewModel;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        aptSearchViewModel = ViewModelProviders.of(this).get(AptSearchViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_apt_search, container, false);
+        apartmentSearchViewModel = ViewModelProviders.of(this).get(ApartmentSearchViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_apartment_search, container, false);
         final TextView textView = root.findViewById(R.id.text_home);
-        aptSearchViewModel.getText().observe(this, new Observer<String>() {
+        apartmentSearchViewModel.getText().observe(this, new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
