@@ -19,6 +19,7 @@ import androidx.fragment.app.Fragment;
 public class ThreadActivity extends AppCompatActivity implements threadMessagesFragment.OnListFragmentInteractionListener {
 
     private Thread thread;
+    private threadMessagesFragment frag;
 
     public Thread getThread() {
         if (thread == null) {
@@ -37,6 +38,10 @@ public class ThreadActivity extends AppCompatActivity implements threadMessagesF
     @Override
     public void onListFragmentInteraction(ThreadMessage item) {
 
+    }
+
+    public void setThreadFragment(threadMessagesFragment frag) {
+        this.frag = frag;
     }
 
     @Override
@@ -61,8 +66,10 @@ public class ThreadActivity extends AppCompatActivity implements threadMessagesF
                     System.out.println(v.getText());
                     getThread().addMessage(v.getText().toString(), true);
                     textView.setText("");
+                    getThread().addResponse("This is a response!", 2, frag);
+                    frag.refreshRecycler();
                 }
-                return false;
+                return true;
             }
         });
     }

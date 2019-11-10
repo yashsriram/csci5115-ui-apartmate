@@ -29,12 +29,19 @@ public class threadMessagesFragment extends Fragment {
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
+    private MythreadMessagesRecyclerViewAdapter adapter;
+    private RecyclerView recycler;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
     public threadMessagesFragment() {
+    }
+
+    public void refreshRecycler() {
+        this.adapter.notifyDataSetChanged();
+        this.recycler.scrollToPosition(this.recycler.getAdapter().getItemCount() - 1);
     }
 
     // TODO: Customize parameter initialization
@@ -73,6 +80,8 @@ public class threadMessagesFragment extends Fragment {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
             recyclerView.setAdapter(new MythreadMessagesRecyclerViewAdapter(((ThreadActivity)getActivity()).getThread().messages, mListener));
+            this.adapter = (MythreadMessagesRecyclerViewAdapter) recyclerView.getAdapter();
+            this.recycler = recyclerView;
         }
         return view;
     }
@@ -83,6 +92,7 @@ public class threadMessagesFragment extends Fragment {
         super.onAttach(context);
         if (context instanceof OnListFragmentInteractionListener) {
             mListener = (OnListFragmentInteractionListener) context;
+            mListener.setThreadFragment(this);
         } else {
             throw new RuntimeException(context.toString()
                     + " must implement OnListFragmentInteractionListener");
@@ -108,5 +118,6 @@ public class threadMessagesFragment extends Fragment {
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
         void onListFragmentInteraction(ThreadMessage item);
+        void setThreadFragment(threadMessagesFragment frag);
     }
 }

@@ -2,6 +2,7 @@ package com.csci5115.group8.ui.threadMessage;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,8 +48,21 @@ public class MythreadMessagesRecyclerViewAdapter extends RecyclerView.Adapter<My
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mContentView.setText(mValues.get(position).message);
+        holder.mContentView.setPadding(30,10, 30,10);
         if (!mValues.get(position).me) {
-            holder.mLinearLayout.removeView(holder.mSpacerView);
+            if (!holder.isRemoved) {
+                holder.mLinearLayout.removeView(holder.mSpacerView);
+                holder.isRemoved = true;
+            }
+            holder.mContentView.setTextColor(Color.parseColor("black"));
+            holder.mContentView.setBackgroundColor(Color.parseColor("#D3D3D3"));
+        } else {
+            if (holder.isRemoved) {
+                holder.mLinearLayout.addView(holder.mSpacerView, 0);
+                holder.isRemoved = false;
+            }
+            holder.mContentView.setBackgroundColor(Color.parseColor("#147efb"));
+            holder.mContentView.setTextColor(Color.parseColor("white"));
         }
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -74,6 +88,7 @@ public class MythreadMessagesRecyclerViewAdapter extends RecyclerView.Adapter<My
         public final TextView mSpacerView;
         public final LinearLayout mLinearLayout;
         public ThreadMessage mItem;
+        public Boolean isRemoved = false;
 
         public ViewHolder(View view) {
             super(view);

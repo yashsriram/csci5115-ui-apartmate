@@ -1,5 +1,9 @@
 package com.csci5115.group8.data;
 
+import android.os.Handler;
+
+import com.csci5115.group8.ui.threadMessage.threadMessagesFragment;
+
 import java.util.ArrayList;
 
 public class Thread {
@@ -14,5 +18,17 @@ public class Thread {
 
     public void addMessage(String message, Boolean isMe) {
         messages.add(new ThreadMessage(message, isMe));
+    }
+
+    public void addResponse(final String message, int delaySeconds, threadMessagesFragment frag) {
+        final Handler handler = new Handler();
+        final threadMessagesFragment thefrag = frag;
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                messages.add(new ThreadMessage(message, false));
+                thefrag.refreshRecycler();
+            }
+        }, delaySeconds * 1000);
     }
 }
