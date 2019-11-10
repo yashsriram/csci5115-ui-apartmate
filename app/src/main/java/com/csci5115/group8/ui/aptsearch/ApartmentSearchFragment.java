@@ -137,23 +137,23 @@ public class ApartmentSearchFragment extends Fragment {
                 continue;
             }
             // If search matches name or address and all filters match then only add apt to search results
-            if ((Pattern.matches(searchText, apt.name) || Pattern.matches(searchText, apt.address)
+            if ((Pattern.matches(searchText, apt.name) || Pattern.matches(searchText, apt.address))
                     && filterMatch(refrigerator, apt.perUnitAmenities.refrigerator)
-                    && filterMatch(oven, apt.perUnitAmenities.oven
-                    && filterMatch(microwave, apt.perUnitAmenities.microwave
-                    && filterMatch(dishwasher, apt.perUnitAmenities.dishwasher
-                    && filterMatch(washingMachine, apt.perUnitAmenities.washingMachine
-                    && filterMatch(heating, apt.perUnitAmenities.heating
-                    && filterMatch(cooling, apt.perUnitAmenities.cooling
-                    && filterMatch(laundryRoom, apt.commonAmenities.laundryRoom
-                    && filterMatch(longue, apt.commonAmenities.longue
-                    && filterMatch(printingService, apt.commonAmenities.printingService
-                    && filterMatch(reception, apt.commonAmenities.reception
-                    && filterMatch(parking, apt.commonAmenities.parking
-                    && filterMatch(securityCameras, apt.securityFeatures.securityCameras
-                    && filterMatch(smokeDetectors, apt.securityFeatures.smokeDetectors
-                    && filterMatch(sprinklers, apt.securityFeatures.sprinklers
-                    && filterMatch(buildingLock, apt.securityFeatures.buildingLock) {
+                    && filterMatch(oven, apt.perUnitAmenities.oven)
+                    && filterMatch(microwave, apt.perUnitAmenities.microwave)
+                    && filterMatch(dishwasher, apt.perUnitAmenities.dishwasher)
+                    && filterMatch(washingMachine, apt.perUnitAmenities.washingMachine)
+                    && filterMatch(heating, apt.perUnitAmenities.heating)
+                    && filterMatch(cooling, apt.perUnitAmenities.cooling)
+                    && filterMatch(laundryRoom, apt.commonAmenities.laundryRoom)
+                    && filterMatch(longue, apt.commonAmenities.longue)
+                    && filterMatch(printingService, apt.commonAmenities.printingService)
+                    && filterMatch(reception, apt.commonAmenities.reception)
+                    && filterMatch(parking, apt.commonAmenities.parking)
+                    && filterMatch(securityCameras, apt.securityFeatures.securityCameras)
+                    && filterMatch(smokeDetectors, apt.securityFeatures.smokeDetectors)
+                    && filterMatch(sprinklers, apt.securityFeatures.sprinklers)
+                    && filterMatch(buildingLock, apt.securityFeatures.buildingLock)) {
                 results.add(apt);
             }
         }
