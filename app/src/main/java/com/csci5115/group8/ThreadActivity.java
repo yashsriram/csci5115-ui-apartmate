@@ -2,6 +2,7 @@ package com.csci5115.group8;
 
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import com.csci5115.group8.ui.threadMessage.threadMessagesFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 
 
 public class ThreadActivity extends AppCompatActivity implements threadMessagesFragment.OnListFragmentInteractionListener {
@@ -49,6 +51,9 @@ public class ThreadActivity extends AppCompatActivity implements threadMessagesF
         setTitle("Chat - " + this.getThread().first_name + " " + this.getThread().last_name);
 
         final TextView textView = findViewById(R.id.editText4);
+
+        View fragview = findViewById(R.id.threadMessagesFrag);
+
         textView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
