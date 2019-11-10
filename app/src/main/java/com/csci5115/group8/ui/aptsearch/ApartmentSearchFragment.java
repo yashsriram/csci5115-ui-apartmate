@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,12 @@ public class ApartmentSearchFragment extends Fragment {
     private ApartmentSearchViewModel apartmentSearchViewModel;
     private RecyclerView recyclerView;
     private List<Apartment> apartmentSearchResults = DataManager.getInstance().apartments;
+    private ApartmentSearchResultsAdapter.ItemClickListener itemClickListener = new ApartmentSearchResultsAdapter.ItemClickListener() {
+        @Override
+        public void onItemClick(View view, int position) {
+            Toast.makeText(getContext(), "" + apartmentSearchResults.get(position).id, Toast.LENGTH_SHORT).show();
+        }
+    };
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -47,7 +54,7 @@ public class ApartmentSearchFragment extends Fragment {
 
         recyclerView = root.findViewById(R.id.apartment_search_results);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new ApartmentSearchResultsAdapter(getContext(), apartmentSearchResults, null));
+        recyclerView.setAdapter(new ApartmentSearchResultsAdapter(getContext(), apartmentSearchResults, itemClickListener));
 
         return root;
     }

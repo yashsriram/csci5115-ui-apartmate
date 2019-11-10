@@ -67,37 +67,37 @@ public class DataManager {
         threeUnits.add(new ApartmentUnit(102, 2, 2, 75.5f, true));
         threeUnits.add(new ApartmentUnit(103, 4, 2, 150.5f, false));
         apartments.add(
-                new Apartment("LimeLight Apts", "811 4th St SE",
+                new Apartment(1, "LimeLight Apts", "811 4th St SE",
                         new PerUnitAmenities(true, true, true, true, true, true, true),
                         new CommonAmenities(true, true, true, true, true),
                         new SecurityFeatures(true, true, true, true),
                         twoUnits));
         apartments.add(
-                new Apartment("Bierman place", "1401 6th St SE, Minneapolis, MN 55414",
+                new Apartment(2, "Bierman place", "1401 6th St SE, Minneapolis, MN 55414",
                         new PerUnitAmenities(true, true, false, true, true, true, true),
                         new CommonAmenities(true, false, true, true, true),
                         new SecurityFeatures(true, true, false, true),
                         threeUnits));
         apartments.add(
-                new Apartment("Elysian apts", "711 4th St SE, Minneapolis, MN 55414",
+                new Apartment(3, "Elysian apts", "711 4th St SE, Minneapolis, MN 55414",
                         new PerUnitAmenities(true, true, true, true, false, true, true),
                         new CommonAmenities(true, true, true, true, false),
                         new SecurityFeatures(true, true, true, false),
                         oneUnit));
         apartments.add(
-                new Apartment("Solhaus", "2428 Delaware St SE, Minneapolis, MN 55414",
+                new Apartment(4, "Solhaus", "2428 Delaware St SE, Minneapolis, MN 55414",
                         new PerUnitAmenities(true, false, true, true, false, true, true),
                         new CommonAmenities(false, true, false, true, false),
                         new SecurityFeatures(true, true, true, false),
                         threeUnits));
         apartments.add(
-                new Apartment("Wahu", "1016 Washington Ave SE, Minneapolis, MN 55414",
+                new Apartment(5, "Wahu", "1016 Washington Ave SE, Minneapolis, MN 55414",
                         new PerUnitAmenities(true, false, true, true, false, true, true),
                         new CommonAmenities(false, true, false, true, false),
                         new SecurityFeatures(false, true, true, false),
                         twoUnits));
         apartments.add(
-                new Apartment("Quad on delaware", "2508 Delaware St SE, Minneapolis, MN 55414",
+                new Apartment(6, "Quad on delaware", "2508 Delaware St SE, Minneapolis, MN 55414",
                         new PerUnitAmenities(true, false, true, true, false, false, true),
                         new CommonAmenities(false, true, false, true, true),
                         new SecurityFeatures(false, false, true, false),

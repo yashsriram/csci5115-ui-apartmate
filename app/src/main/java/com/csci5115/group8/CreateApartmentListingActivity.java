@@ -125,6 +125,7 @@ public class CreateApartmentListingActivity extends AppCompatActivity {
                 // Save apartment in data manager
                 DataManager.getInstance().apartments.add(
                         new Apartment(
+                                DataManager.getInstance().apartments.size(),
                                 name.getText().toString(),
                                 address.getText().toString(),
                                 new PerUnitAmenities(
