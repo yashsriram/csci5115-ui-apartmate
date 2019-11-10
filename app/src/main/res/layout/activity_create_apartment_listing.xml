@@ -9,6 +9,7 @@
 
     <EditText
         android:id="@+id/name"
+        style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -20,6 +21,7 @@
 
     <EditText
         android:id="@+id/address"
+        style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -28,17 +30,21 @@
         android:inputType="textPostalAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@id/name" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:paddingBottom="50dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/address">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
 
             <TextView
                 android:id="@+id/perUnitAmenitiesHint"
@@ -296,14 +302,17 @@
 
                     <EditText
                         android:id="@+id/number"
+                        style="@style/TextAppearance.AppCompat.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:hint="Unit number"
+                        android:inputType="number"
                         android:padding="5dp" />
 
                     <EditText
                         android:id="@+id/numBedrooms"
+                        style="@style/TextAppearance.AppCompat.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -313,6 +322,7 @@
 
                     <EditText
                         android:id="@+id/numBathrooms"
+                        style="@style/TextAppearance.AppCompat.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -328,6 +338,7 @@
 
                     <EditText
                         android:id="@+id/areaInSqFt"
+                        style="@style/TextAppearance.AppCompat.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -337,6 +348,7 @@
 
                     <CheckBox
                         android:id="@+id/isLeased"
+                        style="@style/TextAppearance.AppCompat.Small"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -354,10 +366,19 @@
 
             </TableLayout>
 
-            <ListView
-                android:id="@android:id/list"
+            <TextView
+                android:id="@+id/unitsListHint"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Units added" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/unitsList"
                 android:layout_width="match_parent"
-                android:layout_height="500dp" />
+                android:layout_height="match_parent" />
+
 
         </LinearLayout>
 

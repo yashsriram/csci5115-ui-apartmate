@@ -2,23 +2,6 @@ package com.csci5115.group8.data;
 
 import java.util.List;
 
-class Unit {
-    public int number;
-    public int numBathrooms;
-    public int numBedrooms;
-    public float areaInSqFt;
-    public boolean isLeased;
-
-    public Unit(int numBathrooms, int numBedrooms, float areaInSqFt, boolean isLeased) {
-        assert (numBathrooms > 0);
-        assert (numBedrooms > 0);
-        assert (areaInSqFt > 0);
-        this.numBathrooms = numBathrooms;
-        this.numBedrooms = numBedrooms;
-        this.areaInSqFt = areaInSqFt;
-        this.isLeased = isLeased;
-    }
-}
 
 class PerUnitAmenities {
     public boolean refrigerator;
@@ -76,5 +59,5 @@ public class Apartment {
     public PerUnitAmenities perUnitAmenities;
     public CommonAmenities commonAmenities;
     public SecurityFeatures securityFeatures;
-    public List<Unit> units;
+    public List<ApartmentUnit> units;
 }
