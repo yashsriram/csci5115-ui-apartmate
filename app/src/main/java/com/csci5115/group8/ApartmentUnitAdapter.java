@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.csci5115.group8.data.ApartmentUnit;
+import com.csci5115.group8.data.apartment.ApartmentUnit;
 
 import java.util.List;
 

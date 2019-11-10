@@ -1,4 +1,4 @@
-package com.csci5115.group8.data;
+package com.csci5115.group8.data.apartment;
 
 public class ApartmentUnit {
     public int unitNumber;

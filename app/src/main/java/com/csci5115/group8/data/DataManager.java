@@ -1,5 +1,7 @@
 package com.csci5115.group8.data;
 
+import com.csci5115.group8.data.apartment.Apartment;
+
 import java.util.ArrayList;
 import java.util.List;
 

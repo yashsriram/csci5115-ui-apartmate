@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Switch;
 
-import com.csci5115.group8.data.UserSRL;
+import com.csci5115.group8.data.user.UserSRL;
 
 public class UserSRLCustomizationActivity extends AppCompatActivity {
 
