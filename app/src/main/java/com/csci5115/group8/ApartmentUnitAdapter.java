@@ -22,11 +22,11 @@ public class ApartmentUnitAdapter extends RecyclerView.Adapter<ApartmentUnitAdap
 
         ViewHolder(View itemView) {
             super(itemView);
-            unitNumber = itemView.findViewById(R.id.unitNumber);
-            numBedrooms = itemView.findViewById(R.id.numBedrooms);
-            numBathrooms = itemView.findViewById(R.id.numBathrooms);
-            areaInSqFt = itemView.findViewById(R.id.areaInSqFt);
-            isLeased = itemView.findViewById(R.id.isLeased);
+            unitNumber = itemView.findViewById(R.id.unitNumberHolder);
+            numBedrooms = itemView.findViewById(R.id.numBedroomsHolder);
+            numBathrooms = itemView.findViewById(R.id.numBathroomsHolder);
+            areaInSqFt = itemView.findViewById(R.id.areaInSqFtHolder);
+            isLeased = itemView.findViewById(R.id.isLeasedHolder);
             itemView.setOnClickListener(this);
         }
 

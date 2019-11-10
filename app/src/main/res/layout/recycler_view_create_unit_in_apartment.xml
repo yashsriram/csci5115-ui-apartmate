@@ -8,7 +8,7 @@
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/unitNumber"
+        android:id="@+id/unitNumberHolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/numBedrooms"
+        android:id="@+id/numBedroomsHolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
@@ -24,26 +24,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/numBathrooms"
+        android:id="@+id/numBathroomsHolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/numBedrooms" />
+        app:layout_constraintTop_toBottomOf="@+id/numBedroomsHolder" />
 
     <TextView
-        android:id="@+id/areaInSqFt"
+        android:id="@+id/areaInSqFtHolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/numBathrooms" />
+        app:layout_constraintTop_toBottomOf="@id/numBathroomsHolder" />
 
     <TextView
-        android:id="@+id/isLeased"
+        android:id="@+id/isLeasedHolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/unitNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/unitNumberHolder" />
 </androidx.constraintlayout.widget.ConstraintLayout>
