@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.csci5115.group8.data.DataManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -36,6 +37,8 @@ public class ApartmentSearchActivity extends AppCompatActivity {
                 return false;
             }
         });
+        // Show number of matches using regex matching across all apartments by default == len of all apartments
+        numMatches.setText(DataManager.getInstance().apartments.size() + " Matches");
 
         final TriStateToggleButton refrigerator = layout.findViewById(R.id.refrigerator);
         final TriStateToggleButton oven = layout.findViewById(R.id.oven);
@@ -60,18 +63,44 @@ public class ApartmentSearchActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Validate
-                if (searchText.getText().toString().isEmpty()) {
-                    Snackbar.make(view, "Please enter something in search bar", Snackbar.LENGTH_LONG).show();
-                    return;
-                }
                 // Collect data, serialize and put in intent
                 Intent returnIntent = new Intent();
                 returnIntent.putExtra("searchText", searchText.getText().toString());
                 setResult(AppCompatActivity.RESULT_OK, returnIntent);
+
+                returnIntent.putExtra("refrigerator", toggleStatusToInt(refrigerator.getToggleStatus()));
+                returnIntent.putExtra("oven", toggleStatusToInt(oven.getToggleStatus()));
+                returnIntent.putExtra("microwave", toggleStatusToInt(microwave.getToggleStatus()));
+                returnIntent.putExtra("dishwasher", toggleStatusToInt(dishwasher.getToggleStatus()));
+                returnIntent.putExtra("washingMachine", toggleStatusToInt(washingMachine.getToggleStatus()));
+                returnIntent.putExtra("heating", toggleStatusToInt(heating.getToggleStatus()));
+                returnIntent.putExtra("cooling", toggleStatusToInt(cooling.getToggleStatus()));
+
+                returnIntent.putExtra("laundryRoom", toggleStatusToInt(laundryRoom.getToggleStatus()));
+                returnIntent.putExtra("longue", toggleStatusToInt(longue.getToggleStatus()));
+                returnIntent.putExtra("printingService", toggleStatusToInt(printingService.getToggleStatus()));
+                returnIntent.putExtra("reception", toggleStatusToInt(reception.getToggleStatus()));
+                returnIntent.putExtra("parking", toggleStatusToInt(parking.getToggleStatus()));
+
+                returnIntent.putExtra("securityCameras", toggleStatusToInt(securityCameras.getToggleStatus()));
+                returnIntent.putExtra("smokeDetectors", toggleStatusToInt(smokeDetectors.getToggleStatus()));
+                returnIntent.putExtra("sprinklers", toggleStatusToInt(sprinklers.getToggleStatus()));
+                returnIntent.putExtra("buildingLock", toggleStatusToInt(buildingLock.getToggleStatus()));
                 // Finish
                 finish();
             }
         });
+    }
+
+    int toggleStatusToInt(TriStateToggleButton.ToggleStatus toggleStatus) {
+        switch (toggleStatus) {
+            case on:
+                return 2;
+            case mid:
+                return 1;
+            case off:
+                return 0;
+        }
+        return -1;
     }
 }

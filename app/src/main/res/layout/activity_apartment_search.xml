@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="0.9"
-            android:hint="Type name or address"
+            android:hint="Type name or address to search"
             android:inputType="textPersonName" />
 
         <TextView

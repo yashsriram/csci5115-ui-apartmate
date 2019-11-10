@@ -17,7 +17,15 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.csci5115.group8.ApartmentSearchActivity;
 import com.csci5115.group8.R;
+import com.csci5115.group8.data.DataManager;
+import com.csci5115.group8.data.apartment.Apartment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
+
+import it.beppi.tristatetogglebutton_library.TriStateToggleButton;
 
 public class ApartmentSearchFragment extends Fragment {
 
@@ -52,13 +60,113 @@ public class ApartmentSearchFragment extends Fragment {
             switch (resultCode) {
                 case AppCompatActivity.RESULT_OK:
                     String searchText = data.getStringExtra("searchText");
-                    Toast.makeText(getContext(), searchText, Toast.LENGTH_SHORT).show();
+                    int refrigerator = data.getIntExtra("refrigerator", -1);
+                    int oven = data.getIntExtra("oven", -1);
+                    int microwave = data.getIntExtra("microwave", -1);
+                    int dishwasher = data.getIntExtra("dishwasher", -1);
+                    int washingMachine = data.getIntExtra("washingMachine", -1);
+                    int heating = data.getIntExtra("heating", -1);
+                    int cooling = data.getIntExtra("cooling", -1);
+
+                    int laundryRoom = data.getIntExtra("laundryRoom", -1);
+                    int longue = data.getIntExtra("longue", -1);
+                    int printingService = data.getIntExtra("printingService", -1);
+                    int reception = data.getIntExtra("reception", -1);
+                    int parking = data.getIntExtra("parking", -1);
+
+                    int securityCameras = data.getIntExtra("securityCameras", -1);
+                    int smokeDetectors = data.getIntExtra("smokeDetectors", -1);
+                    int sprinklers = data.getIntExtra("sprinklers", -1);
+                    int buildingLock = data.getIntExtra("buildingLock", -1);
+
+                    List<Apartment> searchResults = search(
+                            searchText,
+                            // Per unit amenities
+                            refrigerator,
+                            oven,
+                            microwave,
+                            dishwasher,
+                            washingMachine,
+                            heating,
+                            cooling,
+                            // Common amenities
+                            laundryRoom,
+                            longue,
+                            printingService,
+                            reception,
+                            parking,
+                            // Security features
+                            securityCameras,
+                            smokeDetectors,
+                            sprinklers,
+                            buildingLock
+                    );
+
                     break;
                 case AppCompatActivity.RESULT_CANCELED:
                     break;
                 default:
                     break;
             }
+        }
+    }
+
+    private List<Apartment> search(String searchText,
+                                   // Per unit amenities
+                                   int refrigerator,
+                                   int oven,
+                                   int microwave,
+                                   int dishwasher,
+                                   int washingMachine,
+                                   int heating,
+                                   int cooling,
+                                   // Common amenities
+                                   int laundryRoom,
+                                   int longue,
+                                   int printingService,
+                                   int reception,
+                                   int parking,
+                                   // Security features
+                                   int securityCameras,
+                                   int smokeDetectors,
+                                   int sprinklers,
+                                   int buildingLock) {
+        List<Apartment> results = new ArrayList<>();
+        for (Apartment apt : DataManager.getInstance().apartments) {
+            if (!(Pattern.matches(searchText, apt.name) || Pattern.matches(searchText, apt.address))) {
+                continue;
+            }
+            // If search matches name or address and all filters match then only add apt to search results
+            if ((Pattern.matches(searchText, apt.name) || Pattern.matches(searchText, apt.address)
+                    && filterMatch(refrigerator, apt.perUnitAmenities.refrigerator)
+                    && filterMatch(oven, apt.perUnitAmenities.oven
+                    && filterMatch(microwave, apt.perUnitAmenities.microwave
+                    && filterMatch(dishwasher, apt.perUnitAmenities.dishwasher
+                    && filterMatch(washingMachine, apt.perUnitAmenities.washingMachine
+                    && filterMatch(heating, apt.perUnitAmenities.heating
+                    && filterMatch(cooling, apt.perUnitAmenities.cooling
+                    && filterMatch(laundryRoom, apt.commonAmenities.laundryRoom
+                    && filterMatch(longue, apt.commonAmenities.longue
+                    && filterMatch(printingService, apt.commonAmenities.printingService
+                    && filterMatch(reception, apt.commonAmenities.reception
+                    && filterMatch(parking, apt.commonAmenities.parking
+                    && filterMatch(securityCameras, apt.securityFeatures.securityCameras
+                    && filterMatch(smokeDetectors, apt.securityFeatures.smokeDetectors
+                    && filterMatch(sprinklers, apt.securityFeatures.sprinklers
+                    && filterMatch(buildingLock, apt.securityFeatures.buildingLock) {
+                results.add(apt);
+            }
+        }
+        return results;
+    }
+
+    private boolean filterMatch(int filter, boolean field) {
+        if (filter == 0) {
+            return true;
+        } else if (filter == 1) {
+            return !field;
+        } else {
+            return field;
         }
     }
 
