@@ -5,20 +5,28 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.csci5115.group8.data.Apartment;
 import com.csci5115.group8.data.ApartmentUnit;
+import com.csci5115.group8.data.CommonAmenities;
+import com.csci5115.group8.data.DataManager;
+import com.csci5115.group8.data.PerUnitAmenities;
+import com.csci5115.group8.data.SecurityFeatures;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import it.beppi.tristatetogglebutton_library.TriStateToggleButton;
 import timber.log.Timber;
 
 public class CreateApartmentListingActivity extends AppCompatActivity {
@@ -59,12 +67,12 @@ public class CreateApartmentListingActivity extends AppCompatActivity {
                     _areaSqFt = Float.parseFloat(areaInSqFt.getText().toString());
                     for (ApartmentUnit unit : apartmentUnits) {
                         if (_unitNumber == unit.unitNumber) {
-                            Snackbar.make(view, "It seems that this unit is already registered", Snackbar.LENGTH_SHORT).show();
+                            Snackbar.make(view, "It seems that this unit is already registered", Snackbar.LENGTH_LONG).show();
                             return;
                         }
                     }
                 } catch (Exception e) {
-                    Snackbar.make(view, "Please provide all information of unit", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(view, "Please provide all information of unit", Snackbar.LENGTH_LONG).show();
                     return;
                 }
                 // Add a unit
@@ -74,13 +82,82 @@ public class CreateApartmentListingActivity extends AppCompatActivity {
             }
         });
 
+        final EditText name = layout.findViewById(R.id.name);
+        final EditText address = layout.findViewById(R.id.address);
+        final CheckBox refrigerator = layout.findViewById(R.id.refrigerator);
+        final CheckBox oven = layout.findViewById(R.id.oven);
+        final CheckBox microwave = layout.findViewById(R.id.microwave);
+        final CheckBox dishwasher = layout.findViewById(R.id.dishwasher);
+        final CheckBox washingMachine = layout.findViewById(R.id.washingMachine);
+        final CheckBox heating = layout.findViewById(R.id.heating);
+        final CheckBox cooling = layout.findViewById(R.id.cooling);
+
+        final CheckBox laundryRoom = layout.findViewById(R.id.laundryRoom);
+        final CheckBox longue = layout.findViewById(R.id.longue);
+        final CheckBox printingService = layout.findViewById(R.id.printingService);
+        final CheckBox reception = layout.findViewById(R.id.reception);
+        final CheckBox parking = layout.findViewById(R.id.parking);
+
+        final CheckBox securityCameras = layout.findViewById(R.id.securityCameras);
+        final CheckBox smokeDetectors = layout.findViewById(R.id.smokeDetectors);
+        final CheckBox sprinklers = layout.findViewById(R.id.sprinklers);
+        final CheckBox buildingLock = layout.findViewById(R.id.buildingLock);
+
         FloatingActionButton submit = layout.findViewById(R.id.submit_new_apartment_listing);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // Validate fields
+                if (name.getText().toString().isEmpty()) {
+                    Snackbar.make(view, "Please enter the apartment building name", Snackbar.LENGTH_LONG).show();
+                    return;
+                }
+                if (address.getText().toString().isEmpty()) {
+                    Snackbar.make(view, "Please enter the apartment building address", Snackbar.LENGTH_LONG).show();
+                    return;
+                }
+                if (apartmentUnits.size() == 0) {
+                    Snackbar.make(view, "Please add at least one unit to", Snackbar.LENGTH_LONG).show();
+                    return;
+                }
                 // Check for duplicates
-                // Save apartment
+                for (Apartment apt : DataManager.getInstance().apartments) {
+                    if (apt.address.equals(address.getText().toString())) {
+                        Snackbar.make(view, "Apartment with same address is already registered. Please edit that", Snackbar.LENGTH_LONG).show();
+                        return;
+                    }
+                }
+                // Save apartment in data manager
+                DataManager.getInstance().apartments.add(
+                        new Apartment(
+                                name.getText().toString(),
+                                address.getText().toString(),
+                                new PerUnitAmenities(
+                                        refrigerator.isChecked(),
+                                        oven.isChecked(),
+                                        microwave.isChecked(),
+                                        dishwasher.isChecked(),
+                                        washingMachine.isChecked(),
+                                        heating.isChecked(),
+                                        cooling.isChecked()),
+                                new CommonAmenities(
+                                        laundryRoom.isChecked(),
+                                        longue.isChecked(),
+                                        printingService.isChecked(),
+                                        reception.isChecked(),
+                                        parking.isChecked()
+                                ),
+                                new SecurityFeatures(
+                                        securityCameras.isChecked(),
+                                        smokeDetectors.isChecked(),
+                                        sprinklers.isChecked(),
+                                        buildingLock.isChecked()
+                                ),
+                                apartmentUnits
+                        )
+                );
+                Toast.makeText(CreateApartmentListingActivity.this, "New apartment listing created", Toast.LENGTH_LONG).show();
+                // Go back
                 finish();
             }
         });
