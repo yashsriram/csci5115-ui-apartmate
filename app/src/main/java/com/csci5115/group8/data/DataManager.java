@@ -1,6 +1,10 @@
 package com.csci5115.group8.data;
 
 import com.csci5115.group8.data.apartment.Apartment;
+import com.csci5115.group8.data.apartment.ApartmentUnit;
+import com.csci5115.group8.data.apartment.CommonAmenities;
+import com.csci5115.group8.data.apartment.PerUnitAmenities;
+import com.csci5115.group8.data.apartment.SecurityFeatures;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,6 +25,8 @@ public class DataManager {
     private DataManager() {
 
         ////// START CREATE DEFAULT DATA
+
+        createApartmentData();
 
         // populate threads
         Thread thread1 = new Thread("Bob", "Dylan");
@@ -48,5 +54,53 @@ public class DataManager {
         }
 
         return soleInstance;
+    }
+
+    private void createApartmentData() {
+        List<ApartmentUnit> oneUnit = new ArrayList<>();
+        oneUnit.add(new ApartmentUnit(102, 2, 2, 75.5f, false));
+        List<ApartmentUnit> twoUnits = new ArrayList<>();
+        twoUnits.add(new ApartmentUnit(101, 3, 2, 100.1f, true));
+        twoUnits.add(new ApartmentUnit(102, 2, 2, 75.5f, false));
+        List<ApartmentUnit> threeUnits = new ArrayList<>();
+        threeUnits.add(new ApartmentUnit(101, 3, 2, 100.1f, false));
+        threeUnits.add(new ApartmentUnit(102, 2, 2, 75.5f, true));
+        threeUnits.add(new ApartmentUnit(103, 4, 2, 150.5f, false));
+        apartments.add(
+                new Apartment("LimeLight Apts", "811 4th St SE",
+                        new PerUnitAmenities(true, true, true, true, true, true, true),
+                        new CommonAmenities(true, true, true, true, true),
+                        new SecurityFeatures(true, true, true, true),
+                        twoUnits));
+        apartments.add(
+                new Apartment("Bierman place", "1401 6th St SE, Minneapolis, MN 55414",
+                        new PerUnitAmenities(true, true, false, true, true, true, true),
+                        new CommonAmenities(true, false, true, true, true),
+                        new SecurityFeatures(true, true, false, true),
+                        threeUnits));
+        apartments.add(
+                new Apartment("Elysian apts", "711 4th St SE, Minneapolis, MN 55414",
+                        new PerUnitAmenities(true, true, true, true, false, true, true),
+                        new CommonAmenities(true, true, true, true, false),
+                        new SecurityFeatures(true, true, true, false),
+                        oneUnit));
+        apartments.add(
+                new Apartment("Solhaus", "2428 Delaware St SE, Minneapolis, MN 55414",
+                        new PerUnitAmenities(true, false, true, true, false, true, true),
+                        new CommonAmenities(false, true, false, true, false),
+                        new SecurityFeatures(true, true, true, false),
+                        threeUnits));
+        apartments.add(
+                new Apartment("Wahu", "1016 Washington Ave SE, Minneapolis, MN 55414",
+                        new PerUnitAmenities(true, false, true, true, false, true, true),
+                        new CommonAmenities(false, true, false, true, false),
+                        new SecurityFeatures(false, true, true, false),
+                        twoUnits));
+        apartments.add(
+                new Apartment("Quad on delaware", "2508 Delaware St SE, Minneapolis, MN 55414",
+                        new PerUnitAmenities(true, false, true, true, false, false, true),
+                        new CommonAmenities(false, true, false, true, true),
+                        new SecurityFeatures(false, false, true, false),
+                        oneUnit));
     }
 }

@@ -2,11 +2,11 @@ package com.csci5115.group8.ui.aptsearch;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
@@ -24,8 +24,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
-
-import it.beppi.tristatetogglebutton_library.TriStateToggleButton;
 
 public class ApartmentSearchFragment extends Fragment {
 
@@ -79,7 +77,7 @@ public class ApartmentSearchFragment extends Fragment {
                     int sprinklers = data.getIntExtra("sprinklers", -1);
                     int buildingLock = data.getIntExtra("buildingLock", -1);
 
-                    List<Apartment> searchResults = search(
+                    List<Apartment> searchResults = searchApartments(
                             searchText,
                             // Per unit amenities
                             refrigerator,
@@ -111,33 +109,32 @@ public class ApartmentSearchFragment extends Fragment {
         }
     }
 
-    private List<Apartment> search(String searchText,
-                                   // Per unit amenities
-                                   int refrigerator,
-                                   int oven,
-                                   int microwave,
-                                   int dishwasher,
-                                   int washingMachine,
-                                   int heating,
-                                   int cooling,
-                                   // Common amenities
-                                   int laundryRoom,
-                                   int longue,
-                                   int printingService,
-                                   int reception,
-                                   int parking,
-                                   // Security features
-                                   int securityCameras,
-                                   int smokeDetectors,
-                                   int sprinklers,
-                                   int buildingLock) {
+    public static List<Apartment> searchApartments(String searchText,
+                                                   // Per unit amenities
+                                                   int refrigerator,
+                                                   int oven,
+                                                   int microwave,
+                                                   int dishwasher,
+                                                   int washingMachine,
+                                                   int heating,
+                                                   int cooling,
+                                                   // Common amenities
+                                                   int laundryRoom,
+                                                   int longue,
+                                                   int printingService,
+                                                   int reception,
+                                                   int parking,
+                                                   // Security features
+                                                   int securityCameras,
+                                                   int smokeDetectors,
+                                                   int sprinklers,
+                                                   int buildingLock) {
+        String regexString = ".*" + searchText + ".*";
+        Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
         List<Apartment> results = new ArrayList<>();
         for (Apartment apt : DataManager.getInstance().apartments) {
-            if (!(Pattern.matches(searchText, apt.name) || Pattern.matches(searchText, apt.address))) {
-                continue;
-            }
             // If search matches name or address and all filters match then only add apt to search results
-            if ((Pattern.matches(searchText, apt.name) || Pattern.matches(searchText, apt.address))
+            if ((pattern.matcher(apt.name).matches() || pattern.matcher(apt.address).matches())
                     && filterMatch(refrigerator, apt.perUnitAmenities.refrigerator)
                     && filterMatch(oven, apt.perUnitAmenities.oven)
                     && filterMatch(microwave, apt.perUnitAmenities.microwave)
@@ -160,7 +157,7 @@ public class ApartmentSearchFragment extends Fragment {
         return results;
     }
 
-    private boolean filterMatch(int filter, boolean field) {
+    private static boolean filterMatch(int filter, boolean field) {
         if (filter == 0) {
             return true;
         } else if (filter == 1) {

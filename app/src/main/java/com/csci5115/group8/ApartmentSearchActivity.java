@@ -5,19 +5,49 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.csci5115.group8.data.DataManager;
+import com.csci5115.group8.data.apartment.Apartment;
+import com.csci5115.group8.ui.aptsearch.ApartmentSearchFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+
+import java.util.List;
 
 import it.beppi.tristatetogglebutton_library.TriStateToggleButton;
 
 public class ApartmentSearchActivity extends AppCompatActivity {
+    EditText searchText;
+    TextView numMatches;
+    TriStateToggleButton refrigerator;
+    TriStateToggleButton oven;
+    TriStateToggleButton microwave;
+    TriStateToggleButton dishwasher;
+    TriStateToggleButton washingMachine;
+    TriStateToggleButton heating;
+    TriStateToggleButton cooling;
+
+    TriStateToggleButton laundryRoom;
+    TriStateToggleButton longue;
+    TriStateToggleButton printingService;
+    TriStateToggleButton reception;
+    TriStateToggleButton parking;
+
+    TriStateToggleButton securityCameras;
+    TriStateToggleButton smokeDetectors;
+    TriStateToggleButton sprinklers;
+    TriStateToggleButton buildingLock;
+
+    final TriStateToggleButton.OnToggleChanged updateNumberOfMatches = new TriStateToggleButton.OnToggleChanged() {
+        @Override
+        public void onToggle(TriStateToggleButton.ToggleStatus toggleStatus, boolean b, int i) {
+            numMatches.setText(getNumSearchResults() + " Matches");
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,38 +56,60 @@ public class ApartmentSearchActivity extends AppCompatActivity {
 
         final ConstraintLayout layout = findViewById(R.id.activity_apartment_search);
 
-        final EditText searchText = layout.findViewById(R.id.searchText);
-        final TextView numMatches = layout.findViewById(R.id.numMatches);
-        searchText.setOnKeyListener(new View.OnKeyListener() {
+        searchText = layout.findViewById(R.id.searchText);
+        numMatches = layout.findViewById(R.id.numMatches);
+
+        // Setting on toggle changed listeners
+        refrigerator = layout.findViewById(R.id.refrigerator);
+        refrigerator.setOnToggleChanged(updateNumberOfMatches);
+        oven = layout.findViewById(R.id.oven);
+        oven.setOnToggleChanged(updateNumberOfMatches);
+        microwave = layout.findViewById(R.id.microwave);
+        microwave.setOnToggleChanged(updateNumberOfMatches);
+        dishwasher = layout.findViewById(R.id.dishwasher);
+        dishwasher.setOnToggleChanged(updateNumberOfMatches);
+        washingMachine = layout.findViewById(R.id.washingMachine);
+        washingMachine.setOnToggleChanged(updateNumberOfMatches);
+        heating = layout.findViewById(R.id.heating);
+        heating.setOnToggleChanged(updateNumberOfMatches);
+        cooling = layout.findViewById(R.id.cooling);
+        cooling.setOnToggleChanged(updateNumberOfMatches);
+        laundryRoom = layout.findViewById(R.id.laundryRoom);
+        laundryRoom.setOnToggleChanged(updateNumberOfMatches);
+        longue = layout.findViewById(R.id.longue);
+        longue.setOnToggleChanged(updateNumberOfMatches);
+        printingService = layout.findViewById(R.id.printingService);
+        printingService.setOnToggleChanged(updateNumberOfMatches);
+        reception = layout.findViewById(R.id.reception);
+        reception.setOnToggleChanged(updateNumberOfMatches);
+        parking = layout.findViewById(R.id.parking);
+        parking.setOnToggleChanged(updateNumberOfMatches);
+        securityCameras = layout.findViewById(R.id.securityCameras);
+        securityCameras.setOnToggleChanged(updateNumberOfMatches);
+        smokeDetectors = layout.findViewById(R.id.smokeDetectors);
+        smokeDetectors.setOnToggleChanged(updateNumberOfMatches);
+        sprinklers = layout.findViewById(R.id.sprinklers);
+        sprinklers.setOnToggleChanged(updateNumberOfMatches);
+        buildingLock = layout.findViewById(R.id.buildingLock);
+        buildingLock.setOnToggleChanged(updateNumberOfMatches);
+
+        // Setting on key press listener
+        searchText.addTextChangedListener(new TextWatcher() {
             @Override
-            public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                // Get search string
-                String string = searchText.getText().toString();
-                // Show number of matches using regex matching across all apartments
-                return false;
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                numMatches.setText(getNumSearchResults() + " Matches");
             }
         });
-        // Show number of matches using regex matching across all apartments by default == len of all apartments
-        numMatches.setText(DataManager.getInstance().apartments.size() + " Matches");
-
-        final TriStateToggleButton refrigerator = layout.findViewById(R.id.refrigerator);
-        final TriStateToggleButton oven = layout.findViewById(R.id.oven);
-        final TriStateToggleButton microwave = layout.findViewById(R.id.microwave);
-        final TriStateToggleButton dishwasher = layout.findViewById(R.id.dishwasher);
-        final TriStateToggleButton washingMachine = layout.findViewById(R.id.washingMachine);
-        final TriStateToggleButton heating = layout.findViewById(R.id.heating);
-        final TriStateToggleButton cooling = layout.findViewById(R.id.cooling);
-
-        final TriStateToggleButton laundryRoom = layout.findViewById(R.id.laundryRoom);
-        final TriStateToggleButton longue = layout.findViewById(R.id.longue);
-        final TriStateToggleButton printingService = layout.findViewById(R.id.printingService);
-        final TriStateToggleButton reception = layout.findViewById(R.id.reception);
-        final TriStateToggleButton parking = layout.findViewById(R.id.parking);
-
-        final TriStateToggleButton securityCameras = layout.findViewById(R.id.securityCameras);
-        final TriStateToggleButton smokeDetectors = layout.findViewById(R.id.smokeDetectors);
-        final TriStateToggleButton sprinklers = layout.findViewById(R.id.sprinklers);
-        final TriStateToggleButton buildingLock = layout.findViewById(R.id.buildingLock);
 
         FloatingActionButton submit = layout.findViewById(R.id.submit_apartment_search);
         submit.setOnClickListener(new View.OnClickListener() {
@@ -90,9 +142,12 @@ public class ApartmentSearchActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        // Show number of matches using regex matching across all apartments by default == len of all apartments
+        numMatches.setText(DataManager.getInstance().apartments.size() + " Matches");
     }
 
-    int toggleStatusToInt(TriStateToggleButton.ToggleStatus toggleStatus) {
+    private int toggleStatusToInt(TriStateToggleButton.ToggleStatus toggleStatus) {
         switch (toggleStatus) {
             case on:
                 return 2;
@@ -102,5 +157,31 @@ public class ApartmentSearchActivity extends AppCompatActivity {
                 return 0;
         }
         return -1;
+    }
+
+    private int getNumSearchResults() {
+        String searchString = searchText.getText().toString();
+        List<Apartment> searchResults = ApartmentSearchFragment.searchApartments(
+                searchString,
+                toggleStatusToInt(refrigerator.getToggleStatus()),
+                toggleStatusToInt(oven.getToggleStatus()),
+                toggleStatusToInt(microwave.getToggleStatus()),
+                toggleStatusToInt(dishwasher.getToggleStatus()),
+                toggleStatusToInt(washingMachine.getToggleStatus()),
+                toggleStatusToInt(heating.getToggleStatus()),
+                toggleStatusToInt(cooling.getToggleStatus()),
+
+                toggleStatusToInt(laundryRoom.getToggleStatus()),
+                toggleStatusToInt(longue.getToggleStatus()),
+                toggleStatusToInt(printingService.getToggleStatus()),
+                toggleStatusToInt(reception.getToggleStatus()),
+                toggleStatusToInt(parking.getToggleStatus()),
+
+                toggleStatusToInt(securityCameras.getToggleStatus()),
+                toggleStatusToInt(smokeDetectors.getToggleStatus()),
+                toggleStatusToInt(sprinklers.getToggleStatus()),
+                toggleStatusToInt(buildingLock.getToggleStatus())
+        );
+        return searchResults.size();
     }
 }
