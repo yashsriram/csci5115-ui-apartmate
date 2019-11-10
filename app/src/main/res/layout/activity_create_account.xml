@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_login"
     android:orientation="vertical"
+    android:id="@+id/activity_create_account"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.csci5115.group8.LoginActivity">
-
+    android:layout_height="match_parent">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -32,27 +29,29 @@
         android:inputType="textPassword"
         android:text="password" />
 
-    <Button
+    <EditText
         android:layout_marginTop="15dp"
-        android:id="@+id/create_account"
+        android:id="@+id/re_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text=" Create Account" />
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="re_password" />
+
+    <EditText
+        android:layout_marginTop="15dp"
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="name" />
 
     <Button
         android:layout_marginTop="15dp"
-        android:id="@+id/login"
+        android:id="@+id/submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Submit" />
-
-    <Button
-        android:layout_marginTop="15dp"
-        android:id="@+id/forget_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Forget password?" />
-
-
 
 </LinearLayout>

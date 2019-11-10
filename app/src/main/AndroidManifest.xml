@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".CreateAccountActivity"
+            android:label="Create Account"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".PswdResetActivity"
+            android:label="Password Reset"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
             android:name=".ThreadActivity"
             android:label="@string/title_activity_thread"
             android:theme="@style/AppTheme.NoActionBar"></activity>
