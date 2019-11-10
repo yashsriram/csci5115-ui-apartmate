@@ -17,8 +17,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="email"
+        android:textColorHint="#95A1AA"
         android:inputType="textEmailAddress"
-        android:text="email" />
+        android:text="" />
 
     <EditText
         android:layout_marginTop="15dp"
@@ -26,8 +28,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="password"
+        android:textColorHint="#95A1AA"
         android:inputType="textPassword"
-        android:text="password" />
+        android:text="" />
 
     <EditText
         android:layout_marginTop="15dp"
@@ -35,8 +39,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="repeat password"
+        android:textColorHint="#95A1AA"
         android:inputType="textPassword"
-        android:text="re_password" />
+        android:text="" />
 
     <EditText
         android:layout_marginTop="15dp"
@@ -44,8 +50,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="uear name"
+        android:textColorHint="#95A1AA"
         android:inputType="textPersonName"
-        android:text="name" />
+        android:text="" />
 
     <Button
         android:layout_marginTop="15dp"
