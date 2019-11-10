@@ -66,7 +66,9 @@ public class threadMessagesFragment extends Fragment {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                LinearLayoutManager manager = new LinearLayoutManager(context);
+                manager.setStackFromEnd(true);
+                recyclerView.setLayoutManager(manager);
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }

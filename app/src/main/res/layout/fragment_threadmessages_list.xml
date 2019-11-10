@@ -9,5 +9,6 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:layoutManager="LinearLayoutManager"
+    app:stackFromEnd="false"
     tools:context="com.csci5115.group8.ui.threadMessage.threadMessagesFragment"
     tools:listitem="@layout/fragment_threadmessages" />

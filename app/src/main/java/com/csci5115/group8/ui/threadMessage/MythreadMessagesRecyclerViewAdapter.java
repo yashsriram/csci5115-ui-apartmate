@@ -27,6 +27,10 @@ public class MythreadMessagesRecyclerViewAdapter extends RecyclerView.Adapter<My
     private final List<ThreadMessage> mValues;
     private final OnListFragmentInteractionListener mListener;
 
+    public void refresh() {
+        notifyDataSetChanged();
+    }
+
     public MythreadMessagesRecyclerViewAdapter(List<ThreadMessage> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;

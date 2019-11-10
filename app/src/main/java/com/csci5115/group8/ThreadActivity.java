@@ -1,6 +1,9 @@
 package com.csci5115.group8;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.inputmethod.EditorInfo;
+import android.widget.TextView;
 
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.Thread;
@@ -44,6 +47,19 @@ public class ThreadActivity extends AppCompatActivity implements threadMessagesF
         System.out.println("GOT");
         System.out.println(this.getThread().first_name);
         setTitle("Chat - " + this.getThread().first_name + " " + this.getThread().last_name);
+
+        final TextView textView = findViewById(R.id.editText4);
+        textView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    System.out.println(v.getText());
+                    getThread().addMessage(v.getText().toString(), true);
+                    textView.setText("");
+                }
+                return false;
+            }
+        });
     }
 
 }
