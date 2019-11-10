@@ -21,18 +21,33 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         final LinearLayout layout = findViewById(R.id.activity_login);
-        final LinearLayout layout2 = findViewById(R.id.activity_create_account);
-        final LinearLayout layout3 = findViewById(R.id.activity_login);
+
 
         final Button login = layout.findViewById(R.id.login);
         final Button create_account = layout.findViewById(R.id.create_account);
         final Button pswd_forget = layout.findViewById(R.id.forget_password);
 
+        create_account.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), CreateAccountActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        pswd_forget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), PswdResetActivity.class);
+                startActivity(intent);
+            }
+        });
+
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i1 = new Intent(getApplicationContext(), DashboardActivity.class);
-                startActivity(i1);
+                Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
+                startActivity(intent);
             }
         });
 
