@@ -11,11 +11,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class EditYourProfileActivity extends AppCompatActivity {
 
-   String firstName, lastName, city;
+   String firstName, lastName, city, college;
    int age;
 
    //private static final int RESULT_LOAD_IMAGE;
-   EditText firstNameInput, lastNameInput, ageInput, cityInput;
+   EditText firstNameInput, lastNameInput, ageInput, cityInput, collegeInput;
    Button submit;
    ImageView imageToUpload;
    Button uploadImage;
@@ -30,6 +30,7 @@ public class EditYourProfileActivity extends AppCompatActivity {
         lastNameInput = (EditText) findViewById(R.id.surnameInput);
         ageInput = (EditText) findViewById(R.id.ageInput);
         cityInput = (EditText) findViewById(R.id.cityInput);
+        collegeInput = (EditText) findViewById(R.id.collegeInput);
 
         imageToUpload = (ImageView) findViewById(R.id.imageToUpload);
         uploadImage = (Button) findViewById(R.id.uploadImage);
@@ -42,6 +43,7 @@ public class EditYourProfileActivity extends AppCompatActivity {
                 lastName = lastNameInput.getText().toString();
                 age = Integer.valueOf(ageInput.getText().toString());
                 city = cityInput.getText().toString();
+                college = collegeInput.getText().toString();
                 /*
                 switch (v.getId()) {
                     case R.id.imageToUpload:
