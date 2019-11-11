@@ -39,7 +39,6 @@ public class MyChatThreadRecyclerViewAdapter extends RecyclerView.Adapter<MyChat
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText("id");
         holder.mContentView.setText(mValues.get(position).first_name);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -61,14 +60,12 @@ public class MyChatThreadRecyclerViewAdapter extends RecyclerView.Adapter<MyChat
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
         public final TextView mContentView;
         public Thread mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
         }
 
