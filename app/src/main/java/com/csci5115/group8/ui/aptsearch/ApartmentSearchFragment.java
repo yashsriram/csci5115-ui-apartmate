@@ -18,6 +18,7 @@ import com.csci5115.group8.ApartmentSearchActivity;
 import com.csci5115.group8.ApartmentSearchResultsAdapter;
 import com.csci5115.group8.ApartmentUnitAdapter;
 import com.csci5115.group8.R;
+import com.csci5115.group8.ViewApartmentListingActivity;
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.apartment.Apartment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -34,7 +35,9 @@ public class ApartmentSearchFragment extends Fragment {
     private ApartmentSearchResultsAdapter.ItemClickListener itemClickListener = new ApartmentSearchResultsAdapter.ItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
-            Toast.makeText(getContext(), "" + apartmentSearchResults.get(position).id, Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(getContext(), ViewApartmentListingActivity.class);
+            i.putExtra("apartmentId", apartmentSearchResults.get(position).id);
+            startActivity(i);
         }
     };
 

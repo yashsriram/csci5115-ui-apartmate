@@ -56,6 +56,15 @@ public class DataManager {
         return soleInstance;
     }
 
+    public static Apartment getApartment(int apartmentId) {
+        for (Apartment apt: DataManager.getInstance().apartments) {
+            if (apt.id == apartmentId) {
+                return apt;
+            }
+        }
+        return null;
+    }
+
     private void createApartmentData() {
         List<ApartmentUnit> oneUnit = new ArrayList<>();
         oneUnit.add(new ApartmentUnit(102, 2, 2, 75.5f, false));
@@ -66,6 +75,30 @@ public class DataManager {
         threeUnits.add(new ApartmentUnit(101, 3, 2, 100.1f, false));
         threeUnits.add(new ApartmentUnit(102, 2, 2, 75.5f, true));
         threeUnits.add(new ApartmentUnit(103, 4, 2, 150.5f, false));
+        List<ApartmentUnit> manyUnits = new ArrayList<>();
+        manyUnits.add(new ApartmentUnit(101, 3, 2, 100.1f, false));
+        manyUnits.add(new ApartmentUnit(101, 2, 2, 75.5f, true));
+        manyUnits.add(new ApartmentUnit(102, 2, 2, 75.5f, true));
+        manyUnits.add(new ApartmentUnit(103, 2, 2, 75.5f, true));
+        manyUnits.add(new ApartmentUnit(104, 2, 2, 75.5f, true));
+        manyUnits.add(new ApartmentUnit(105, 2, 2, 75.5f, true));
+        manyUnits.add(new ApartmentUnit(106, 2, 2, 75.5f, true));
+        manyUnits.add(new ApartmentUnit(107, 2, 2, 75.5f, true));
+        manyUnits.add(new ApartmentUnit(108, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(109, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(110, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(111, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(112, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(113, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(114, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(115, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(117, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(118, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(119, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(120, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(121, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(122, 4, 2, 150.5f, false));
+        manyUnits.add(new ApartmentUnit(123, 4, 2, 150.5f, false));
         apartments.add(
                 new Apartment(1, "LimeLight Apts", "811 4th St SE",
                         new PerUnitAmenities(true, true, true, true, true, true, true),
@@ -77,19 +110,19 @@ public class DataManager {
                         new PerUnitAmenities(true, true, false, true, true, true, true),
                         new CommonAmenities(true, false, true, true, true),
                         new SecurityFeatures(true, true, false, true),
-                        threeUnits));
+                        manyUnits));
         apartments.add(
                 new Apartment(3, "Elysian apts", "711 4th St SE, Minneapolis, MN 55414",
                         new PerUnitAmenities(true, true, true, true, false, true, true),
                         new CommonAmenities(true, true, true, true, false),
                         new SecurityFeatures(true, true, true, false),
-                        oneUnit));
+                        manyUnits));
         apartments.add(
                 new Apartment(4, "Solhaus", "2428 Delaware St SE, Minneapolis, MN 55414",
                         new PerUnitAmenities(true, false, true, true, false, true, true),
                         new CommonAmenities(false, true, false, true, false),
                         new SecurityFeatures(true, true, true, false),
-                        threeUnits));
+                        manyUnits));
         apartments.add(
                 new Apartment(5, "Wahu", "1016 Washington Ave SE, Minneapolis, MN 55414",
                         new PerUnitAmenities(true, false, true, true, false, true, true),
