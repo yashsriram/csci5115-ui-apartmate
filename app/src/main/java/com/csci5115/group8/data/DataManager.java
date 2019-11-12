@@ -65,6 +65,14 @@ public class DataManager {
         return null;
     }
 
+    public static void updateApartment(int apartmentId, Apartment newApartment) {
+        for (int i = 0; i < DataManager.getInstance().apartments.size(); ++i) {
+            if (DataManager.getInstance().apartments.get(i).id == apartmentId) {
+                DataManager.getInstance().apartments.set(i, newApartment);
+            }
+        }
+    }
+
     private void createApartmentData() {
         List<ApartmentUnit> oneUnit = new ArrayList<>();
         oneUnit.add(new ApartmentUnit(102, 2, 2, 75.5f, false));
@@ -116,13 +124,13 @@ public class DataManager {
                         new PerUnitAmenities(true, true, true, true, false, true, true),
                         new CommonAmenities(true, true, true, true, false),
                         new SecurityFeatures(true, true, true, false),
-                        manyUnits));
+                        twoUnits));
         apartments.add(
                 new Apartment(4, "Solhaus", "2428 Delaware St SE, Minneapolis, MN 55414",
                         new PerUnitAmenities(true, false, true, true, false, true, true),
                         new CommonAmenities(false, true, false, true, false),
                         new SecurityFeatures(true, true, true, false),
-                        manyUnits));
+                        threeUnits));
         apartments.add(
                 new Apartment(5, "Wahu", "1016 Washington Ave SE, Minneapolis, MN 55414",
                         new PerUnitAmenities(true, false, true, true, false, true, true),

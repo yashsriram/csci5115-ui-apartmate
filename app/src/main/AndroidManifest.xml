@@ -9,9 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".EditApartmentListingActivity"
+            android:label="Update apartment listing"
+            android:parentActivityName=".ViewApartmentListingActivity"></activity>
         <activity
             android:name=".ViewApartmentListingActivity"
-            android:label="View apartment details" />
+            android:label="View apartment details"
+            android:parentActivityName=".DashboardActivity" />
         <activity
             android:name=".CreateAccountActivity"
             android:label="Create Account"
