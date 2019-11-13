@@ -5,6 +5,7 @@ import com.csci5115.group8.data.apartment.ApartmentUnit;
 import com.csci5115.group8.data.apartment.CommonAmenities;
 import com.csci5115.group8.data.apartment.PerUnitAmenities;
 import com.csci5115.group8.data.apartment.SecurityFeatures;
+import com.csci5115.group8.data.user.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +14,9 @@ public class DataManager {
 
     // Add public data to access here
 
-    public List<Apartment> apartments = new ArrayList<Apartment>();
-    public List<Thread> threads = new ArrayList<Thread>();
+    public List<Apartment> apartments = new ArrayList<>();
+    public List<Thread> threads = new ArrayList<>();
+    public List<User> users = new ArrayList<>();
 
 
     // end public accessible data
@@ -27,17 +29,8 @@ public class DataManager {
         ////// START CREATE DEFAULT DATA
 
         createApartmentData();
-
-        // populate threads
-        Thread thread1 = new Thread("Bob", "Dylan");
-        thread1.addMessage("Hi hows it going, BOB", true);
-        thread1.addMessage("not too bad", false);
-        threads.add(thread1);
-
-        Thread thread2 = new Thread("Jim", "Smith");
-        thread2.addMessage("Hi hows it going, JIM", true);
-        thread2.addMessage("pretty good yo", false);
-        threads.add(thread2);
+        createUserData();
+        createThreadData();
 
 
         ////// END CREATE DEFAULT DATA
@@ -57,7 +50,7 @@ public class DataManager {
     }
 
     public static Apartment getApartment(int apartmentId) {
-        for (Apartment apt: DataManager.getInstance().apartments) {
+        for (Apartment apt : DataManager.getInstance().apartments) {
             if (apt.id == apartmentId) {
                 return apt;
             }
@@ -143,5 +136,71 @@ public class DataManager {
                         new CommonAmenities(false, true, false, true, true),
                         new SecurityFeatures(false, false, true, false),
                         oneUnit));
+    }
+
+    private void createUserData() {
+        users.add(new User(1,
+                        "john@apartmate.com",
+                        "pass",
+                        "john",
+                        "male",
+                        20,
+                        600,
+                        false,
+                        false,
+                        true,
+                        true,
+                        true,
+                        true,
+                        "English",
+                        false
+                )
+        );
+        users.add(new User(2,
+                        "john@apartmate.com",
+                        "pass",
+                        "john",
+                        "male",
+                        20,
+                        600,
+                        false,
+                        false,
+                        true,
+                        true,
+                        true,
+                        true,
+                        "English",
+                        false
+                )
+        );
+        users.add(new User(3,
+                        "john@apartmate.com",
+                        "pass",
+                        "john",
+                        "male",
+                        20,
+                        600,
+                        false,
+                        false,
+                        true,
+                        true,
+                        true,
+                        true,
+                        "English",
+                        false
+                )
+        );
+    }
+
+    private void createThreadData() {
+        Thread thread1 = new Thread("Bob", "Dylan");
+        thread1.addMessage("Hi hows it going, BOB", true);
+        thread1.addMessage("not too bad", false);
+        threads.add(thread1);
+
+        Thread thread2 = new Thread("Jim", "Smith");
+        thread2.addMessage("Hi hows it going, JIM", true);
+        thread2.addMessage("pretty good yo", false);
+        threads.add(thread2);
     }
 }

@@ -1,10 +1,12 @@
 package com.csci5115.group8.data.user;
 
 public class User {
+    public int id;
+    public String email;
+    public String password;
     public String name;
     public String gender;
-    public String age;
-    public String currentLocation;
+    public int age;
     public int maxBudget;
     public boolean doesSmoke;
     public boolean drugsOkay;
@@ -12,6 +14,24 @@ public class User {
     public boolean partiesOkay;
     public boolean canCook;
     public boolean needsPrivateBedroom;
-    public boolean nativeLanguage;
+    public String nativeLanguage;
     public boolean hasCar;
+
+    public User(int id, String email, String password, String name, String gender, int age, int maxBudget, boolean doesSmoke, boolean drugsOkay, boolean hasPets, boolean partiesOkay, boolean canCook, boolean needsPrivateBedroom, String nativeLanguage, boolean hasCar) {
+        this.id = id;
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.maxBudget = maxBudget;
+        this.doesSmoke = doesSmoke;
+        this.drugsOkay = drugsOkay;
+        this.hasPets = hasPets;
+        this.partiesOkay = partiesOkay;
+        this.canCook = canCook;
+        this.needsPrivateBedroom = needsPrivateBedroom;
+        this.nativeLanguage = nativeLanguage;
+        this.hasCar = hasCar;
+    }
 }

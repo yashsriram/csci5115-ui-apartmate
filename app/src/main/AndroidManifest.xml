@@ -18,12 +18,10 @@
             android:parentActivityName=".DashboardActivity" />
         <activity
             android:name=".CreateAccountActivity"
-            android:label="Create Account"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="Create Account" />
         <activity
             android:name=".PswdResetActivity"
-            android:label="Password Reset"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="Password Reset" />
         <activity
             android:name=".ThreadActivity"
             android:label="@string/title_activity_thread"
