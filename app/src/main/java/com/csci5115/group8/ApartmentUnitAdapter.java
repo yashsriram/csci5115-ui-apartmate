@@ -1,6 +1,7 @@
 package com.csci5115.group8;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import java.util.List;
 
 public class ApartmentUnitAdapter extends RecyclerView.Adapter<ApartmentUnitAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        View item;
         TextView unitNumber;
         TextView numBedrooms;
         TextView numBathrooms;
@@ -22,6 +24,7 @@ public class ApartmentUnitAdapter extends RecyclerView.Adapter<ApartmentUnitAdap
 
         ViewHolder(View itemView) {
             super(itemView);
+            item = itemView;
             unitNumber = itemView.findViewById(R.id.unitNumberHolder);
             numBedrooms = itemView.findViewById(R.id.numBedroomsHolder);
             numBathrooms = itemView.findViewById(R.id.numBathroomsHolder);
@@ -32,7 +35,8 @@ public class ApartmentUnitAdapter extends RecyclerView.Adapter<ApartmentUnitAdap
 
         @Override
         public void onClick(View view) {
-            if (itemClickListener != null) itemClickListener.onItemClick(view, getAdapterPosition());
+            if (itemClickListener != null)
+                itemClickListener.onItemClick(view, getAdapterPosition());
         }
     }
 
@@ -68,6 +72,7 @@ public class ApartmentUnitAdapter extends RecyclerView.Adapter<ApartmentUnitAdap
         holder.numBathrooms.setText(apartmentUnit.numBathrooms + "Bath");
         holder.areaInSqFt.setText(apartmentUnit.areaInSqFt + "SqFt");
         holder.isLeased.setText(apartmentUnit.isLeased ? "Leased" : "Available");
+        holder.item.setBackgroundColor(apartmentUnit.isLeased ? Color.RED : Color.GREEN);
     }
 
     @Override
