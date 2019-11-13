@@ -8,7 +8,9 @@ import com.csci5115.group8.data.apartment.SecurityFeatures;
 import com.csci5115.group8.data.user.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class DataManager {
 
@@ -16,7 +18,7 @@ public class DataManager {
 
     public List<Apartment> apartments = new ArrayList<>();
     public List<Thread> threads = new ArrayList<>();
-    public List<User> users = new ArrayList<>();
+    public Map<String, User> users = new HashMap<>();
 
 
     // end public accessible data
@@ -139,8 +141,8 @@ public class DataManager {
     }
 
     private void createUserData() {
-        users.add(new User(1,
-                        "john@apartmate.com",
+        users.put("john@apartmate.com",
+                new User("john@apartmate.com",
                         "pass",
                         "john",
                         "male",
@@ -156,37 +158,37 @@ public class DataManager {
                         false
                 )
         );
-        users.add(new User(2,
-                        "john@apartmate.com",
+        users.put("kate@apartmate.com",
+                new User("kate@apartmate.com",
                         "pass",
-                        "john",
-                        "male",
-                        20,
-                        600,
+                        "kate",
+                        "female",
+                        22,
+                        620,
+                        true,
                         false,
+                        true,
+                        true,
                         false,
-                        true,
-                        true,
-                        true,
                         true,
                         "English",
-                        false
+                        true
                 )
         );
-        users.add(new User(3,
-                        "john@apartmate.com",
+        users.put("nate@apartmate.com",
+                new User("nate@apartmate.com",
                         "pass",
-                        "john",
+                        "nate",
                         "male",
-                        20,
-                        600,
+                        24,
+                        500,
                         false,
+                        true,
+                        true,
+                        true,
+                        true,
                         false,
-                        true,
-                        true,
-                        true,
-                        true,
-                        "English",
+                        "Spanish",
                         false
                 )
         );

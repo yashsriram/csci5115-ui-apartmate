@@ -1,7 +1,6 @@
 package com.csci5115.group8.data.user;
 
 public class User {
-    public int id;
     public String email;
     public String password;
     public String name;
@@ -17,8 +16,7 @@ public class User {
     public String nativeLanguage;
     public boolean hasCar;
 
-    public User(int id, String email, String password, String name, String gender, int age, int maxBudget, boolean doesSmoke, boolean drugsOkay, boolean hasPets, boolean partiesOkay, boolean canCook, boolean needsPrivateBedroom, String nativeLanguage, boolean hasCar) {
-        this.id = id;
+    public User(String email, String password, String name, String gender, int age, int maxBudget, boolean doesSmoke, boolean drugsOkay, boolean hasPets, boolean partiesOkay, boolean canCook, boolean needsPrivateBedroom, String nativeLanguage, boolean hasCar) {
         this.email = email;
         this.password = password;
         this.name = name;
