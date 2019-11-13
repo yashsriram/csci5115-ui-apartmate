@@ -4,12 +4,24 @@
     android:orientation="vertical"
     android:id="@+id/activity_create_account"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="20dp">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:layout_marginTop="15dp"
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="name"
+        android:textColorHint="#95A1AA"
+        android:inputType="textPersonName"
+        android:text="" />
 
     <EditText
         android:layout_marginTop="15dp"
@@ -46,13 +58,24 @@
 
     <EditText
         android:layout_marginTop="15dp"
-        android:id="@+id/name"
+        android:id="@+id/age"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="uear name"
+        android:hint="age"
         android:textColorHint="#95A1AA"
-        android:inputType="textPersonName"
+        android:inputType="number"
+        android:text="" />
+
+    <EditText
+        android:layout_marginTop="15dp"
+        android:id="@+id/gender"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="gender"
+        android:textColorHint="#95A1AA"
+        android:inputType="text"
         android:text="" />
 
     <Button
@@ -60,6 +83,6 @@
         android:id="@+id/submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit" />
+        android:text="Create Account" />
 
 </LinearLayout>

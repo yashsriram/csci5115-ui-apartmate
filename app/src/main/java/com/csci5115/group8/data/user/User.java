@@ -32,4 +32,21 @@ public class User {
         this.nativeLanguage = nativeLanguage;
         this.hasCar = hasCar;
     }
+
+    public User(String email, String password, String name, String gender, int age) {
+        this.email = email;
+        this.password = password;
+        this.name = name;
+        this.gender = gender;
+        this.age = age;
+        this.maxBudget = -1;
+        this.doesSmoke = false;
+        this.drugsOkay = false;
+        this.hasPets = false;
+        this.partiesOkay = false;
+        this.canCook = false;
+        this.needsPrivateBedroom = false;
+        this.nativeLanguage = "";
+        this.hasCar = false;
+    }
 }
