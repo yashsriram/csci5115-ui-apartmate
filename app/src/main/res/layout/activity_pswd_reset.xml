@@ -2,9 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_pswd_reset"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -12,60 +14,60 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
-        android:layout_marginTop="15dp"
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="email"
-        android:textColorHint="#95A1AA"
         android:inputType="textEmailAddress"
-        android:text="1234567@gmail.com" />
-
-    <EditText
-        android:layout_marginTop="15dp"
-        android:id="@+id/authentication_code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Authentication Code"
-        android:textColorHint="#95A1AA"
-        android:inputType="textPersonName"
-        android:text="" />
-
-    <EditText
-        android:layout_marginTop="15dp"
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="new password"
-        android:textColorHint="#95A1AA"
-        android:inputType="textPassword"
-        android:text="" />
-
-    <EditText
-        android:layout_marginTop="15dp"
-        android:id="@+id/re_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="repeat password"
-        android:textColorHint="#95A1AA"
-        android:inputType="textPassword"
-        android:text="" />
+        android:textColorHint="#95A1AA" />
 
     <Button
-        android:layout_marginTop="15dp"
         android:id="@+id/send_code"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Send Code" />
-    <Button
         android:layout_marginTop="15dp"
+        android:text="(Re) Send authentication Code" />
+
+    <EditText
+        android:id="@+id/authentication_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="authentication code"
+        android:inputType="textPersonName"
+        android:text=""
+        android:textColorHint="#95A1AA" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="new password"
+        android:inputType="textPassword"
+        android:text=""
+        android:textColorHint="#95A1AA" />
+
+    <EditText
+        android:id="@+id/re_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="repeat password"
+        android:inputType="textPassword"
+        android:text=""
+        android:textColorHint="#95A1AA" />
+
+    <Button
         android:id="@+id/submit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:text="Submit" />
 
 </LinearLayout>
