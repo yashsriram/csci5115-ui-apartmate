@@ -11,11 +11,10 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".EditApartmentListingActivity"
-            android:label="Update apartment listing"></activity>
+            android:label="Update apartment listing" />
         <activity
             android:name=".ViewApartmentListingActivity"
-            android:label="View apartment details"
-            android:parentActivityName=".DashboardActivity" />
+            android:label="View apartment details" />
         <activity
             android:name=".CreateAccountActivity"
             android:label="Create Account"
@@ -26,24 +25,19 @@
             android:parentActivityName=".LoginActivity" />
         <activity
             android:name=".ThreadActivity"
-            android:label="@string/title_activity_thread"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:label="Chat" />
         <activity
             android:name=".UserSearchActivity"
-            android:label="User search"
-            android:parentActivityName=".DashboardActivity" />
+            android:label="User search" />
         <activity
             android:name=".ApartmentSearchActivity"
-            android:label="Apartment search"
-            android:parentActivityName=".DashboardActivity" />
+            android:label="Apartment search" />
         <activity
             android:name=".EditYourProfileActivity"
-            android:label="Update your profile"
-            android:parentActivityName=".DashboardActivity" />
+            android:label="Update your profile" />
         <activity
             android:name=".CreateApartmentListingActivity"
-            android:label="Create new apartment listing"
-            android:parentActivityName=".DashboardActivity" />
+            android:label="Create new apartment listing" />
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -53,12 +47,10 @@
         </activity>
         <activity
             android:name=".UserSRLCustomizationActivity"
-            android:label="Customize User Layout"
-            android:parentActivityName=".DashboardActivity" />
+            android:label="Customize User Layout" />
         <activity
             android:name=".AptSRLCustomizationActivity"
-            android:label="Customize Apartment Layout"
-            android:parentActivityName=".DashboardActivity" />
+            android:label="Customize Apartment Layout" />
         <activity android:name=".DashboardActivity" />
     </application>
 

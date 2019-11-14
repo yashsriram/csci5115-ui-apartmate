@@ -95,7 +95,7 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         final CheckBox sprinklers = layout.findViewById(R.id.sprinklers);
         final CheckBox buildingLock = layout.findViewById(R.id.buildingLock);
 
-        ratingBar.setVisibility(DataManager.getInstance().currentUser.isVerified ? View.VISIBLE : View.GONE);
+//        ratingBar.setVisibility(DataManager.getInstance().currentUser.isVerified ? View.VISIBLE : View.GONE);
         name.setText(apartment.name);
         address.setText(apartment.address);
 
@@ -135,9 +135,4 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         buildingLock.setEnabled(false);
     }
 
-    @Override
-    public void onBackPressed() {
-        // disable back press so that user has to press app bar and refresh search page
-        Toast.makeText(this, "Please use the back button in app bar to go back", Toast.LENGTH_SHORT).show();
-    }
 }
