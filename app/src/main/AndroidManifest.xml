@@ -11,8 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".EditApartmentListingActivity"
-            android:label="Update apartment listing"
-            android:parentActivityName=".ViewApartmentListingActivity"></activity>
+            android:label="Update apartment listing"></activity>
         <activity
             android:name=".ViewApartmentListingActivity"
             android:label="View apartment details"

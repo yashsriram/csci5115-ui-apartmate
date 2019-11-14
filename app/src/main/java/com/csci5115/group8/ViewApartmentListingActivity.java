@@ -131,4 +131,10 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         buildingLock.setChecked(apartment.securityFeatures.buildingLock);
         buildingLock.setEnabled(false);
     }
+
+    @Override
+    public void onBackPressed() {
+        // disable back press so that user has to press app bar and refresh search page
+        Toast.makeText(this, "Please use the back button in app bar to go back", Toast.LENGTH_SHORT).show();
+    }
 }

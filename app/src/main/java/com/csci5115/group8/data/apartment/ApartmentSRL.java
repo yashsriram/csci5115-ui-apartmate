@@ -7,4 +7,6 @@ public class ApartmentSRL {
     public static boolean perUnitAmenitiesVisible = true;
     public static boolean commonAmenitiesVisible = true;
     public static boolean securityFeaturesVisible = true;
+    public static boolean numAvailableByNumTotalUnitsVisible = true;
+    public static boolean averageRatingVisible = true;
 }

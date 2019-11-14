@@ -24,6 +24,8 @@ public class ApartmentSearchResultsAdapter extends RecyclerView.Adapter<Apartmen
         TextView commonAmenitiesHint;
         TextView securityFeatures;
         TextView securityFeaturesHint;
+        TextView numAvailableByNumTotalUnits;
+        TextView numAvailableByNumTotalUnitsHint;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -35,6 +37,8 @@ public class ApartmentSearchResultsAdapter extends RecyclerView.Adapter<Apartmen
             commonAmenitiesHint = itemView.findViewById(R.id.commonAmenitiesHintHolder);
             securityFeatures = itemView.findViewById(R.id.securityFeaturesHolder);
             securityFeaturesHint = itemView.findViewById(R.id.securityFeaturesHintHolder);
+            numAvailableByNumTotalUnits = itemView.findViewById(R.id.numAvailableByNumTotalUnitsHolder);
+            numAvailableByNumTotalUnitsHint = itemView.findViewById(R.id.numAvailableByNumTotalUnitsHintHolder);
             itemView.setOnClickListener(this);
         }
 
@@ -94,6 +98,15 @@ public class ApartmentSearchResultsAdapter extends RecyclerView.Adapter<Apartmen
         holder.securityFeatures.setText(truncate(apartment.securityFeatures.toString(), 50));
         holder.securityFeatures.setVisibility(ApartmentSRL.securityFeaturesVisible ? View.VISIBLE : View.GONE);
         holder.securityFeaturesHint.setVisibility(ApartmentSRL.securityFeaturesVisible ? View.VISIBLE : View.GONE);
+        int numAvailable = 0;
+        for (ApartmentUnit unit : apartment.units) {
+            if (!unit.isLeased) {
+                numAvailable++;
+            }
+        }
+        holder.numAvailableByNumTotalUnits.setText(truncate(numAvailable + " / " + apartment.units.size(), 10));
+        holder.numAvailableByNumTotalUnits.setVisibility(ApartmentSRL.numAvailableByNumTotalUnitsVisible ? View.VISIBLE : View.GONE);
+        holder.numAvailableByNumTotalUnitsHint.setVisibility(ApartmentSRL.numAvailableByNumTotalUnitsVisible ? View.VISIBLE : View.GONE);
     }
 
     @Override
