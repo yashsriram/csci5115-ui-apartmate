@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.user.User;
 import com.csci5115.group8.data.user.UserSRL;
 
@@ -29,8 +30,8 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
         ViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.nameHolder);
-            age=itemView.findViewById(R.id.ageHolder);
-            gender=itemView.findViewById(R.id.genderHolder);
+            age = itemView.findViewById(R.id.ageHolder);
+            gender = itemView.findViewById(R.id.genderHolder);
             commonAmenities = itemView.findViewById(R.id.commonAmenitiesHolder);
             commonAmenitiesHint = itemView.findViewById(R.id.commonAmenitiesHintHolder);
             itemView.setOnClickListener(this);
@@ -43,11 +44,11 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
         }
     }
 
-    private Map<String,User> data;
+    private List<User> data;
     private LayoutInflater inflater;
     private ItemClickListener itemClickListener;
 
-    public UserSearchResultsAdapter(Context context, Map<String,User> data, ItemClickListener itemClickListener) {
+    public UserSearchResultsAdapter(Context context, List<User> data, ItemClickListener itemClickListener) {
         this.inflater = LayoutInflater.from(context);
         this.data = data;
         this.itemClickListener = itemClickListener;
@@ -78,44 +79,23 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-
-        User user = new User("john@apartmate.com",
-                "pass",
-                "Tomcat",
-                "male",
-                20,
-                600,
-                false,
-                false,
-                true,
-                true,
-                true,
-                true,
-                "English",
-                false);
-        int i2=0;
-        for(Map.Entry<String, User> entry : data.entrySet()){
-            user = entry.getValue();
-            if(i2==position)break;
-            i2++;
-        }
-        //User user = data.get(position);
+        User user = data.get(position);
         holder.name.setText(truncate(user.name, 15));
         holder.name.setVisibility(UserSRL.nameVisible ? View.VISIBLE : View.GONE);
-        holder.age.setText(truncate( java.lang.Integer.toString(user.age), 15));
+        holder.age.setText(truncate(java.lang.Integer.toString(user.age), 15));
         holder.age.setVisibility(UserSRL.ageVisible ? View.VISIBLE : View.GONE);
         holder.gender.setText(truncate(user.gender, 15));
         holder.gender.setVisibility(UserSRL.genderVisible ? View.VISIBLE : View.GONE);
         holder.commonAmenities.setText(truncate(
-                "Max budget: "+java.lang.Integer.toString(user.maxBudget)
-                +"\nSmoke?     "+yesOrNo(user.doesSmoke)
-                +"              Drugs Okay?    "+yesOrNo(user.drugsOkay)
-                +"\nHas pets?  "+yesOrNo(user.hasPets)
-                +"            Parties Okay? "+yesOrNo(user.partiesOkay)
-                +"\nCan cook? "+yesOrNo(user.canCook)
-                        +"            Has car?           "+yesOrNo(user.hasCar)
-                +"\nNeeds private bedroom? "+yesOrNo(user.needsPrivateBedroom)
-                +"\nNative Language:                "+user.nativeLanguage, 500));
+                "Max budget: " + java.lang.Integer.toString(user.maxBudget)
+                        + "\nSmoke?     " + yesOrNo(user.doesSmoke)
+                        + "              Drugs Okay?    " + yesOrNo(user.drugsOkay)
+                        + "\nHas pets?  " + yesOrNo(user.hasPets)
+                        + "            Parties Okay? " + yesOrNo(user.partiesOkay)
+                        + "\nCan cook? " + yesOrNo(user.canCook)
+                        + "            Has car?           " + yesOrNo(user.hasCar)
+                        + "\nNeeds private bedroom? " + yesOrNo(user.needsPrivateBedroom)
+                        + "\nNative Language:                " + user.nativeLanguage, 500));
         holder.commonAmenities.setVisibility(UserSRL.detailsVisible ? View.VISIBLE : View.GONE);
         holder.commonAmenitiesHint.setVisibility(UserSRL.detailsVisible ? View.VISIBLE : View.GONE);
     }
@@ -125,8 +105,8 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
         return data.size();
     }
 
-    private String yesOrNo(boolean a){
-        if(a)return " Yes";
+    private String yesOrNo(boolean a) {
+        if (a) return " Yes";
         else return " No";
     }
 }

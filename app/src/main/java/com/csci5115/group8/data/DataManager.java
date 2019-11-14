@@ -16,6 +16,7 @@ public class DataManager {
 
     // Add public data to access here
 
+    public User currentUser = null;
     public List<Apartment> apartments = new ArrayList<>();
     public List<Thread> threads = new ArrayList<>();
     public Map<String, User> users = new HashMap<>();
@@ -66,6 +67,18 @@ public class DataManager {
                 DataManager.getInstance().apartments.set(i, newApartment);
             }
         }
+    }
+
+    public static List<User> getUsersList(Map<String, User> users) {
+        List<User> usersList = new ArrayList<>();
+        for (Map.Entry<String, User> entry: users.entrySet()) {
+            usersList.add(entry.getValue());
+        }
+        return usersList;
+    }
+
+    public static List<User> getUserList() {
+        return getUsersList(DataManager.getInstance().users);
     }
 
     private void createApartmentData() {
@@ -155,7 +168,8 @@ public class DataManager {
                         true,
                         true,
                         "English",
-                        false
+                        false,
+                        true
                 )
         );
         users.put("kate@apartmate.com",
@@ -172,6 +186,7 @@ public class DataManager {
                         false,
                         true,
                         "English",
+                        true,
                         true
                 )
         );
@@ -189,6 +204,7 @@ public class DataManager {
                         true,
                         false,
                         "Spanish",
+                        false,
                         false
                 )
         );

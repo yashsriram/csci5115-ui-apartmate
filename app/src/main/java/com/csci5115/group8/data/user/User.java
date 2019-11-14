@@ -15,8 +15,9 @@ public class User {
     public boolean needsPrivateBedroom;
     public String nativeLanguage;
     public boolean hasCar;
+    public boolean isVerified;
 
-    public User(String email, String password, String name, String gender, int age, int maxBudget, boolean doesSmoke, boolean drugsOkay, boolean hasPets, boolean partiesOkay, boolean canCook, boolean needsPrivateBedroom, String nativeLanguage, boolean hasCar) {
+    public User(String email, String password, String name, String gender, int age, int maxBudget, boolean doesSmoke, boolean drugsOkay, boolean hasPets, boolean partiesOkay, boolean canCook, boolean needsPrivateBedroom, String nativeLanguage, boolean hasCar, boolean isVerified) {
         this.email = email;
         this.password = password;
         this.name = name;
@@ -31,6 +32,7 @@ public class User {
         this.needsPrivateBedroom = needsPrivateBedroom;
         this.nativeLanguage = nativeLanguage;
         this.hasCar = hasCar;
+        this.isVerified = isVerified;
     }
 
     public User(String email, String password, String name, String gender, int age) {

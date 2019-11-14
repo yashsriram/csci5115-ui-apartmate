@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -72,6 +73,7 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         recyclerView.setNestedScrollingEnabled(false);
 
+        final RatingBar ratingBar = findViewById(R.id.ratingBar);
         final TextView name = layout.findViewById(R.id.name);
         final TextView address = layout.findViewById(R.id.address);
         final CheckBox refrigerator = layout.findViewById(R.id.refrigerator);
@@ -93,6 +95,7 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         final CheckBox sprinklers = layout.findViewById(R.id.sprinklers);
         final CheckBox buildingLock = layout.findViewById(R.id.buildingLock);
 
+        ratingBar.setVisibility(DataManager.getInstance().currentUser.isVerified ? View.VISIBLE : View.GONE);
         name.setText(apartment.name);
         address.setText(apartment.address);
 

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,7 +38,7 @@ public class UserSearchFragment extends Fragment {
 
     private UserSearchViewModel userSearchViewModel;
     private RecyclerView recyclerView;
-    private Map<String,User> userSearchResults = DataManager.getInstance().users;
+    private List<User> userSearchResults = DataManager.getUserList();
 
     private UserSearchResultsAdapter.ItemClickListener itemClickListener = new UserSearchResultsAdapter.ItemClickListener() {
         @Override
@@ -50,7 +51,7 @@ public class UserSearchFragment extends Fragment {
     };
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-                                ViewGroup container, Bundle savedInstanceState) {
+                             ViewGroup container, Bundle savedInstanceState) {
         userSearchViewModel =
                 ViewModelProviders.of(this).get(UserSearchViewModel.class);
         View root = inflater.inflate(R.layout.fragment_user_search, container, false);
@@ -59,7 +60,7 @@ public class UserSearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), UserSearchActivity.class);
-                startActivityForResult(intent,1);
+                startActivityForResult(intent, 1);
             }
         });
 
@@ -80,12 +81,12 @@ public class UserSearchFragment extends Fragment {
                     int age = data.getIntExtra("age", -1);
                     int maxBudget = data.getIntExtra("maxBudget", -1);
                     int doesSmoke = data.getIntExtra("doesSmoke", -1);
-                    int drugsOkay= data.getIntExtra("drugsOkay", -1);
-                    int  hasPets= data.getIntExtra("hasPets", -1);
-                    int  partiesOkay= data.getIntExtra("partiesOkay", -1);
-                    int  canCook= data.getIntExtra("canCook", -1);
-                    int  needsPrivateBedroom= data.getIntExtra("needsPrivateBedroom", -1);
-                    int  hasCar= data.getIntExtra("hasCar", -1);
+                    int drugsOkay = data.getIntExtra("drugsOkay", -1);
+                    int hasPets = data.getIntExtra("hasPets", -1);
+                    int partiesOkay = data.getIntExtra("partiesOkay", -1);
+                    int canCook = data.getIntExtra("canCook", -1);
+                    int needsPrivateBedroom = data.getIntExtra("needsPrivateBedroom", -1);
+                    int hasCar = data.getIntExtra("hasCar", -1);
                     String nativeLanguage = data.getStringExtra("nativeLanguage");
 
 
@@ -114,27 +115,26 @@ public class UserSearchFragment extends Fragment {
         }
     }
 
-    public static Map<String,User> searchUsers(String searchText,
-                                                  String gender, int age,
-                                               int maxBudget,
-                                               int doesSmoke,
-                                              int drugsOkay,
-                                              int hasPets,
-                                               int  partiesOkay,
-                                               int   canCook,
-                                               int    needsPrivateBedroom,
-                                               int    hasCar,
-                                               String    nativeLanguage) {
+    public static List<User> searchUsers(String searchText,
+                                         String gender, int age,
+                                         int maxBudget,
+                                         int doesSmoke,
+                                         int drugsOkay,
+                                         int hasPets,
+                                         int partiesOkay,
+                                         int canCook,
+                                         int needsPrivateBedroom,
+                                         int hasCar,
+                                         String nativeLanguage) {
         String regexString = ".*" + searchText + ".*";
         Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
-        Pattern pattern2 = Pattern.compile(gender+".*", Pattern.CASE_INSENSITIVE);
-        Pattern pattern3 = Pattern.compile(".*" +nativeLanguage+".*", Pattern.CASE_INSENSITIVE);
-        Map<String,User> results = new HashMap<>();
-        Map<String,User> mapa=DataManager.getInstance().users;
-        for (Map.Entry<String, User> entry : mapa.entrySet()) {
-            User usern=entry.getValue();
+        Pattern pattern2 = Pattern.compile(gender + ".*", Pattern.CASE_INSENSITIVE);
+        Pattern pattern3 = Pattern.compile(".*" + nativeLanguage + ".*", Pattern.CASE_INSENSITIVE);
+        List<User> results = new ArrayList<>();
+        for (Map.Entry<String, User> entry : DataManager.getInstance().users.entrySet()) {
+            User usern = entry.getValue();
             // If search matches name or address and all filters match then only add apt to search results
-            if ((pattern.matcher(usern.name).matches() )
+            if ((pattern.matcher(usern.name).matches())
                     && filterMatch(doesSmoke, usern.doesSmoke)
                     && filterMatch(drugsOkay, usern.drugsOkay)
                     && filterMatch(hasPets, usern.hasPets)
@@ -142,12 +142,12 @@ public class UserSearchFragment extends Fragment {
                     && filterMatch(canCook, usern.canCook)
                     && filterMatch(needsPrivateBedroom, usern.needsPrivateBedroom)
                     && filterMatch(hasCar, usern.hasCar)
-                    &&(usern.maxBudget==maxBudget||maxBudget==-1)
-                    &&pattern2.matcher(usern.gender).matches()
-                    &&pattern3.matcher(usern.nativeLanguage).matches()
-                    &&(age== usern.age||age==-1)
-                   ) {
-                results.put(entry.getValue().email,entry.getValue());
+                    && (usern.maxBudget == maxBudget || maxBudget == -1)
+                    && pattern2.matcher(usern.gender).matches()
+                    && pattern3.matcher(usern.nativeLanguage).matches()
+                    && (age == usern.age || age == -1)
+            ) {
+                results.add(entry.getValue());
             }
         }
         return results;
