@@ -43,10 +43,8 @@ public class UserSearchFragment extends Fragment {
     private UserSearchResultsAdapter.ItemClickListener itemClickListener = new UserSearchResultsAdapter.ItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
-            Intent i = new Intent(getContext(), UserSRLCustomizationActivity.class);
             //add user detail page
-
-            startActivity(i);
+            Snackbar.make(getView(), "TODO", Snackbar.LENGTH_SHORT).show();
         }
     };
 

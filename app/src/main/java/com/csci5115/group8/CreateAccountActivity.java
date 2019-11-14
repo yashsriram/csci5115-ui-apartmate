@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.user.User;
+import com.google.android.material.snackbar.Snackbar;
 
 public class CreateAccountActivity extends AppCompatActivity {
 
@@ -41,15 +42,15 @@ public class CreateAccountActivity extends AppCompatActivity {
                 String _age = age.getText().toString();
                 String _gender = gender.getText().toString();
                 if (_username.isEmpty() || _email.isEmpty() || _password.isEmpty() || _repeatPassword.isEmpty() || _age.isEmpty() || _gender.isEmpty()) {
-                    Toast.makeText(CreateAccountActivity.this, "Please fill all fields", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view, "Please fill all fields", Snackbar.LENGTH_LONG).show();
                     return;
                 }
                 if (!_password.equals(_repeatPassword)) {
-                    Toast.makeText(CreateAccountActivity.this, "Passwords do not match. Please recheck", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view, "Passwords do not match. Please recheck", Snackbar.LENGTH_LONG).show();
                     return;
                 }
                 if (DataManager.getInstance().users.containsKey(email.getText().toString())) {
-                    Toast.makeText(CreateAccountActivity.this, "Account with same email exists. Please try using another email", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view, "Account with same email exists. Please try using another email", Snackbar.LENGTH_LONG).show();
                     return;
                 }
                 DataManager.getInstance().users.put(

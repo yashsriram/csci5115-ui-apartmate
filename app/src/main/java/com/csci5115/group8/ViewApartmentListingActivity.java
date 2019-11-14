@@ -95,7 +95,7 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         final CheckBox sprinklers = layout.findViewById(R.id.sprinklers);
         final CheckBox buildingLock = layout.findViewById(R.id.buildingLock);
 
-//        ratingBar.setVisibility(DataManager.getInstance().currentUser.isVerified ? View.VISIBLE : View.GONE);
+        ratingBar.setVisibility(DataManager.getInstance().currentUser.isVerified ? View.VISIBLE : View.GONE);
         name.setText(apartment.name);
         address.setText(apartment.address);
 

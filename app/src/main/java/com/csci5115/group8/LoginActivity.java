@@ -51,10 +51,10 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String _email = email.getText().toString();
                 Map<String, User> users = DataManager.getInstance().users;
-                if (users.containsKey(email.getText().toString())
-                        && users.get(email.getText().toString()).password.equals(password.getText().toString())) {
-                    DataManager.getInstance().currentUser = DataManager.getInstance().users.get(users.get(email.getText().toString()));
+                if (users.containsKey(_email) && users.get(_email) != null && users.get(_email).password.equals(password.getText().toString())) {
+                    DataManager.getInstance().currentUser = DataManager.getInstance().users.get(_email);
                     Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                     startActivity(intent);
                 } else {
