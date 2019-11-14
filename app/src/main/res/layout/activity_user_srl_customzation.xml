@@ -65,6 +65,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/name" />
 
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -131,6 +133,29 @@
                     android:layout_weight="0.1" />
 
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.9"
+                    android:text="details" />
+
+                <Switch
+                    android:id="@+id/detailsSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1" />
+
+            </LinearLayout>
+
+
+
 
 
         </LinearLayout>
