@@ -7,16 +7,28 @@
     android:layout_height="match_parent"
     tools:context="com.csci5115.group8.ViewApartmentListingActivity">
 
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/name"
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
         android:hint="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/ratingBar" />
 
     <TextView
         android:id="@+id/address"
@@ -62,28 +74,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/refrigerator"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Refrigerator" />
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/oven"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Oven"
                         app:layout_constraintTop_toTopOf="@id/refrigerator" />
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/microwave"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Microwave"
                         app:layout_constraintTop_toTopOf="@id/oven" />
@@ -94,29 +109,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/dishwasher"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Dishwasher"
                         app:layout_constraintTop_toTopOf="@id/microwave" />
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/washingMachine"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Washing Machine"
                         app:layout_constraintEnd_toEndOf="parent" />
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/heating"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Heating"
                         tools:layout_editor_absoluteX="150dp" />
@@ -128,10 +146,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/cooling"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Cooling" />
 
@@ -157,28 +176,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/laundryRoom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Laundry Room" />
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/longue"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Longue"
                         app:layout_constraintTop_toTopOf="@id/refrigerator" />
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/printingService"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Printing Service"
 
@@ -190,28 +212,31 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/reception"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Reception"
                         app:layout_constraintTop_toTopOf="@id/microwave" />
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/parking"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Parking"
                         app:layout_constraintEnd_toEndOf="parent" />
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:visibility="invisible"
                         app:layout_constraintEnd_toEndOf="parent" />
@@ -238,27 +263,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/securityCameras"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Security Cameras" />
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/smokeDetectors"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Smoke Detectors" />
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/sprinklers"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Sprinklers" />
 
@@ -268,11 +296,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                    <CheckBox android:editable="false"
+                    <CheckBox
                         android:id="@+id/buildingLock"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:editable="false"
                         android:padding="5dp"
                         android:text="Building Lock" />
 
@@ -290,9 +319,9 @@
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/unitsList"
-                android:paddingBottom="150dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:paddingBottom="150dp" />
 
 
         </LinearLayout>
@@ -310,6 +339,5 @@
         android:src="@drawable/ic_edit_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
