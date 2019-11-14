@@ -5,4 +5,5 @@ public class UserSRL {
     public final static boolean nameVisible = true;
     public static boolean ageVisible = true;
     public static boolean genderVisible = true;
+    public static boolean detailsVisible = true;
 }

@@ -44,6 +44,22 @@ public class UserSRLCustomizationActivity extends AppCompatActivity {
             }
         });
 
+        final Switch detailsSwitch = layout.findViewById(R.id.detailsSwitch);
+        detailsSwitch.setChecked(UserSRL.detailsVisible);
+        final View detail = layout.findViewById(R.id.details);
+        final View detailsHint = layout.findViewById(R.id.detailsHint);
+        detail.setVisibility(UserSRL.detailsVisible ? View.VISIBLE : View.GONE);
+        detailsHint.setVisibility(UserSRL.detailsVisible ? View.VISIBLE : View.GONE);
+        detailsSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                detail.setVisibility(b ? View.VISIBLE : View.GONE);
+                detailsHint.setVisibility(b ? View.VISIBLE : View.GONE);
+                UserSRL.detailsVisible = b;
+
+            }
+        });
+
     }
 
 }
