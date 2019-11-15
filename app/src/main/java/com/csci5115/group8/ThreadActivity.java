@@ -48,8 +48,8 @@ public class ThreadActivity extends AppCompatActivity implements threadMessagesF
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thread);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
 
         System.out.println("GOT");
         System.out.println(this.getThread().first_name);
