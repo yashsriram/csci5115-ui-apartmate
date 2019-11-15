@@ -64,18 +64,6 @@ public class DataManager {
         }
     }
 
-    public static void generateNotification(String message) {
-        notifications.add(new Notification(message));
-    }
-
-    public static int getUnreadNotifications() {
-        int num = 0;
-        for (Notification n : notifications) {
-            if (!n.read) num++;
-        }
-        return num;
-    }
-
     public static List<User> searchUsers(UserSearchState state) {
         String regexString = ".*" + state.searchText + ".*";
         Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
@@ -130,6 +118,18 @@ public class DataManager {
             }
         }
         return results;
+    }
+
+    public static void generateNotification(String message) {
+        notifications.add(new Notification(message));
+    }
+
+    public static int getUnreadNotifications() {
+        int num = 0;
+        for (Notification n : notifications) {
+            if (!n.read) num++;
+        }
+        return num;
     }
 
     private static boolean filterMatch(int filter, boolean field) {

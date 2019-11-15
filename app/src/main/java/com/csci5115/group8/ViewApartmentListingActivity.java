@@ -17,6 +17,7 @@ import com.csci5115.group8.adapters.ApartmentUnitAdapter;
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.apartment.Apartment;
 import com.csci5115.group8.data.apartment.ApartmentUnit;
+import com.csci5115.group8.data.user.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -63,8 +64,9 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
     }
 
     private void refresh() {
-        Apartment apartment = DataManager.getApartment(apartmentId);
-        if (apartmentId == -1 || apartment == null) {
+        Apartment currentApartment = DataManager.getApartment(apartmentId);
+        final User currentUser = DataManager.currentUser;
+        if (apartmentId == -1 || currentApartment == null) {
             Toast.makeText(this, "It seems that the information of this apartment is removed from our system", Toast.LENGTH_LONG).show();
             finish();
         }
@@ -73,7 +75,7 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
 
         final RecyclerView recyclerView = layout.findViewById(R.id.unitsList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        List<ApartmentUnit> apartmentUnits = apartment.units;
+        List<ApartmentUnit> apartmentUnits = currentApartment.units;
         final RecyclerView.Adapter adapter = new ApartmentUnitAdapter(this, apartmentUnits, null);
         recyclerView.setAdapter(adapter);
         recyclerView.setNestedScrollingEnabled(false);
@@ -101,42 +103,52 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         final CheckBox buildingLock = layout.findViewById(R.id.buildingLock);
 
         ratingBar.setVisibility(DataManager.currentUser.isVerified ? View.VISIBLE : View.GONE);
-        name.setText(apartment.name);
-        address.setText(apartment.address);
+        ratingBar.setRating(DataManager.reviewManager.getReview(apartmentId, currentUser.email));
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                if (fromUser) {
+                    DataManager.reviewManager.setReview(apartmentId, currentUser.email, rating);
+                    Snackbar.make(ratingBar, "Rating updated", Snackbar.LENGTH_SHORT).show();
+                }
+            }
+        });
+        name.setText(currentApartment.name);
+        address.setText(currentApartment.address);
 
-        refrigerator.setChecked(apartment.perUnitAmenities.refrigerator);
+        refrigerator.setChecked(currentApartment.perUnitAmenities.refrigerator);
         refrigerator.setEnabled(false);
-        oven.setChecked(apartment.perUnitAmenities.oven);
-        microwave.setChecked(apartment.perUnitAmenities.microwave);
+        oven.setChecked(currentApartment.perUnitAmenities.oven);
+        microwave.setChecked(currentApartment.perUnitAmenities.microwave);
         microwave.setEnabled(false);
         oven.setEnabled(false);
-        dishwasher.setChecked(apartment.perUnitAmenities.dishwasher);
+        dishwasher.setChecked(currentApartment.perUnitAmenities.dishwasher);
         dishwasher.setEnabled(false);
-        washingMachine.setChecked(apartment.perUnitAmenities.washingMachine);
+        washingMachine.setChecked(currentApartment.perUnitAmenities.washingMachine);
         washingMachine.setEnabled(false);
-        heating.setChecked(apartment.perUnitAmenities.heating);
+        heating.setChecked(currentApartment.perUnitAmenities.heating);
         heating.setEnabled(false);
-        cooling.setChecked(apartment.perUnitAmenities.cooling);
+        cooling.setChecked(currentApartment.perUnitAmenities.cooling);
         cooling.setEnabled(false);
 
-        laundryRoom.setChecked(apartment.commonAmenities.laundryRoom);
+        laundryRoom.setChecked(currentApartment.commonAmenities.laundryRoom);
         laundryRoom.setEnabled(false);
-        longue.setChecked(apartment.commonAmenities.longue);
+        longue.setChecked(currentApartment.commonAmenities.longue);
         longue.setEnabled(false);
-        printingService.setChecked(apartment.commonAmenities.printingService);
+        printingService.setChecked(currentApartment.commonAmenities.printingService);
         printingService.setEnabled(false);
-        reception.setChecked(apartment.commonAmenities.reception);
+        reception.setChecked(currentApartment.commonAmenities.reception);
         reception.setEnabled(false);
-        parking.setChecked(apartment.commonAmenities.parking);
+        parking.setChecked(currentApartment.commonAmenities.parking);
         parking.setEnabled(false);
 
-        securityCameras.setChecked(apartment.securityFeatures.securityCameras);
+        securityCameras.setChecked(currentApartment.securityFeatures.securityCameras);
         securityCameras.setEnabled(false);
-        smokeDetectors.setChecked(apartment.securityFeatures.smokeDetectors);
+        smokeDetectors.setChecked(currentApartment.securityFeatures.smokeDetectors);
         smokeDetectors.setEnabled(false);
-        sprinklers.setChecked(apartment.securityFeatures.sprinklers);
+        sprinklers.setChecked(currentApartment.securityFeatures.sprinklers);
         sprinklers.setEnabled(false);
-        buildingLock.setChecked(apartment.securityFeatures.buildingLock);
+        buildingLock.setChecked(currentApartment.securityFeatures.buildingLock);
         buildingLock.setEnabled(false);
     }
 
