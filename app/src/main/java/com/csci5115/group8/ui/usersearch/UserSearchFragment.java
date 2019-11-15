@@ -48,7 +48,7 @@ public class UserSearchFragment extends Fragment {
             @Override
             public void onRefresh() {
                 userSearchResults = DataManager.searchUsers(DataManager.userSearchState);
-                recyclerView.setAdapter(new UserSearchResultsAdapter(getContext(), userSearchResults, null));
+                recyclerView.setAdapter(new UserSearchResultsAdapter(getContext(), userSearchResults, itemClickListener));
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -102,7 +102,7 @@ public class UserSearchFragment extends Fragment {
                     );
 
                     userSearchResults = DataManager.searchUsers(DataManager.userSearchState);
-                    recyclerView.setAdapter(new UserSearchResultsAdapter(getContext(), userSearchResults, null));
+                    recyclerView.setAdapter(new UserSearchResultsAdapter(getContext(), userSearchResults, itemClickListener));
 
                     break;
                 case AppCompatActivity.RESULT_CANCELED:

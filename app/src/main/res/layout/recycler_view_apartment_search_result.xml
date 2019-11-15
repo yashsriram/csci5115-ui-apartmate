@@ -86,20 +86,20 @@
             app:layout_constraintTop_toBottomOf="@+id/securityFeaturesHintHolder" />
 
         <TextView
-            android:id="@+id/numAvailableByNumTotalUnitsHintHolder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="# available units"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/numAvailableByNumTotalUnitsHolder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/numAvailableByNumTotalUnitsHintHolder" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/averageRatingHolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/numAvailableByNumTotalUnitsHolder" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

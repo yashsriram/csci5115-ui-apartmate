@@ -175,21 +175,20 @@
             </TableLayout>
 
             <TextView
-                style="@style/TextAppearance.AppCompat.Medium"
+                android:id="@+id/numAvailableByNumTotalUnits"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/numAvailableByNumTotalUnitsHint"
-                android:text="# available units"
+                android:text="3 units available of total 10"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/numAvailableByNumTotalUnits"
+                android:id="@+id/averageRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3 / 10"
+                android:text="3.5 stars / 100 ppl"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/numAvailableByNumTotalUnitsHint" />
+                app:layout_constraintTop_toBottomOf="@+id/numAvailableByNumTotalUnits" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
@@ -308,6 +307,26 @@
 
                 <Switch
                     android:id="@+id/numAvailableByNumTotalUnitsSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.9"
+                    android:text="Average rating" />
+
+                <Switch
+                    android:id="@+id/averageRatingSwitch"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.1" />

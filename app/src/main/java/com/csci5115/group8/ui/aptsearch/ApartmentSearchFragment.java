@@ -49,7 +49,7 @@ public class ApartmentSearchFragment extends Fragment {
             @Override
             public void onRefresh() {
                 apartmentSearchResults = DataManager.searchApartments(DataManager.apartmentSearchState);
-                recyclerView.setAdapter(new ApartmentSearchResultsAdapter(getContext(), apartmentSearchResults, null));
+                recyclerView.setAdapter(new ApartmentSearchResultsAdapter(getContext(), apartmentSearchResults, itemClickListener));
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
@@ -115,7 +115,7 @@ public class ApartmentSearchFragment extends Fragment {
                     );
 
                     apartmentSearchResults = DataManager.searchApartments(DataManager.apartmentSearchState);
-                    recyclerView.setAdapter(new ApartmentSearchResultsAdapter(getContext(), apartmentSearchResults, null));
+                    recyclerView.setAdapter(new ApartmentSearchResultsAdapter(getContext(), apartmentSearchResults, itemClickListener));
 
                     break;
                 case AppCompatActivity.RESULT_CANCELED:

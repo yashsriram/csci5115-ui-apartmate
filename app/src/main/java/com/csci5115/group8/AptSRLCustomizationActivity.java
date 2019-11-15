@@ -72,15 +72,24 @@ public class AptSRLCustomizationActivity extends AppCompatActivity {
         final Switch numAvailableByNumTotalUnitsSwitch = layout.findViewById(R.id.numAvailableByNumTotalUnitsSwitch);
         numAvailableByNumTotalUnitsSwitch.setChecked(ApartmentSRL.numAvailableByNumTotalUnitsVisible);
         final View numAvailableByNumTotalUnits = layout.findViewById(R.id.numAvailableByNumTotalUnits);
-        final View numAvailableByNumTotalUnitsHint = layout.findViewById(R.id.numAvailableByNumTotalUnitsHint);
         numAvailableByNumTotalUnits.setVisibility(ApartmentSRL.numAvailableByNumTotalUnitsVisible ? View.VISIBLE : View.GONE);
-        numAvailableByNumTotalUnitsHint.setVisibility(ApartmentSRL.numAvailableByNumTotalUnitsVisible ? View.VISIBLE : View.GONE);
         numAvailableByNumTotalUnitsSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 numAvailableByNumTotalUnits.setVisibility(b ? View.VISIBLE : View.GONE);
-                numAvailableByNumTotalUnitsHint.setVisibility(b ? View.VISIBLE : View.GONE);
                 ApartmentSRL.numAvailableByNumTotalUnitsVisible = b;
+            }
+        });
+
+        final Switch averageRatingSwitch = layout.findViewById(R.id.averageRatingSwitch);
+        averageRatingSwitch.setChecked(ApartmentSRL.averageRatingVisible);
+        final View averageRating = layout.findViewById(R.id.averageRating);
+        averageRating.setVisibility(ApartmentSRL.averageRatingVisible ? View.VISIBLE : View.GONE);
+        averageRatingSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                averageRating.setVisibility(b ? View.VISIBLE : View.GONE);
+                ApartmentSRL.averageRatingVisible = b;
             }
         });
 

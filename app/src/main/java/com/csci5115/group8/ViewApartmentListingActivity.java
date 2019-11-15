@@ -162,10 +162,6 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
 
     private void refreshRatingBlock() {
         Map<Integer, Integer> starCountHistogram = DataManager.reviewManager.getStarCountHistogram(apartmentId);
-        int total = 0;
-        for (int rating = 1; rating < 6; rating++) {
-            total += starCountHistogram.get(rating);
-        }
 
         final ConstraintLayout layout = findViewById(R.id.activity_view_apartment_listing);
 
@@ -183,11 +179,13 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         ratingCounts.add((TextView) layout.findViewById(R.id.rating4Count));
         ratingCounts.add((TextView) layout.findViewById(R.id.rating5Count));
 
+        int total = 0;
         float weightedRating = 0;
         for (int i = 0; i < 5; i++) {
+            total += starCountHistogram.get(i + 1);
+            weightedRating += (i + 1) * starCountHistogram.get(i + 1);
             ratingPercentages.get(i).setProgress(total == 0 ? 0 : (int) ((float) starCountHistogram.get(i + 1) / total * 100));
             ratingCounts.get(i).setText(starCountHistogram.get(i + 1) + " people");
-            weightedRating += (i + 1) * starCountHistogram.get(i + 1);
         }
 
         final TextView averageRating = layout.findViewById(R.id.averageRating);

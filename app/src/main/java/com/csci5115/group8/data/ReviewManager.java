@@ -1,5 +1,7 @@
 package com.csci5115.group8.data;
 
+import android.util.Pair;
+
 import com.csci5115.group8.data.apartment.Apartment;
 import com.csci5115.group8.data.user.User;
 
@@ -57,6 +59,17 @@ public class ReviewManager {
             }
         }
         return starCountHistogram;
+    }
+
+    public Pair<Integer, Float> getAverageRatingAndTotalReviews(int apartmentId) {
+        Map<Integer, Integer> starCountHistogram = getStarCountHistogram(apartmentId);
+        int total = 0;
+        float weightedRating = 0;
+        for (int rating = 1; rating < 6; rating++) {
+            total += starCountHistogram.get(rating);
+            weightedRating += rating * starCountHistogram.get(rating);
+        }
+        return total == 0 ? null : new Pair<>(total, weightedRating / total);
     }
 
 }

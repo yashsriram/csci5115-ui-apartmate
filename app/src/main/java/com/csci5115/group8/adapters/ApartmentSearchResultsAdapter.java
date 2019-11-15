@@ -1,6 +1,7 @@
 package com.csci5115.group8.adapters;
 
 import android.content.Context;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.csci5115.group8.R;
+import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.apartment.Apartment;
 import com.csci5115.group8.data.apartment.ApartmentSRL;
 import com.csci5115.group8.data.apartment.ApartmentUnit;
@@ -26,7 +28,7 @@ public class ApartmentSearchResultsAdapter extends RecyclerView.Adapter<Apartmen
         TextView securityFeatures;
         TextView securityFeaturesHint;
         TextView numAvailableByNumTotalUnits;
-        TextView numAvailableByNumTotalUnitsHint;
+        TextView averageRating;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -39,7 +41,7 @@ public class ApartmentSearchResultsAdapter extends RecyclerView.Adapter<Apartmen
             securityFeatures = itemView.findViewById(R.id.securityFeaturesHolder);
             securityFeaturesHint = itemView.findViewById(R.id.securityFeaturesHintHolder);
             numAvailableByNumTotalUnits = itemView.findViewById(R.id.numAvailableByNumTotalUnitsHolder);
-            numAvailableByNumTotalUnitsHint = itemView.findViewById(R.id.numAvailableByNumTotalUnitsHintHolder);
+            averageRating = itemView.findViewById(R.id.averageRatingHolder);
             itemView.setOnClickListener(this);
         }
 
@@ -105,9 +107,12 @@ public class ApartmentSearchResultsAdapter extends RecyclerView.Adapter<Apartmen
                 numAvailable++;
             }
         }
-        holder.numAvailableByNumTotalUnits.setText(truncate(numAvailable + " / " + apartment.units.size(), 10));
+        holder.numAvailableByNumTotalUnits.setText(truncate(numAvailable + " units available of total " + apartment.units.size(), 30));
         holder.numAvailableByNumTotalUnits.setVisibility(ApartmentSRL.numAvailableByNumTotalUnitsVisible ? View.VISIBLE : View.GONE);
-        holder.numAvailableByNumTotalUnitsHint.setVisibility(ApartmentSRL.numAvailableByNumTotalUnitsVisible ? View.VISIBLE : View.GONE);
+        Pair<Integer, Float> avgRatingAndTotalReviews = DataManager.reviewManager.getAverageRatingAndTotalReviews(apartment.id);
+        holder.averageRating.setText(avgRatingAndTotalReviews == null ?
+                "No reviews yet" : avgRatingAndTotalReviews.second + " stars / " + avgRatingAndTotalReviews.first + " ppl");
+        holder.averageRating.setVisibility(ApartmentSRL.averageRatingVisible ? View.VISIBLE : View.GONE);
     }
 
     @Override
