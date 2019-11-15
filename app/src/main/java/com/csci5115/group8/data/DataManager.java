@@ -6,6 +6,7 @@ import com.csci5115.group8.data.apartment.CommonAmenities;
 import com.csci5115.group8.data.apartment.PerUnitAmenities;
 import com.csci5115.group8.data.apartment.SecurityFeatures;
 import com.csci5115.group8.data.user.User;
+import com.csci5115.group8.data.user.UserPreferences;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -155,57 +156,18 @@ public class DataManager {
 
     private void createUserData() {
         users.put("john@apartmate.com",
-                new User("john@apartmate.com",
-                        "pass",
-                        "John",
-                        "male",
-                        20,
-                        600,
-                        false,
-                        false,
-                        true,
-                        true,
-                        true,
-                        true,
-                        "English",
-                        false,
-                        true
+                new User("john@apartmate.com", "john", "John Doe", "male", 20, 600, "English", true,
+                        new UserPreferences(true, false, false, true, false, false, true)
                 )
         );
         users.put("kate@apartmate.com",
-                new User("kate@apartmate.com",
-                        "pass",
-                        "Kate",
-                        "female",
-                        22,
-                        620,
-                        true,
-                        false,
-                        true,
-                        true,
-                        false,
-                        true,
-                        "English",
-                        true,
-                        true
+                new User("kate@apartmate.com", "kate", "Kate", "female", 23, 700, "Spanish", false,
+                        new UserPreferences(true, false, true, true, true, false, true)
                 )
         );
         users.put("nate@apartmate.com",
-                new User("nate@apartmate.com",
-                        "pass",
-                        "Nate",
-                        "male",
-                        24,
-                        500,
-                        false,
-                        true,
-                        true,
-                        true,
-                        true,
-                        false,
-                        "Spanish",
-                        false,
-                        false
+                new User("nate@apartmate.com", "nate", "Nate", "female", 22, 620, "English", true,
+                        new UserPreferences(true, true, false, true, true, true, true)
                 )
         );
     }

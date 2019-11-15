@@ -88,13 +88,13 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
         holder.gender.setVisibility(UserSRL.genderVisible ? View.VISIBLE : View.GONE);
         holder.commonAmenities.setText(truncate(
                 "Max budget: " + java.lang.Integer.toString(user.maxBudget)
-                        + "\nSmoke?     " + yesOrNo(user.doesSmoke)
-                        + "              Drugs Okay?    " + yesOrNo(user.drugsOkay)
-                        + "\nHas pets?  " + yesOrNo(user.hasPets)
-                        + "            Parties Okay? " + yesOrNo(user.partiesOkay)
-                        + "\nCan cook? " + yesOrNo(user.canCook)
-                        + "            Has car?           " + yesOrNo(user.hasCar)
-                        + "\nNeeds private bedroom? " + yesOrNo(user.needsPrivateBedroom)
+                        + "\nSmoke?     " + yesOrNo(user.preferences.doesSmoke)
+                        + "              Drugs Okay?    " + yesOrNo(user.preferences.drugsOkay)
+                        + "\nHas pets?  " + yesOrNo(user.preferences.hasPets)
+                        + "            Parties Okay? " + yesOrNo(user.preferences.partiesOkay)
+                        + "\nCan cook? " + yesOrNo(user.preferences.canCook)
+                        + "            Has car?           " + yesOrNo(user.preferences.hasCar)
+                        + "\nNeeds private bedroom? " + yesOrNo(user.preferences.needsPrivateBedroom)
                         + "\nNative Language:                " + user.nativeLanguage, 500));
         holder.commonAmenities.setVisibility(UserSRL.detailsVisible ? View.VISIBLE : View.GONE);
         holder.commonAmenitiesHint.setVisibility(UserSRL.detailsVisible ? View.VISIBLE : View.GONE);

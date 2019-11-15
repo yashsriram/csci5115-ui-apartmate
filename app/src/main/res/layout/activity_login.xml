@@ -27,15 +27,15 @@
         android:inputType="textEmailAddress"/>
 
     <EditText
-        android:layout_marginTop="15dp"
         android:id="@+id/password"
-        android:text="pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="password"
-        android:textColorHint="#95A1AA"
-        android:inputType="textPassword"/>
+        android:inputType="textPassword"
+        android:text="john"
+        android:textColorHint="#95A1AA" />
 
     <Button
         android:id="@+id/login"

@@ -130,20 +130,20 @@ public class UserSearchFragment extends Fragment {
         Pattern pattern3 = Pattern.compile(".*" + nativeLanguage + ".*", Pattern.CASE_INSENSITIVE);
         List<User> results = new ArrayList<>();
         for (Map.Entry<String, User> entry : DataManager.getInstance().users.entrySet()) {
-            User usern = entry.getValue();
+            User user = entry.getValue();
             // If search matches name or address and all filters match then only add apt to search results
-            if ((pattern.matcher(usern.name).matches())
-                    && filterMatch(doesSmoke, usern.doesSmoke)
-                    && filterMatch(drugsOkay, usern.drugsOkay)
-                    && filterMatch(hasPets, usern.hasPets)
-                    && filterMatch(partiesOkay, usern.partiesOkay)
-                    && filterMatch(canCook, usern.canCook)
-                    && filterMatch(needsPrivateBedroom, usern.needsPrivateBedroom)
-                    && filterMatch(hasCar, usern.hasCar)
-                    && (usern.maxBudget == maxBudget || maxBudget == -1)
-                    && pattern2.matcher(usern.gender).matches()
-                    && pattern3.matcher(usern.nativeLanguage).matches()
-                    && (age == usern.age || age == -1)
+            if ((pattern.matcher(user.name).matches())
+                    && filterMatch(doesSmoke, user.preferences.doesSmoke)
+                    && filterMatch(drugsOkay, user.preferences.drugsOkay)
+                    && filterMatch(hasPets, user.preferences.hasPets)
+                    && filterMatch(partiesOkay, user.preferences.partiesOkay)
+                    && filterMatch(canCook, user.preferences.canCook)
+                    && filterMatch(needsPrivateBedroom, user.preferences.needsPrivateBedroom)
+                    && filterMatch(hasCar, user.preferences.hasCar)
+                    && (user.maxBudget == maxBudget || maxBudget == -1)
+                    && pattern2.matcher(user.gender).matches()
+                    && pattern3.matcher(user.nativeLanguage).matches()
+                    && (age == user.age || age == -1)
             ) {
                 results.add(entry.getValue());
             }
