@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.user.User;
+import com.csci5115.group8.data.user.User.UserPreferences;
 import com.google.android.material.snackbar.Snackbar;
 
 public class CreateAccountActivity extends AppCompatActivity {
@@ -53,7 +54,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                     Snackbar.make(view, "Account with same email exists. Please try using another email", Snackbar.LENGTH_LONG).show();
                     return;
                 }
-                DataManager.users.add(new User(_email, _password, _username, _gender, Integer.parseInt(_age)));
+                new User(_email, _password, _username, _gender, _age, "", -1, "", new UserPreferences(false, false, false, false, false, false)));
                 Toast.makeText(CreateAccountActivity.this, "Account created successfully. Please log in", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
