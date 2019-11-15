@@ -13,6 +13,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.csci5115.group8.adapters.ApartmentUnitAdapter;
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.apartment.Apartment;
 import com.csci5115.group8.data.apartment.ApartmentUnit;

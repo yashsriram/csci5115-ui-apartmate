@@ -12,6 +12,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.csci5115.group8.adapters.ApartmentUnitAdapter;
 import com.csci5115.group8.data.apartment.Apartment;
 import com.csci5115.group8.data.apartment.ApartmentUnit;
 import com.csci5115.group8.data.apartment.CommonAmenities;

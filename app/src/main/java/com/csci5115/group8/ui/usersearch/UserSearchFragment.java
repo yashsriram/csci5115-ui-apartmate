@@ -5,23 +5,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.csci5115.group8.EditYourProfileActivity;
 import com.csci5115.group8.R;
-import com.csci5115.group8.UserSRLCustomizationActivity;
 import com.csci5115.group8.UserSearchActivity;
-import com.csci5115.group8.UserSearchResultsAdapter;
+import com.csci5115.group8.adapters.UserSearchResultsAdapter;
 
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.user.User;
@@ -29,9 +24,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.regex.Pattern;
 
 public class UserSearchFragment extends Fragment {

@@ -1,4 +1,4 @@
-package com.csci5115.group8;
+package com.csci5115.group8.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.csci5115.group8.R;
 import com.csci5115.group8.data.apartment.ApartmentUnit;
 
 import java.util.List;

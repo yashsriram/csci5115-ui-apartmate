@@ -1,4 +1,4 @@
-package com.csci5115.group8;
+package com.csci5115.group8.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,15 +8,11 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.csci5115.group8.data.DataManager;
+import com.csci5115.group8.R;
 import com.csci5115.group8.data.user.User;
 import com.csci5115.group8.data.user.UserSRL;
 
-import org.w3c.dom.Text;
-
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchResultsAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
