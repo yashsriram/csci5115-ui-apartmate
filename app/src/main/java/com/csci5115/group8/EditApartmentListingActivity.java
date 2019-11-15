@@ -178,7 +178,7 @@ public class EditApartmentListingActivity extends AppCompatActivity {
                                 apartmentUnits
                         )
                 );
-                Toast.makeText(EditApartmentListingActivity.this, "Apartment listing updated", Toast.LENGTH_LONG).show();
+                Toast.makeText(EditApartmentListingActivity.this, "Apartment listing updated. Your level is increased!", Toast.LENGTH_LONG).show();
                 // Go back
                 finish();
             }

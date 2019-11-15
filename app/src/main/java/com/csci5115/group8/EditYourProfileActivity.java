@@ -1,5 +1,6 @@
 package com.csci5115.group8;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +22,11 @@ public class EditYourProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_your_profile);
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
         User currentUser = DataManager.currentUser;
         final TextView isVerified = findViewById(R.id.isVerified);
         final EditText name = findViewById(R.id.name);
@@ -40,7 +45,15 @@ public class EditYourProfileActivity extends AppCompatActivity {
         final TextView level = findViewById(R.id.level);
         final ImageView image = findViewById(R.id.image);
 
-        isVerified.setText(currentUser.isVerified ? "VERIFIED" : "NOT VERIFIED");
+        isVerified.setText(currentUser.isVerified ? "VERIFIED" : "NOT VERIFIED\nClick to verify\nAnd get\nrating previlages");
+        if (!currentUser.isVerified) {
+            isVerified.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(getApplicationContext(), VerificationActivity.class));
+                }
+            });
+        }
         isVerified.setTextColor(Color.WHITE);
         isVerified.setBackgroundColor(currentUser.isVerified ? Color.GREEN : Color.RED);
         name.setText(currentUser.name);

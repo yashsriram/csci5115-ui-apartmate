@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".VerificationActivity"
+            android:label="Verify yourself" />
+        <activity
             android:name=".NotificationsActivity"
             android:label="@string/title_activity_notifications"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".EditApartmentListingActivity"
             android:label="Update apartment listing" />

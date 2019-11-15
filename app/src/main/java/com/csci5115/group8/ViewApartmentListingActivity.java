@@ -86,6 +86,7 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         recyclerView.setNestedScrollingEnabled(false);
 
         final RatingBar ratingBar = findViewById(R.id.ratingBar);
+        final TextView ratingBarHint = findViewById(R.id.ratingBarHint);
         final TextView name = layout.findViewById(R.id.name);
         final TextView address = layout.findViewById(R.id.address);
         final CheckBox refrigerator = layout.findViewById(R.id.refrigerator);
@@ -108,6 +109,7 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         final CheckBox buildingLock = layout.findViewById(R.id.buildingLock);
 
         ratingBar.setVisibility(DataManager.currentUser.isVerified ? View.VISIBLE : View.GONE);
+        ratingBarHint.setVisibility(DataManager.currentUser.isVerified ? View.VISIBLE : View.GONE);
         ratingBar.setRating(DataManager.reviewManager.getReview(apartmentId, currentUser.email));
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
@@ -115,7 +117,7 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
                 if (fromUser) {
                     DataManager.reviewManager.setReview(apartmentId, currentUser.email, (int) rating);
                     refreshRatingBlock();
-                    Snackbar.make(ratingBar, "Rating updated", Snackbar.LENGTH_SHORT).show();
+                    Snackbar.make(ratingBar, "Rating saved", Snackbar.LENGTH_SHORT).show();
                 }
             }
         });

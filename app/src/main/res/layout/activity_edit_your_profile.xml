@@ -34,6 +34,7 @@
         style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:padding="10dp"
         android:text="NOT VERIFIED"
         app:layout_constraintEnd_toEndOf="@+id/level"
         app:layout_constraintStart_toStartOf="@id/level"

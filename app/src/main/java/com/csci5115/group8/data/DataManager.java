@@ -218,7 +218,7 @@ public class DataManager {
     }
 
     private static void createUserData() {
-        users.add(new User("john@apartmate.com", "john", "John Doe", "male", 20, 600, "English", true,
+        users.add(new User("john@apartmate.com", "john", "John Doe", "male", 20, 600, "English", false,
                 new UserPreferences(true, false, false, true, false, false, true),
                 0)
         );
