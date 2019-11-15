@@ -26,7 +26,7 @@ public class VerificationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_verification);
 
         String notEligibleMessage =
-                "Minimum level to apply for verification is 100. " +
+                "Minimum level to apply for verification is " + VERIFICATION_ELIGIBILITY_THRESHOLD + ". " +
                         "You can increase your level by contributing to ApartMate community by creating and correcting apartment listings";
         String eligibleMessage = "You can now request for verification and get apartment review privileges. " +
                 "Once request is made apartment listings created and edited by you will be manually tallied for information correctness";
