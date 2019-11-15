@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.user.User;
+import com.csci5115.group8.data.user.User.UserPreferences;
 import com.google.android.material.snackbar.Snackbar;
 
 public class CreateAccountActivity extends AppCompatActivity {
