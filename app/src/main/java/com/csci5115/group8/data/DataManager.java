@@ -9,6 +9,7 @@ import com.csci5115.group8.data.user.User;
 import com.csci5115.group8.data.user.UserPreferences;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +23,7 @@ public class DataManager {
     public List<Thread> threads = new ArrayList<>();
     public Map<String, User> users = new HashMap<>();
     public ReviewManager reviewManager = new ReviewManager();
+    public List<Notification> notifications = new ArrayList<>();
 
     // end public accessible data
 
@@ -35,6 +37,7 @@ public class DataManager {
         createApartmentData();
         createUserData();
         createThreadData();
+        createNotifications();
 
 
         ////// END CREATE DEFAULT DATA
@@ -80,6 +83,22 @@ public class DataManager {
 
     public static List<User> getUserList() {
         return getAllUsersList(DataManager.getInstance().users);
+    }
+
+    public void generateNotification(String message) {
+        this.notifications.add(new Notification(message));
+    }
+
+    public int getUnreadNotifications() {
+        int num = 0;
+        for (Notification n : notifications) {
+            if (!n.read) num++;
+        }
+        return num;
+    }
+
+    private void createNotifications() {
+        this.notifications.add(new Notification("First notification!"));
     }
 
     private void createApartmentData() {
