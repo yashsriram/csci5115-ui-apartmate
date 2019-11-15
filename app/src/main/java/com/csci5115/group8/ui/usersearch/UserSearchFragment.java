@@ -12,27 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.csci5115.group8.R;
 import com.csci5115.group8.UserSearchActivity;
 import com.csci5115.group8.adapters.UserSearchResultsAdapter;
-
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.user.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class UserSearchFragment extends Fragment {
 
     private UserSearchViewModel userSearchViewModel;
-    private UserSearchState userSearchState = new UserSearchState();
     private RecyclerView recyclerView;
-    private List<User> userSearchResults = DataManager.users;
+    private List<User> userSearchResults = DataManager.searchUsers(DataManager.userSearchState);
 
     private UserSearchResultsAdapter.ItemClickListener itemClickListener = new UserSearchResultsAdapter.ItemClickListener() {
         @Override
@@ -47,6 +43,15 @@ public class UserSearchFragment extends Fragment {
         userSearchViewModel =
                 ViewModelProviders.of(this).get(UserSearchViewModel.class);
         View root = inflater.inflate(R.layout.fragment_user_search, container, false);
+        final SwipeRefreshLayout swipeRefreshLayout = root.findViewById(R.id.userSearchResultsSwipeRefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                userSearchResults = DataManager.searchUsers(DataManager.userSearchState);
+                recyclerView.setAdapter(new UserSearchResultsAdapter(getContext(), userSearchResults, null));
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
         final FloatingActionButton searchUsers = root.findViewById(R.id.search_users);
         searchUsers.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +61,7 @@ public class UserSearchFragment extends Fragment {
             }
         });
 
-        recyclerView = root.findViewById(R.id.user_search_results);
+        recyclerView = root.findViewById(R.id.userSearchResults);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new UserSearchResultsAdapter(getContext(), userSearchResults, itemClickListener));
 
@@ -81,7 +86,7 @@ public class UserSearchFragment extends Fragment {
                     int hasCar = data.getIntExtra("hasCar", -1);
                     String nativeLanguage = data.getStringExtra("nativeLanguage");
 
-                    userSearchState.set(
+                    DataManager.userSearchState.set(
                             searchText,
                             gender,
                             age,
@@ -96,7 +101,7 @@ public class UserSearchFragment extends Fragment {
                             nativeLanguage
                     );
 
-                    userSearchResults = searchUsers(userSearchState);
+                    userSearchResults = DataManager.searchUsers(DataManager.userSearchState);
                     recyclerView.setAdapter(new UserSearchResultsAdapter(getContext(), userSearchResults, null));
 
                     break;
@@ -105,43 +110,6 @@ public class UserSearchFragment extends Fragment {
                 default:
                     break;
             }
-        }
-    }
-
-    public static List<User> searchUsers(UserSearchState state) {
-        String regexString = ".*" + state.searchText + ".*";
-        Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
-        Pattern pattern2 = Pattern.compile(".*" + state.gender + ".*", Pattern.CASE_INSENSITIVE);
-        Pattern pattern3 = Pattern.compile(".*" + state.nativeLanguage + ".*", Pattern.CASE_INSENSITIVE);
-        List<User> results = new ArrayList<>();
-        for (User user : DataManager.users) {
-            // If search matches name and all filters match then only add apt to search results
-            if ((pattern.matcher(user.name).matches())
-                    && filterMatch(state.doesSmoke, user.preferences.doesSmoke)
-                    && filterMatch(state.drugsOkay, user.preferences.drugsOkay)
-                    && filterMatch(state.hasPets, user.preferences.hasPets)
-                    && filterMatch(state.partiesOkay, user.preferences.partiesOkay)
-                    && filterMatch(state.canCook, user.preferences.canCook)
-                    && filterMatch(state.needsPrivateBedroom, user.preferences.needsPrivateBedroom)
-                    && filterMatch(state.hasCar, user.preferences.hasCar)
-                    && (user.maxBudget == state.maxBudget || state.maxBudget == -1)
-                    && pattern2.matcher(user.gender).matches()
-                    && pattern3.matcher(user.nativeLanguage).matches()
-                    && (state.age == user.age || state.age == -1)
-            ) {
-                results.add(user);
-            }
-        }
-        return results;
-    }
-
-    private static boolean filterMatch(int filter, boolean field) {
-        if (filter == 0) {
-            return true;
-        } else if (filter == 1) {
-            return !field;
-        } else {
-            return field;
         }
     }
 }

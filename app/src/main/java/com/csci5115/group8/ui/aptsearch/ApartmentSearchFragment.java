@@ -30,8 +30,7 @@ public class ApartmentSearchFragment extends Fragment {
 
     private ApartmentSearchViewModel apartmentSearchViewModel;
     private RecyclerView recyclerView;
-    private ApartmentSearchState apartmentSearchState = new ApartmentSearchState();
-    private List<Apartment> apartmentSearchResults = searchApartments(apartmentSearchState);
+    private List<Apartment> apartmentSearchResults = DataManager.searchApartments(DataManager.apartmentSearchState);
     private ApartmentSearchResultsAdapter.ItemClickListener itemClickListener = new ApartmentSearchResultsAdapter.ItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
@@ -49,7 +48,7 @@ public class ApartmentSearchFragment extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                apartmentSearchResults = searchApartments(apartmentSearchState);
+                apartmentSearchResults = DataManager.searchApartments(DataManager.apartmentSearchState);
                 recyclerView.setAdapter(new ApartmentSearchResultsAdapter(getContext(), apartmentSearchResults, null));
                 swipeRefreshLayout.setRefreshing(false);
             }
@@ -95,7 +94,7 @@ public class ApartmentSearchFragment extends Fragment {
                     int sprinklers = data.getIntExtra("sprinklers", -1);
                     int buildingLock = data.getIntExtra("buildingLock", -1);
 
-                    apartmentSearchState.set(
+                    DataManager.apartmentSearchState.set(
                             searchText,
                             refrigerator,
                             oven,
@@ -115,7 +114,7 @@ public class ApartmentSearchFragment extends Fragment {
                             buildingLock
                     );
 
-                    apartmentSearchResults = searchApartments(apartmentSearchState);
+                    apartmentSearchResults = DataManager.searchApartments(DataManager.apartmentSearchState);
                     recyclerView.setAdapter(new ApartmentSearchResultsAdapter(getContext(), apartmentSearchResults, null));
 
                     break;
@@ -124,45 +123,6 @@ public class ApartmentSearchFragment extends Fragment {
                 default:
                     break;
             }
-        }
-    }
-
-    public static List<Apartment> searchApartments(ApartmentSearchState state) {
-        String regexString = ".*" + state.searchText + ".*";
-        Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
-        List<Apartment> results = new ArrayList<>();
-        for (Apartment apt : DataManager.apartments) {
-            // If search matches name or address and all filters match then only add apt to search results
-            if ((pattern.matcher(apt.name).matches() || pattern.matcher(apt.address).matches())
-                    && filterMatch(state.refrigerator, apt.perUnitAmenities.refrigerator)
-                    && filterMatch(state.oven, apt.perUnitAmenities.oven)
-                    && filterMatch(state.microwave, apt.perUnitAmenities.microwave)
-                    && filterMatch(state.dishwasher, apt.perUnitAmenities.dishwasher)
-                    && filterMatch(state.washingMachine, apt.perUnitAmenities.washingMachine)
-                    && filterMatch(state.heating, apt.perUnitAmenities.heating)
-                    && filterMatch(state.cooling, apt.perUnitAmenities.cooling)
-                    && filterMatch(state.laundryRoom, apt.commonAmenities.laundryRoom)
-                    && filterMatch(state.longue, apt.commonAmenities.longue)
-                    && filterMatch(state.printingService, apt.commonAmenities.printingService)
-                    && filterMatch(state.reception, apt.commonAmenities.reception)
-                    && filterMatch(state.parking, apt.commonAmenities.parking)
-                    && filterMatch(state.securityCameras, apt.securityFeatures.securityCameras)
-                    && filterMatch(state.smokeDetectors, apt.securityFeatures.smokeDetectors)
-                    && filterMatch(state.sprinklers, apt.securityFeatures.sprinklers)
-                    && filterMatch(state.buildingLock, apt.securityFeatures.buildingLock)) {
-                results.add(apt);
-            }
-        }
-        return results;
-    }
-
-    private static boolean filterMatch(int filter, boolean field) {
-        if (filter == 0) {
-            return true;
-        } else if (filter == 1) {
-            return !field;
-        } else {
-            return field;
         }
     }
 

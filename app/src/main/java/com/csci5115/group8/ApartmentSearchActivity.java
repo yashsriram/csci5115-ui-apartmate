@@ -162,7 +162,7 @@ public class ApartmentSearchActivity extends AppCompatActivity {
 
     private int getNumSearchResults() {
         String searchString = searchText.getText().toString();
-        List<Apartment> searchResults = ApartmentSearchFragment.searchApartments(new ApartmentSearchState(
+        List<Apartment> searchResults = DataManager.searchApartments(new ApartmentSearchState(
                 searchString,
                 toggleStatusToInt(refrigerator.getToggleStatus()),
                 toggleStatusToInt(oven.getToggleStatus()),

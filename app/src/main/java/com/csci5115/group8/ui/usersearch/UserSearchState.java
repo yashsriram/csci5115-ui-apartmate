@@ -1,18 +1,18 @@
 package com.csci5115.group8.ui.usersearch;
 
 public class UserSearchState {
-    String searchText;
-    String gender;
-    int age;
-    int maxBudget;
-    int doesSmoke;
-    int drugsOkay;
-    int hasPets;
-    int partiesOkay;
-    int canCook;
-    int needsPrivateBedroom;
-    int hasCar;
-    String nativeLanguage;
+    public String searchText;
+    public String gender;
+    public int age;
+    public int maxBudget;
+    public int doesSmoke;
+    public int drugsOkay;
+    public int hasPets;
+    public int partiesOkay;
+    public int canCook;
+    public int needsPrivateBedroom;
+    public int hasCar;
+    public String nativeLanguage;
 
     public UserSearchState() {
         set("",

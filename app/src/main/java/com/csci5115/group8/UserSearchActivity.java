@@ -146,7 +146,7 @@ public class UserSearchActivity extends AppCompatActivity {
         String maxBudgets = maxBudget.getText().toString();
         int maxBudgeti = maxBudgets.length() < 1 ? -1 : Integer.parseInt(maxBudgets);
 
-        List<User> searchResults = UserSearchFragment.searchUsers(
+        List<User> searchResults = DataManager.searchUsers(
                 new UserSearchState(searchString,
                         gender.getText().toString(),
                         agei,

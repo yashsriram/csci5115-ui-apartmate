@@ -7,13 +7,20 @@ import com.csci5115.group8.data.apartment.PerUnitAmenities;
 import com.csci5115.group8.data.apartment.SecurityFeatures;
 import com.csci5115.group8.data.user.User;
 import com.csci5115.group8.data.user.UserPreferences;
+import com.csci5115.group8.ui.aptsearch.ApartmentSearchState;
+import com.csci5115.group8.ui.usersearch.UserSearchState;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class DataManager {
 
+    // State
     public static User currentUser = null;
+    public static UserSearchState userSearchState = new UserSearchState();
+    public static ApartmentSearchState apartmentSearchState = new ApartmentSearchState();
+    // Database
     public static List<Apartment> apartments = new ArrayList<>();
     public static List<User> users = new ArrayList<>();
     public static ReviewManager reviewManager = new ReviewManager();
@@ -67,6 +74,72 @@ public class DataManager {
             if (!n.read) num++;
         }
         return num;
+    }
+
+    public static List<User> searchUsers(UserSearchState state) {
+        String regexString = ".*" + state.searchText + ".*";
+        Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
+        Pattern pattern2 = Pattern.compile(".*" + state.gender + ".*", Pattern.CASE_INSENSITIVE);
+        Pattern pattern3 = Pattern.compile(".*" + state.nativeLanguage + ".*", Pattern.CASE_INSENSITIVE);
+        List<User> results = new ArrayList<>();
+        for (User user : DataManager.users) {
+            // If search matches name and all filters match then only add apt to search results
+            if ((pattern.matcher(user.name).matches())
+                    && filterMatch(state.doesSmoke, user.preferences.doesSmoke)
+                    && filterMatch(state.drugsOkay, user.preferences.drugsOkay)
+                    && filterMatch(state.hasPets, user.preferences.hasPets)
+                    && filterMatch(state.partiesOkay, user.preferences.partiesOkay)
+                    && filterMatch(state.canCook, user.preferences.canCook)
+                    && filterMatch(state.needsPrivateBedroom, user.preferences.needsPrivateBedroom)
+                    && filterMatch(state.hasCar, user.preferences.hasCar)
+                    && (user.maxBudget == state.maxBudget || state.maxBudget == -1)
+                    && pattern2.matcher(user.gender).matches()
+                    && pattern3.matcher(user.nativeLanguage).matches()
+                    && (state.age == user.age || state.age == -1)
+            ) {
+                results.add(user);
+            }
+        }
+        return results;
+    }
+
+    public static List<Apartment> searchApartments(ApartmentSearchState state) {
+        String regexString = ".*" + state.searchText + ".*";
+        Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
+        List<Apartment> results = new ArrayList<>();
+        for (Apartment apt : DataManager.apartments) {
+            // If search matches name or address and all filters match then only add apt to search results
+            if ((pattern.matcher(apt.name).matches() || pattern.matcher(apt.address).matches())
+                    && filterMatch(state.refrigerator, apt.perUnitAmenities.refrigerator)
+                    && filterMatch(state.oven, apt.perUnitAmenities.oven)
+                    && filterMatch(state.microwave, apt.perUnitAmenities.microwave)
+                    && filterMatch(state.dishwasher, apt.perUnitAmenities.dishwasher)
+                    && filterMatch(state.washingMachine, apt.perUnitAmenities.washingMachine)
+                    && filterMatch(state.heating, apt.perUnitAmenities.heating)
+                    && filterMatch(state.cooling, apt.perUnitAmenities.cooling)
+                    && filterMatch(state.laundryRoom, apt.commonAmenities.laundryRoom)
+                    && filterMatch(state.longue, apt.commonAmenities.longue)
+                    && filterMatch(state.printingService, apt.commonAmenities.printingService)
+                    && filterMatch(state.reception, apt.commonAmenities.reception)
+                    && filterMatch(state.parking, apt.commonAmenities.parking)
+                    && filterMatch(state.securityCameras, apt.securityFeatures.securityCameras)
+                    && filterMatch(state.smokeDetectors, apt.securityFeatures.smokeDetectors)
+                    && filterMatch(state.sprinklers, apt.securityFeatures.sprinklers)
+                    && filterMatch(state.buildingLock, apt.securityFeatures.buildingLock)) {
+                results.add(apt);
+            }
+        }
+        return results;
+    }
+
+    private static boolean filterMatch(int filter, boolean field) {
+        if (filter == 0) {
+            return true;
+        } else if (filter == 1) {
+            return !field;
+        } else {
+            return field;
+        }
     }
 
     private static void createNotifications() {

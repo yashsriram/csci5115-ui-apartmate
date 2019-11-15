@@ -1,25 +1,25 @@
 package com.csci5115.group8.ui.aptsearch;
 
 public class ApartmentSearchState {
-    String searchText;
-    int refrigerator;
-    int oven;
-    int microwave;
-    int dishwasher;
-    int washingMachine;
-    int heating;
-    int cooling;
+    public String searchText;
+    public int refrigerator;
+    public int oven;
+    public int microwave;
+    public int dishwasher;
+    public int washingMachine;
+    public int heating;
+    public int cooling;
 
-    int laundryRoom;
-    int longue;
-    int printingService;
-    int reception;
-    int parking;
+    public int laundryRoom;
+    public int longue;
+    public int printingService;
+    public int reception;
+    public int parking;
 
-    int securityCameras;
-    int smokeDetectors;
-    int sprinklers;
-    int buildingLock;
+    public int securityCameras;
+    public int smokeDetectors;
+    public int sprinklers;
+    public int buildingLock;
 
     public ApartmentSearchState() {
         set("",
