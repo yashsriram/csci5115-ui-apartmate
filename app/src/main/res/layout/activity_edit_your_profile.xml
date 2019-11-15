@@ -20,7 +20,7 @@
 
 
     <ImageView
-        android:id="@+id/imageToUpload"
+        android:id="@+id/image"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:background="@drawable/ic_black_border_rectangle"
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/isVerified" />
 
     <EditText
-        android:id="@+id/nameInput"
+        android:id="@+id/name"
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,60 +42,60 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/emailInput"
+        android:id="@+id/email"
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="email"
         android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/nameInput"
-        app:layout_constraintTop_toBottomOf="@+id/nameInput" />
+        app:layout_constraintStart_toStartOf="@+id/name"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
 
     <EditText
-        android:id="@+id/ageInput"
+        android:id="@+id/age"
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="age"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/emailInput"
-        app:layout_constraintTop_toBottomOf="@+id/emailInput" />
+        app:layout_constraintStart_toStartOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <EditText
-        android:id="@+id/genderInput"
+        android:id="@+id/gender"
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="gender"
         android:inputType="textAutoCorrect"
-        app:layout_constraintStart_toStartOf="@+id/ageInput"
-        app:layout_constraintTop_toBottomOf="@+id/ageInput" />
+        app:layout_constraintStart_toStartOf="@+id/age"
+        app:layout_constraintTop_toBottomOf="@+id/age" />
 
     <EditText
-        android:id="@+id/maxBudgetInput"
+        android:id="@+id/maxBudget"
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="max budget"
         android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/genderInput"
-        app:layout_constraintTop_toBottomOf="@+id/genderInput" />
+        app:layout_constraintStart_toStartOf="@+id/gender"
+        app:layout_constraintTop_toBottomOf="@+id/gender" />
 
     <EditText
-        android:id="@+id/nativeLanguageInput"
+        android:id="@+id/nativeLanguage"
         style="@style/TextAppearance.AppCompat.Large"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="native language"
         android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/maxBudgetInput"
-        app:layout_constraintTop_toBottomOf="@+id/maxBudgetInput" />
+        app:layout_constraintStart_toStartOf="@+id/maxBudget"
+        app:layout_constraintTop_toBottomOf="@+id/maxBudget" />
 
 
     <TextView
@@ -107,7 +107,7 @@
         android:text="Personal Preferences"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nativeLanguageInput" />
+        app:layout_constraintTop_toBottomOf="@+id/nativeLanguage" />
 
     <TableLayout
         android:id="@+id/tableLayout"
@@ -124,21 +124,21 @@
             android:layout_height="match_parent">
 
             <CheckBox
-                android:id="@+id/petInput"
+                android:id="@+id/hasPets"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Pets OK?" />
 
             <CheckBox
-                android:id="@+id/carInput"
+                android:id="@+id/hasCar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Have a car?" />
 
             <CheckBox
-                android:id="@+id/cookInput"
+                android:id="@+id/canCook"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -151,21 +151,21 @@
             android:layout_height="match_parent">
 
             <CheckBox
-                android:id="@+id/partyInput"
+                android:id="@+id/partiesOkay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Party Friendly?" />
 
             <CheckBox
-                android:id="@+id/drugInput"
+                android:id="@+id/drugsOkay"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Drugs OK?" />
 
             <CheckBox
-                android:id="@+id/smokeInput"
+                android:id="@+id/doesSmoke"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -178,7 +178,7 @@
             android:layout_height="match_parent">
 
             <CheckBox
-                android:id="@+id/bedroomInput"
+                android:id="@+id/needsPrivateBedroom"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
