@@ -28,6 +28,7 @@ import java.util.regex.Pattern;
 public class ApartmentSearchFragment extends Fragment {
 
     private ApartmentSearchViewModel apartmentSearchViewModel;
+    private ApartmentSearchState apartmentSearchState = new ApartmentSearchState();
     private RecyclerView recyclerView;
     private List<Apartment> apartmentSearchResults = DataManager.apartments;
     private ApartmentSearchResultsAdapter.ItemClickListener itemClickListener = new ApartmentSearchResultsAdapter.ItemClickListener() {
@@ -85,9 +86,8 @@ public class ApartmentSearchFragment extends Fragment {
                     int sprinklers = data.getIntExtra("sprinklers", -1);
                     int buildingLock = data.getIntExtra("buildingLock", -1);
 
-                    apartmentSearchResults = searchApartments(
+                    apartmentSearchState.set(
                             searchText,
-                            // Per unit amenities
                             refrigerator,
                             oven,
                             microwave,
@@ -95,18 +95,18 @@ public class ApartmentSearchFragment extends Fragment {
                             washingMachine,
                             heating,
                             cooling,
-                            // Common amenities
                             laundryRoom,
                             longue,
                             printingService,
                             reception,
                             parking,
-                            // Security features
                             securityCameras,
                             smokeDetectors,
                             sprinklers,
                             buildingLock
                     );
+
+                    apartmentSearchResults = searchApartments(apartmentSearchState);
                     recyclerView.setAdapter(new ApartmentSearchResultsAdapter(getContext(), apartmentSearchResults, null));
 
                     break;
@@ -118,48 +118,29 @@ public class ApartmentSearchFragment extends Fragment {
         }
     }
 
-    public static List<Apartment> searchApartments(String searchText,
-                                                   // Per unit amenities
-                                                   int refrigerator,
-                                                   int oven,
-                                                   int microwave,
-                                                   int dishwasher,
-                                                   int washingMachine,
-                                                   int heating,
-                                                   int cooling,
-                                                   // Common amenities
-                                                   int laundryRoom,
-                                                   int longue,
-                                                   int printingService,
-                                                   int reception,
-                                                   int parking,
-                                                   // Security features
-                                                   int securityCameras,
-                                                   int smokeDetectors,
-                                                   int sprinklers,
-                                                   int buildingLock) {
-        String regexString = ".*" + searchText + ".*";
+    public static List<Apartment> searchApartments(ApartmentSearchState state) {
+        String regexString = ".*" + state.searchText + ".*";
         Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
         List<Apartment> results = new ArrayList<>();
         for (Apartment apt : DataManager.apartments) {
             // If search matches name or address and all filters match then only add apt to search results
             if ((pattern.matcher(apt.name).matches() || pattern.matcher(apt.address).matches())
-                    && filterMatch(refrigerator, apt.perUnitAmenities.refrigerator)
-                    && filterMatch(oven, apt.perUnitAmenities.oven)
-                    && filterMatch(microwave, apt.perUnitAmenities.microwave)
-                    && filterMatch(dishwasher, apt.perUnitAmenities.dishwasher)
-                    && filterMatch(washingMachine, apt.perUnitAmenities.washingMachine)
-                    && filterMatch(heating, apt.perUnitAmenities.heating)
-                    && filterMatch(cooling, apt.perUnitAmenities.cooling)
-                    && filterMatch(laundryRoom, apt.commonAmenities.laundryRoom)
-                    && filterMatch(longue, apt.commonAmenities.longue)
-                    && filterMatch(printingService, apt.commonAmenities.printingService)
-                    && filterMatch(reception, apt.commonAmenities.reception)
-                    && filterMatch(parking, apt.commonAmenities.parking)
-                    && filterMatch(securityCameras, apt.securityFeatures.securityCameras)
-                    && filterMatch(smokeDetectors, apt.securityFeatures.smokeDetectors)
-                    && filterMatch(sprinklers, apt.securityFeatures.sprinklers)
-                    && filterMatch(buildingLock, apt.securityFeatures.buildingLock)) {
+                    && filterMatch(state.refrigerator, apt.perUnitAmenities.refrigerator)
+                    && filterMatch(state.oven, apt.perUnitAmenities.oven)
+                    && filterMatch(state.microwave, apt.perUnitAmenities.microwave)
+                    && filterMatch(state.dishwasher, apt.perUnitAmenities.dishwasher)
+                    && filterMatch(state.washingMachine, apt.perUnitAmenities.washingMachine)
+                    && filterMatch(state.heating, apt.perUnitAmenities.heating)
+                    && filterMatch(state.cooling, apt.perUnitAmenities.cooling)
+                    && filterMatch(state.laundryRoom, apt.commonAmenities.laundryRoom)
+                    && filterMatch(state.longue, apt.commonAmenities.longue)
+                    && filterMatch(state.printingService, apt.commonAmenities.printingService)
+                    && filterMatch(state.reception, apt.commonAmenities.reception)
+                    && filterMatch(state.parking, apt.commonAmenities.parking)
+                    && filterMatch(state.securityCameras, apt.securityFeatures.securityCameras)
+                    && filterMatch(state.smokeDetectors, apt.securityFeatures.smokeDetectors)
+                    && filterMatch(state.sprinklers, apt.securityFeatures.sprinklers)
+                    && filterMatch(state.buildingLock, apt.securityFeatures.buildingLock)) {
                 results.add(apt);
             }
         }

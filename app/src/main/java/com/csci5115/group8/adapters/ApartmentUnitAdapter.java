@@ -53,7 +53,7 @@ public class ApartmentUnitAdapter extends RecyclerView.Adapter<ApartmentUnitAdap
     private LayoutInflater inflater;
     private ItemClickListener itemClickListener;
 
-    ApartmentUnitAdapter(Context context, List<ApartmentUnit> data, ItemClickListener itemClickListener) {
+    public ApartmentUnitAdapter(Context context, List<ApartmentUnit> data, ItemClickListener itemClickListener) {
         this.inflater = LayoutInflater.from(context);
         this.data = data;
         this.itemClickListener = itemClickListener;

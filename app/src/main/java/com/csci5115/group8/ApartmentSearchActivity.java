@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.apartment.Apartment;
 import com.csci5115.group8.ui.aptsearch.ApartmentSearchFragment;
+import com.csci5115.group8.ui.aptsearch.ApartmentSearchState;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -161,7 +162,7 @@ public class ApartmentSearchActivity extends AppCompatActivity {
 
     private int getNumSearchResults() {
         String searchString = searchText.getText().toString();
-        List<Apartment> searchResults = ApartmentSearchFragment.searchApartments(
+        List<Apartment> searchResults = ApartmentSearchFragment.searchApartments(new ApartmentSearchState(
                 searchString,
                 toggleStatusToInt(refrigerator.getToggleStatus()),
                 toggleStatusToInt(oven.getToggleStatus()),
@@ -181,7 +182,7 @@ public class ApartmentSearchActivity extends AppCompatActivity {
                 toggleStatusToInt(smokeDetectors.getToggleStatus()),
                 toggleStatusToInt(sprinklers.getToggleStatus()),
                 toggleStatusToInt(buildingLock.getToggleStatus())
-        );
+        ));
         return searchResults.size();
     }
 }
