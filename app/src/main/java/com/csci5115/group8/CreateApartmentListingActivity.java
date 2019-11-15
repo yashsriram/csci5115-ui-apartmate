@@ -116,16 +116,16 @@ public class CreateApartmentListingActivity extends AppCompatActivity {
                     return;
                 }
                 // Check for duplicates
-                for (Apartment apt : DataManager.getInstance().apartments) {
+                for (Apartment apt : DataManager.apartments) {
                     if (apt.address.equals(address.getText().toString())) {
                         Snackbar.make(view, "Apartment with same address is already registered. Please edit that", Snackbar.LENGTH_LONG).show();
                         return;
                     }
                 }
                 // Save apartment in data manager
-                DataManager.getInstance().apartments.add(
+                DataManager.apartments.add(
                         new Apartment(
-                                DataManager.getInstance().apartments.size(),
+                                DataManager.apartments.size(),
                                 name.getText().toString(),
                                 address.getText().toString(),
                                 new PerUnitAmenities(

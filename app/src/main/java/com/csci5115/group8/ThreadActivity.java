@@ -25,7 +25,7 @@ public class ThreadActivity extends AppCompatActivity implements threadMessagesF
         if (thread == null) {
             String thread_fname = getIntent().getStringExtra("thread_fname");
             String thread_lname = getIntent().getStringExtra("thread_lname");
-            for(Thread t : DataManager.getInstance().threads) {
+            for(Thread t : DataManager.threads) {
                 if(t.first_name.equals(thread_fname) && t.last_name.equals(thread_lname)) {
                     this.thread = t;
                     break;

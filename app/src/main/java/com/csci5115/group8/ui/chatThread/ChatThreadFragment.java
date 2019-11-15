@@ -70,7 +70,7 @@ public class ChatThreadFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyChatThreadRecyclerViewAdapter(DataManager.getInstance().threads, mListener));
+            recyclerView.setAdapter(new MyChatThreadRecyclerViewAdapter(DataManager.threads, mListener));
         }
         return view;
     }

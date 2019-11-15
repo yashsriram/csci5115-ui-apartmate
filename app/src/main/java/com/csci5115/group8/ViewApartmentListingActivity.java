@@ -47,7 +47,7 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                boolean done = DataManager.getInstance().reviewManager.setReview(apartmentId, DataManager.getInstance().currentUser.email, rating);
+                boolean done = DataManager.reviewManager.setReview(apartmentId, DataManager.currentUser.email, rating);
                 if (!done) {
                     Snackbar.make(ratingBar, "Rating could not be saved. Data might be outdated", Snackbar.LENGTH_LONG).show();
                 }
@@ -99,7 +99,7 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         final CheckBox sprinklers = layout.findViewById(R.id.sprinklers);
         final CheckBox buildingLock = layout.findViewById(R.id.buildingLock);
 
-        ratingBar.setVisibility(DataManager.getInstance().currentUser.isVerified ? View.VISIBLE : View.GONE);
+        ratingBar.setVisibility(DataManager.currentUser.isVerified ? View.VISIBLE : View.GONE);
         name.setText(apartment.name);
         address.setText(apartment.address);
 

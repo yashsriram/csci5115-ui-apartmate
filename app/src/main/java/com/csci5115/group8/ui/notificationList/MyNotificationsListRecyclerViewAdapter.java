@@ -37,8 +37,8 @@ public class MyNotificationsListRecyclerViewAdapter extends RecyclerView.Adapter
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mItem = DataManager.getInstance().notifications.get(position);
-        holder.mContentView.setText(DataManager.getInstance().notifications.get(position).message);
+        holder.mItem = DataManager.notifications.get(position);
+        holder.mContentView.setText(DataManager.notifications.get(position).message);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +54,7 @@ public class MyNotificationsListRecyclerViewAdapter extends RecyclerView.Adapter
 
     @Override
     public int getItemCount() {
-        return DataManager.getInstance().notifications.size();
+        return DataManager.notifications.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

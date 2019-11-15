@@ -38,7 +38,7 @@ public class UserSearchFragment extends Fragment {
 
     private UserSearchViewModel userSearchViewModel;
     private RecyclerView recyclerView;
-    private List<User> userSearchResults = DataManager.getInstance().users;
+    private List<User> userSearchResults = DataManager.users;
 
     private UserSearchResultsAdapter.ItemClickListener itemClickListener = new UserSearchResultsAdapter.ItemClickListener() {
         @Override
@@ -129,7 +129,7 @@ public class UserSearchFragment extends Fragment {
         Pattern pattern2 = Pattern.compile(gender + ".*", Pattern.CASE_INSENSITIVE);
         Pattern pattern3 = Pattern.compile(".*" + nativeLanguage + ".*", Pattern.CASE_INSENSITIVE);
         List<User> results = new ArrayList<>();
-        for (User user : DataManager.getInstance().users) {
+        for (User user : DataManager.users) {
             // If search matches name or address and all filters match then only add apt to search results
             if ((pattern.matcher(user.name).matches())
                     && filterMatch(doesSmoke, user.preferences.doesSmoke)

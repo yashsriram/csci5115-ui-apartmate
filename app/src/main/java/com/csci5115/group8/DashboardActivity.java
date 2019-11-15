@@ -66,7 +66,7 @@ public class DashboardActivity extends AppCompatActivity implements ChatThreadFr
         TimerTask myTask = new TimerTask() {
             @Override
             public void run() {
-                int unread = DataManager.getInstance().getUnreadNotifications();
+                int unread = DataManager.getUnreadNotifications();
                 if (unread > 0) {
                     navView.getOrCreateBadge(R.id.dashboard_notifications).setNumber(unread);
                     navView.getOrCreateBadge(R.id.dashboard_notifications).setVisible(true);

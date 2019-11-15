@@ -31,7 +31,7 @@ public class ApartmentSearchFragment extends Fragment {
 
     private ApartmentSearchViewModel apartmentSearchViewModel;
     private RecyclerView recyclerView;
-    private List<Apartment> apartmentSearchResults = DataManager.getInstance().apartments;
+    private List<Apartment> apartmentSearchResults = DataManager.apartments;
     private ApartmentSearchResultsAdapter.ItemClickListener itemClickListener = new ApartmentSearchResultsAdapter.ItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
@@ -143,7 +143,7 @@ public class ApartmentSearchFragment extends Fragment {
         String regexString = ".*" + searchText + ".*";
         Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
         List<Apartment> results = new ArrayList<>();
-        for (Apartment apt : DataManager.getInstance().apartments) {
+        for (Apartment apt : DataManager.apartments) {
             // If search matches name or address and all filters match then only add apt to search results
             if ((pattern.matcher(apt.name).matches() || pattern.matcher(apt.address).matches())
                     && filterMatch(refrigerator, apt.perUnitAmenities.refrigerator)

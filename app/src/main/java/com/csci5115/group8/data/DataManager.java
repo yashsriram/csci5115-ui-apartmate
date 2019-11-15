@@ -9,44 +9,30 @@ import com.csci5115.group8.data.user.User;
 import com.csci5115.group8.data.user.UserPreferences;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class DataManager {
 
-    public User currentUser = null;
-    public List<Apartment> apartments = new ArrayList<>();
-    public List<Thread> threads = new ArrayList<>();
-    public List<User> users = new ArrayList<>();
-    public ReviewManager reviewManager = new ReviewManager();
-    public List<Notification> notifications = new ArrayList<>();
+    public static User currentUser = null;
+    public static List<Apartment> apartments = new ArrayList<>();
+    public static List<User> users = new ArrayList<>();
+    public static ReviewManager reviewManager = new ReviewManager();
+    public static List<Thread> threads = new ArrayList<>();
+    public static List<Notification> notifications = new ArrayList<>();
 
-    private static DataManager soleInstance;
-
-    private DataManager() {
-
+    static {
         createApartmentData();
         createUserData();
         createThreadData();
         createNotifications();
 
-        if (soleInstance != null) {
-            throw new RuntimeException("Use getInstance() method to get the single instance of this class.");
-        }
     }
 
-    public static DataManager getInstance() {
-        if (soleInstance == null) {
-            soleInstance = new DataManager();
-        }
-
-        return soleInstance;
+    private DataManager() {
     }
 
     public static Apartment getApartment(int apartmentId) {
-        for (Apartment apt : DataManager.getInstance().apartments) {
+        for (Apartment apt : DataManager.apartments) {
             if (apt.id == apartmentId) {
                 return apt;
             }
@@ -55,7 +41,7 @@ public class DataManager {
     }
 
     public static User getUser(String userEmail) {
-        for (User user : DataManager.getInstance().users) {
+        for (User user : DataManager.users) {
             if (user.email.equals(userEmail)) {
                 return user;
             }
@@ -64,18 +50,18 @@ public class DataManager {
     }
 
     public static void updateApartment(int apartmentId, Apartment newApartment) {
-        for (int i = 0; i < DataManager.getInstance().apartments.size(); ++i) {
-            if (DataManager.getInstance().apartments.get(i).id == apartmentId) {
-                DataManager.getInstance().apartments.set(i, newApartment);
+        for (int i = 0; i < DataManager.apartments.size(); ++i) {
+            if (DataManager.apartments.get(i).id == apartmentId) {
+                DataManager.apartments.set(i, newApartment);
             }
         }
     }
 
-    public void generateNotification(String message) {
-        this.notifications.add(new Notification(message));
+    public static void generateNotification(String message) {
+        notifications.add(new Notification(message));
     }
 
-    public int getUnreadNotifications() {
+    public static int getUnreadNotifications() {
         int num = 0;
         for (Notification n : notifications) {
             if (!n.read) num++;
@@ -83,11 +69,11 @@ public class DataManager {
         return num;
     }
 
-    private void createNotifications() {
-        this.notifications.add(new Notification("First notification!"));
+    private static void createNotifications() {
+        notifications.add(new Notification("First notification!"));
     }
 
-    private void createApartmentData() {
+    private static void createApartmentData() {
         List<ApartmentUnit> oneUnit = new ArrayList<>();
         oneUnit.add(new ApartmentUnit(102, 2, 2, 75.5f, false));
         List<ApartmentUnit> twoUnits = new ArrayList<>();
@@ -159,7 +145,7 @@ public class DataManager {
                         oneUnit));
     }
 
-    private void createUserData() {
+    private static void createUserData() {
         users.add(new User("john@apartmate.com", "john", "John Doe", "male", 20, 600, "English", true,
                 new UserPreferences(true, false, false, true, false, false, true))
         );
@@ -171,7 +157,7 @@ public class DataManager {
         );
     }
 
-    private void createThreadData() {
+    private static void createThreadData() {
         Thread thread1 = new Thread("Bob", "Dylan");
         thread1.addMessage("Hi hows it going, BOB", true);
         thread1.addMessage("not too bad", false);

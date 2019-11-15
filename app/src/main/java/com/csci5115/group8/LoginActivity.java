@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                 String _email = email.getText().toString();
                 User user = DataManager.getUser(_email);
                 if (user != null && user.password.equals(password.getText().toString())) {
-                    DataManager.getInstance().currentUser = user;
+                    DataManager.currentUser = user;
                     Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                     startActivity(intent);
                 } else {

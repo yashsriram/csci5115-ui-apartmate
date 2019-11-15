@@ -124,7 +124,7 @@ public class UserSearchActivity extends AppCompatActivity {
                 finish();
             }
         });
-        numMatches.setText(DataManager.getInstance().users.size() + " Matches");
+        numMatches.setText(DataManager.users.size() + " Matches");
     }
 
     private int toggleStatusToInt(TriStateToggleButton.ToggleStatus toggleStatus) {
