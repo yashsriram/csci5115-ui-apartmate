@@ -8,6 +8,7 @@ import com.csci5115.group8.data.apartment.SecurityFeatures;
 import com.csci5115.group8.data.user.User;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -85,6 +86,14 @@ public class DataManager {
 
     public void generateNotification(String message) {
         this.notifications.add(new Notification(message));
+    }
+
+    public int getUnreadNotifications() {
+        int num = 0;
+        for (Notification n : notifications) {
+            if (!n.read) num++;
+        }
+        return num;
     }
 
     private void createNotifications() {

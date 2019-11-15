@@ -2,9 +2,11 @@ package com.csci5115.group8;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,12 +16,16 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.Notification;
 import com.csci5115.group8.data.Thread;
 import com.csci5115.group8.ui.chatThread.ChatThreadFragment;
 import com.csci5115.group8.ui.dummy.DummyContent;
 import com.csci5115.group8.ui.notificationList.NotificationsListFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class DashboardActivity extends AppCompatActivity implements ChatThreadFragment.OnListFragmentInteractionListener, NotificationsListFragment.OnListFragmentInteractionListener {
 
@@ -36,7 +42,7 @@ public class DashboardActivity extends AppCompatActivity implements ChatThreadFr
 
     @Override
     public void onListFragmentInteraction(Notification item) {
-
+        item.read = true;
     }
 
     @Override
@@ -44,7 +50,7 @@ public class DashboardActivity extends AppCompatActivity implements ChatThreadFr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
         final ConstraintLayout layout = findViewById(R.id.activity_dashboard);
-        BottomNavigationView navView = layout.findViewById(R.id.dashboard_nav_view);
+        final BottomNavigationView navView = layout.findViewById(R.id.dashboard_nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
@@ -53,6 +59,24 @@ public class DashboardActivity extends AppCompatActivity implements ChatThreadFr
         NavController navController = Navigation.findNavController(this, R.id.dashboard_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+
+        // refresh notification badge
+        // this is a bad way to do this but... I don't android much
+        Timer timer = new Timer();
+        TimerTask myTask = new TimerTask() {
+            @Override
+            public void run() {
+                int unread = DataManager.getInstance().getUnreadNotifications();
+                if (unread > 0) {
+                    navView.getOrCreateBadge(R.id.dashboard_notifications).setNumber(unread);
+                    navView.getOrCreateBadge(R.id.dashboard_notifications).setVisible(true);
+                } else {
+                    navView.getOrCreateBadge(R.id.dashboard_notifications).setVisible(false);
+                }
+            }
+        };
+
+        timer.schedule(myTask, 2000, 2000);
     }
 
     @Override

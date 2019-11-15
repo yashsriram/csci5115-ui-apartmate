@@ -38,7 +38,6 @@ public class MyNotificationsListRecyclerViewAdapter extends RecyclerView.Adapter
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = DataManager.getInstance().notifications.get(position);
-        holder.mIdView.setText("");
         holder.mContentView.setText(DataManager.getInstance().notifications.get(position).message);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
@@ -60,14 +59,12 @@ public class MyNotificationsListRecyclerViewAdapter extends RecyclerView.Adapter
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         public final View mView;
-        public final TextView mIdView;
         public final TextView mContentView;
         public Notification mItem;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
         }
 
