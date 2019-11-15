@@ -18,72 +18,50 @@
             style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="3dp"
             android:text="TextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/addressHolder"
-            style="@style/TextAppearance.AppCompat.Large"
+            android:id="@+id/ageHolder"
+            style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintStart_toStartOf="parent"
+            android:padding="3dp"
+            android:text="20"
+            app:layout_constraintStart_toEndOf="@+id/genderHolder"
             app:layout_constraintTop_toBottomOf="@+id/nameHolder" />
 
         <TextView
-            android:id="@+id/perUnitAmenitiesHintHolder"
-            style="@style/TextAppearance.AppCompat.Medium"
+            android:id="@+id/genderHolder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Personal Information"
+            android:padding="3dp"
+            android:text="Male"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/addressHolder" />
+            app:layout_constraintTop_toBottomOf="@+id/nameHolder" />
 
-        <TextView
-            android:id="@+id/perUnitAmenitiesHolder"
-            style="@style/CardView.Dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/perUnitAmenitiesHintHolder" />
 
         <TextView
             android:id="@+id/commonAmenitiesHintHolder"
             style="@style/TextAppearance.AppCompat.Medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Smoke"
+            android:padding="3dp"
+            android:text="Details"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/perUnitAmenitiesHolder" />
+            app:layout_constraintTop_toBottomOf="@id/genderHolder" />
 
         <TextView
             android:id="@+id/commonAmenitiesHolder"
             style="@style/CardView.Dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="3dp"
             android:text="TextView"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/commonAmenitiesHintHolder" />
-
-        <TextView
-            android:id="@+id/securityFeaturesHintHolder"
-            style="@style/TextAppearance.AppCompat.Medium"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pet"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/commonAmenitiesHolder" />
-
-        <TextView
-            android:id="@+id/securityFeaturesHolder"
-            style="@style/CardView.Dark"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/securityFeaturesHintHolder" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

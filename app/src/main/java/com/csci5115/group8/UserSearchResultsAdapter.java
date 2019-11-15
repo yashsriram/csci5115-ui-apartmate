@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.csci5115.group8.data.user.User;
 import com.csci5115.group8.data.user.UserSRL;
 
+import org.w3c.dom.Text;
+
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +20,7 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView name;
         TextView gender;
+        TextView age;
         TextView commonAmenities;
         TextView commonAmenitiesHint;
 
@@ -25,6 +28,8 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
         ViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.nameHolder);
+            age=itemView.findViewById(R.id.ageHolder);
+            gender=itemView.findViewById(R.id.genderHolder);
             commonAmenities = itemView.findViewById(R.id.commonAmenitiesHolder);
             commonAmenitiesHint = itemView.findViewById(R.id.commonAmenitiesHintHolder);
             itemView.setOnClickListener(this);
@@ -74,7 +79,7 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
     public void onBindViewHolder(ViewHolder holder, int position) {
         User user = new User("john@apartmate.com",
                 "pass",
-                "john",
+                "John",
                 "male",
                 20,
                 600,
@@ -88,6 +93,10 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
                 false);
         holder.name.setText(truncate(user.name, 15));
         holder.name.setVisibility(UserSRL.nameVisible ? View.VISIBLE : View.GONE);
+        holder.age.setText(truncate( java.lang.Integer.toString(user.age), 15));
+        holder.age.setVisibility(UserSRL.ageVisible ? View.VISIBLE : View.GONE);
+        holder.gender.setText(truncate(user.gender, 15));
+        holder.gender.setVisibility(UserSRL.genderVisible ? View.VISIBLE : View.GONE);
         holder.commonAmenities.setText(truncate(user.gender.toString(), 50));
         holder.commonAmenities.setVisibility(UserSRL.genderVisible ? View.VISIBLE : View.GONE);
         holder.commonAmenitiesHint.setVisibility(UserSRL.genderVisible ? View.VISIBLE : View.GONE);
