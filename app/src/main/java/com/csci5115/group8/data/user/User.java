@@ -51,4 +51,9 @@ public class User {
         this.nativeLanguage = "";
         this.hasCar = false;
     }
+
+    @Override
+    public int hashCode() {
+        return Integer.valueOf(email).hashCode();
+    }
 }

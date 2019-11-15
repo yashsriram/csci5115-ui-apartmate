@@ -8,9 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,13 +16,9 @@ import android.widget.Toast;
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.apartment.Apartment;
 import com.csci5115.group8.data.apartment.ApartmentUnit;
-import com.csci5115.group8.data.apartment.CommonAmenities;
-import com.csci5115.group8.data.apartment.PerUnitAmenities;
-import com.csci5115.group8.data.apartment.SecurityFeatures;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ViewApartmentListingActivity extends AppCompatActivity {
@@ -49,6 +43,16 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
             }
         });
 
+        final RatingBar ratingBar = findViewById(R.id.ratingBar);
+        ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                boolean done = DataManager.getInstance().reviewManager.setReview(apartmentId, DataManager.getInstance().currentUser.email, rating);
+                if (!done) {
+                    Snackbar.make(ratingBar, "Rating could not be saved. Data might be outdated", Snackbar.LENGTH_LONG).show();
+                }
+            }
+        });
     }
 
     @Override

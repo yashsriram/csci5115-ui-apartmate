@@ -20,7 +20,7 @@ public class DataManager {
     public List<Apartment> apartments = new ArrayList<>();
     public List<Thread> threads = new ArrayList<>();
     public Map<String, User> users = new HashMap<>();
-
+    public ReviewManager reviewManager = new ReviewManager();
 
     // end public accessible data
 
@@ -69,16 +69,16 @@ public class DataManager {
         }
     }
 
-    public static List<User> getUsersList(Map<String, User> users) {
+    public static List<User> getAllUsersList(Map<String, User> users) {
         List<User> usersList = new ArrayList<>();
-        for (Map.Entry<String, User> entry: users.entrySet()) {
+        for (Map.Entry<String, User> entry : users.entrySet()) {
             usersList.add(entry.getValue());
         }
         return usersList;
     }
 
     public static List<User> getUserList() {
-        return getUsersList(DataManager.getInstance().users);
+        return getAllUsersList(DataManager.getInstance().users);
     }
 
     private void createApartmentData() {

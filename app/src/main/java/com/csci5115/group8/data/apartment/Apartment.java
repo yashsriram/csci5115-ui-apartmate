@@ -20,4 +20,9 @@ public class Apartment {
         this.securityFeatures = securityFeatures;
         this.units = units;
     }
+
+    @Override
+    public int hashCode() {
+        return Integer.valueOf(id).hashCode();
+    }
 }
