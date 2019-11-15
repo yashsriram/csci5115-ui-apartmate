@@ -231,6 +231,20 @@ public class DataManager {
                 0)
         );
     }
+    
+    // update currentUser info from EditYourProfileActivity
+    public static void updateUser(String email, String name, int age, int maxBudget, String gender, String nativeLanguage, UserPreferences preferences) {
+        if (DataManager.currentUser != null) {
+            DataManager.currentUser.level += 1;
+            DataManager.currentUser.email = email;
+            DataManager.currentUser.name = name;
+            DataManager.currentUser.age = age;
+            DataManager.currentUser.maxBudget = maxBudget;
+            DataManager.currentUser.gender = gender;
+            DataManager.currentUser.nativeLanguage = nativeLanguage;
+            DataManager.currentUser.preferences = preferences;
+        }
+    }
 
     private static boolean filterMatch(int filter, boolean field) {
         if (filter == 0) {
