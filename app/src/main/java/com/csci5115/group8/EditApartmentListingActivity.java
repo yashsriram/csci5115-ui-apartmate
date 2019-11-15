@@ -111,6 +111,7 @@ public class EditApartmentListingActivity extends AppCompatActivity {
 
         name.setText(apartment.name);
         address.setText(apartment.address);
+        videoTourUrl.setText(apartment.videoTourUrl);
 
         refrigerator.setChecked(apartment.perUnitAmenities.refrigerator);
         oven.setChecked(apartment.perUnitAmenities.oven);
