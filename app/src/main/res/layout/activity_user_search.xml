@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/searchText"
+            android:id="@+id/searchText2"
             style="@style/TextAppearance.AppCompat.Large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -39,7 +39,7 @@
             android:inputType="textPersonName" />
 
         <TextView
-            android:id="@+id/numMatches"
+            android:id="@+id/numMatches2"
             style="@style/TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -142,23 +142,15 @@
                         android:layout_weight="0.9"
                         android:text="gender" />
 
-                    <CheckBox
-                        android:id="@+id/checkBox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="male" />
 
-                    <CheckBox
-                        android:id="@+id/checkBox2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="female" />
 
-                    <CheckBox
-                        android:id="@+id/checkBox3"
+                    <EditText
+                        android:id="@+id/gender2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="other" />
+                        android:text=""
+                        android:hint=""
+                        android:textColorHint="#95A1AA"/>
 
                 </TableRow>
 
@@ -176,11 +168,11 @@
                         android:text="age" />
 
                     <EditText
-                        android:id="@+id/editText2"
+                        android:id="@+id/age2"
                         android:layout_width="68dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="textPersonName"
+                        android:inputType="number"
                         android:text="" />
 
 
@@ -200,11 +192,11 @@
                         android:text="max budget" />
 
                     <EditText
-                        android:id="@+id/editText3"
+                        android:id="@+id/maxBudget"
                         android:layout_width="68dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="textPersonName"
+                        android:inputType="number"
                         android:text="" />
                 </TableRow>
 
@@ -223,7 +215,7 @@
                         android:text="does smoke" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
-                        android:id="@+id/dishwasher"
+                        android:id="@+id/doesSmoke"
                         android:layout_weight="0.1"
 
                         app:layout_constraintTop_toTopOf="@id/microwave"
@@ -246,7 +238,7 @@
                         android:text="drugs okay" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
-                        android:id="@+id/washingMachine"
+                        android:id="@+id/drugsOkay"
                         android:layout_weight="0.1"
 
                         app:layout_constraintEnd_toEndOf="parent"
@@ -269,7 +261,7 @@
                         android:text="has pets" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
-                        android:id="@+id/heating"
+                        android:id="@+id/hasPets"
                         android:layout_weight="0.1"
 
                         app:tbMidColor="#BB0909"
@@ -294,7 +286,7 @@
                         android:text="parties okay" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
-                        android:id="@+id/cooling"
+                        android:id="@+id/partiesOkay"
                         android:layout_weight="0.1"
 
                         app:tbMidColor="#BB0909"
@@ -317,7 +309,7 @@
                         android:text="can cook" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
-                        android:id="@+id/laundryRoom"
+                        android:id="@+id/canCook"
                         android:layout_weight="0.1"
 
                         app:tbMidColor="#BB0909"
@@ -341,7 +333,7 @@
                         android:text="needs private bedroom" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
-                        android:id="@+id/longue"
+                        android:id="@+id/needsPrivateBedroom"
                         android:layout_weight="0.1"
 
                         app:layout_constraintTop_toTopOf="@id/refrigerator"
@@ -364,7 +356,7 @@
                         android:text="has car" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
-                        android:id="@+id/printingService"
+                        android:id="@+id/hasCar"
                         android:layout_weight="0.1"
 
                         app:layout_constraintTop_toTopOf="@id/oven"
@@ -388,7 +380,7 @@
                         android:text="nativeLanguage" />
 
                     <EditText
-                        android:id="@+id/editText4"
+                        android:id="@+id/nativeLanguage"
                         android:layout_width="68dp"
                         android:layout_height="wrap_content"
                         android:ems="10"

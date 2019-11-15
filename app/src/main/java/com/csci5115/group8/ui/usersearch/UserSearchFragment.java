@@ -50,7 +50,7 @@ public class UserSearchFragment extends Fragment {
     };
 
     public View onCreateView(@NonNull LayoutInflater inflater,
-            ViewGroup container, Bundle savedInstanceState) {
+                                ViewGroup container, Bundle savedInstanceState) {
         userSearchViewModel =
                 ViewModelProviders.of(this).get(UserSearchViewModel.class);
         View root = inflater.inflate(R.layout.fragment_user_search, container, false);
@@ -59,30 +59,49 @@ public class UserSearchFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getContext(), UserSearchActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,1);
             }
         });
 
         recyclerView = root.findViewById(R.id.user_search_results);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new UserSearchResultsAdapter(getContext(), userSearchResults, itemClickListener));
+
         return root;
     }
 
-    //////////
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1) {
             switch (resultCode) {
                 case AppCompatActivity.RESULT_OK:
                     String searchText = data.getStringExtra("searchText");
+                    String gender = data.getStringExtra("gender");
                     int age = data.getIntExtra("age", -1);
+                    int maxBudget = data.getIntExtra("maxBudget", -1);
+                    int doesSmoke = data.getIntExtra("doesSmoke", -1);
+                    int drugsOkay= data.getIntExtra("drugsOkay", -1);
+                    int  hasPets= data.getIntExtra("hasPets", -1);
+                    int  partiesOkay= data.getIntExtra("partiesOkay", -1);
+                    int  canCook= data.getIntExtra("canCook", -1);
+                    int  needsPrivateBedroom= data.getIntExtra("needsPrivateBedroom", -1);
+                    int  hasCar= data.getIntExtra("hasCar", -1);
+                    String nativeLanguage = data.getStringExtra("nativeLanguage");
 
 
                     userSearchResults = searchUsers(
                             searchText,
-                            // Per unit amenities
-                            age
+                            gender,
+                            age,
+                            maxBudget,
+                            doesSmoke,
+                            drugsOkay,
+                            hasPets,
+                            partiesOkay,
+                            canCook,
+                            needsPrivateBedroom,
+                            hasCar,
+                            nativeLanguage
                     );
                     recyclerView.setAdapter(new UserSearchResultsAdapter(getContext(), userSearchResults, null));
 
@@ -96,17 +115,39 @@ public class UserSearchFragment extends Fragment {
     }
 
     public static Map<String,User> searchUsers(String searchText,
-                                                  int age) {
+                                                  String gender, int age,
+                                               int maxBudget,
+                                               int doesSmoke,
+                                              int drugsOkay,
+                                              int hasPets,
+                                               int  partiesOkay,
+                                               int   canCook,
+                                               int    needsPrivateBedroom,
+                                               int    hasCar,
+                                               String    nativeLanguage) {
         String regexString = ".*" + searchText + ".*";
         Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
+        Pattern pattern2 = Pattern.compile(".*"+gender+".*", Pattern.CASE_INSENSITIVE);
+        Pattern pattern3 = Pattern.compile(".*" +nativeLanguage+".*", Pattern.CASE_INSENSITIVE);
         Map<String,User> results = new HashMap<>();
         Map<String,User> mapa=DataManager.getInstance().users;
         for (Map.Entry<String, User> entry : mapa.entrySet()) {
+            User usern=entry.getValue();
             // If search matches name or address and all filters match then only add apt to search results
-            if ((pattern.matcher(entry.getValue().name).matches() )
-                    && filterMatch(age, entry.getValue().canCook)
+            if ((pattern.matcher(usern.name).matches() )
+                    && filterMatch(doesSmoke, usern.doesSmoke)
+                    && filterMatch(drugsOkay, usern.drugsOkay)
+                    && filterMatch(hasPets, usern.hasPets)
+                    && filterMatch(partiesOkay, usern.partiesOkay)
+                    && filterMatch(canCook, usern.canCook)
+                    && filterMatch(needsPrivateBedroom, usern.needsPrivateBedroom)
+                    && filterMatch(hasCar, usern.hasCar)
+                    &&(usern.maxBudget==maxBudget||maxBudget==-1)
+                    &&pattern2.matcher(usern.gender).matches()
+                    &&pattern3.matcher(usern.nativeLanguage).matches()
+                    &&(age== usern.age||age==-1)
                    ) {
-                results.put(entry.getValue().name,entry.getValue());
+                results.put(entry.getValue().email,entry.getValue());
             }
         }
         return results;
