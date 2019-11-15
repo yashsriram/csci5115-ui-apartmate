@@ -13,6 +13,7 @@ import com.csci5115.group8.data.user.UserSRL;
 
 import org.w3c.dom.Text;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -77,9 +78,10 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
+
         User user = new User("john@apartmate.com",
                 "pass",
-                "John",
+                "Tomcat",
                 "male",
                 20,
                 600,
@@ -91,6 +93,13 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
                 true,
                 "English",
                 false);
+        int i2=0;
+        for(Map.Entry<String, User> entry : data.entrySet()){
+            user = entry.getValue();
+            if(i2==position)break;
+            i2++;
+        }
+        //User user = data.get(position);
         holder.name.setText(truncate(user.name, 15));
         holder.name.setVisibility(UserSRL.nameVisible ? View.VISIBLE : View.GONE);
         holder.age.setText(truncate( java.lang.Integer.toString(user.age), 15));
@@ -107,8 +116,8 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
                         +"            Has car?           "+yesOrNo(user.hasCar)
                 +"\nNeeds private bedroom? "+yesOrNo(user.needsPrivateBedroom)
                 +"\nNative Language:                "+user.nativeLanguage, 500));
-        holder.commonAmenities.setVisibility(UserSRL.genderVisible ? View.VISIBLE : View.GONE);
-        holder.commonAmenitiesHint.setVisibility(UserSRL.genderVisible ? View.VISIBLE : View.GONE);
+        holder.commonAmenities.setVisibility(UserSRL.detailsVisible ? View.VISIBLE : View.GONE);
+        holder.commonAmenitiesHint.setVisibility(UserSRL.detailsVisible ? View.VISIBLE : View.GONE);
     }
 
     @Override
