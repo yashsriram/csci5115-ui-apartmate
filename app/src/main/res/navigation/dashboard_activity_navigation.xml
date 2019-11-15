@@ -22,4 +22,10 @@
         android:name="com.csci5115.group8.ui.chatThread.ChatThreadFragment"
         android:label="Chat"
         tools:layout="@layout/fragment_chatthread" />
+
+    <fragment
+        android:id="@+id/dashboard_notifications"
+        android:name="com.csci5115.group8.NotificationsActivityFragment"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_notifications" />
 </navigation>
