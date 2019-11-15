@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import com.csci5115.group8.data.apartment.Apartment;
@@ -21,28 +22,26 @@ import com.csci5115.group8.data.apartment.SecurityFeatures;
 
 public class EditYourProfileActivity extends AppCompatActivity {
 
-    String firstName, lastName, email, age, city;
-    int maxBudget;
-    boolean pet, car, bedroom, party, drug, smoke;
-
-    //private static final int RESULT_LOAD_IMAGE;
-    EditText firstNameInput, lastNameInput, emailInput, ageInput, cityInput, maxBudgetInput;
-    Button submit;
-    ImageView imageToUpload;
-    Button uploadImage;
-    CheckBox petInput, carInput, bedroomInput, partyInput, drugInput, smokeInput;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_your_profile);
 
-        firstNameInput = findViewById(R.id.firstNameInput);
-        lastNameInput = findViewById(R.id.lastNameInput);
+
+        String firstName, lastName, email, age, city;
+        int maxBudget;
+        boolean pet, car, bedroom, party, drug, smoke;
+
+        EditText nameInput, lastNameInput, emailInput, ageInput, cityInput, maxBudgetInput;
+        FloatingActionButton submit;
+        ImageView imageToUpload;
+        Button uploadImage;
+        CheckBox petInput, carInput, bedroomInput, partyInput, drugInput, smokeInput;
+
+        nameInput = findViewById(R.id.nameInput);
         emailInput = findViewById(R.id.emailInput);
         ageInput = findViewById(R.id.ageInput);
-        cityInput = findViewById(R.id.cityInput);
         maxBudgetInput = findViewById(R.id.maxBudgetInput);
         petInput = findViewById(R.id.petInput);
         carInput = findViewById(R.id.carInput);
@@ -52,24 +51,23 @@ public class EditYourProfileActivity extends AppCompatActivity {
         smokeInput = findViewById(R.id.smokeInput);
 
         imageToUpload = findViewById(R.id.imageToUpload);
-        uploadImage = findViewById(R.id.uploadImage);
 
         submit = findViewById(R.id.submit);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                firstName = firstNameInput.getText().toString();
-                lastName = lastNameInput.getText().toString();
-                email = emailInput.getText().toString();
-                age = ageInput.getText().toString();
-                city = cityInput.getText().toString();
-                maxBudget = Integer.parseInt(maxBudgetInput.getText().toString());
-                pet = petInput.isChecked();
-                car = carInput.isChecked();
-                bedroom = bedroomInput.isChecked();
-                party = partyInput.isChecked();
-                drug = drugInput.isChecked();
-                smoke = smokeInput.isChecked();
+//                firstName = nameInput.getText().toString();
+//                lastName = lastNameInput.getText().toString();
+//                email = emailInput.getText().toString();
+//                age = ageInput.getText().toString();
+//                city = cityInput.getText().toString();
+//                maxBudget = Integer.parseInt(maxBudgetInput.getText().toString());
+//                pet = petInput.isChecked();
+//                car = carInput.isChecked();
+//                bedroom = bedroomInput.isChecked();
+//                party = partyInput.isChecked();
+//                drug = drugInput.isChecked();
+//                smoke = smokeInput.isChecked();
                 // Go back
                 finish();
                 /*
