@@ -115,36 +115,42 @@ public class DataManager {
         manyUnits.add(new ApartmentUnit(123, 4, 2, 150.5f, false));
         apartments.add(
                 new Apartment(1, "LimeLight Apts", "811 4th St SE",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/vKF6vjxkWvU\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
                         new PerUnitAmenities(true, true, true, true, true, true, true),
                         new CommonAmenities(true, true, true, true, true),
                         new SecurityFeatures(true, true, true, true),
                         twoUnits));
         apartments.add(
                 new Apartment(2, "Bierman place", "1401 6th St SE, Minneapolis, MN 55414",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/3Wy4G924V2I\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
                         new PerUnitAmenities(true, true, false, true, true, true, true),
                         new CommonAmenities(true, false, true, true, true),
                         new SecurityFeatures(true, true, false, true),
                         manyUnits));
         apartments.add(
                 new Apartment(3, "Elysian apts", "711 4th St SE, Minneapolis, MN 55414",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/p_SaeH1qpng\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
                         new PerUnitAmenities(true, true, true, true, false, true, true),
                         new CommonAmenities(true, true, true, true, false),
                         new SecurityFeatures(true, true, true, false),
                         twoUnits));
         apartments.add(
                 new Apartment(4, "Solhaus", "2428 Delaware St SE, Minneapolis, MN 55414",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/nFu7zE9DnRA\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
                         new PerUnitAmenities(true, false, true, true, false, true, true),
                         new CommonAmenities(false, true, false, true, false),
                         new SecurityFeatures(true, true, true, false),
                         threeUnits));
         apartments.add(
                 new Apartment(5, "Wahu", "1016 Washington Ave SE, Minneapolis, MN 55414",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/zaf6StO4gy4\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
                         new PerUnitAmenities(true, false, true, true, false, true, true),
                         new CommonAmenities(false, true, false, true, false),
                         new SecurityFeatures(false, true, true, false),
                         twoUnits));
         apartments.add(
                 new Apartment(6, "Quad on delaware", "2508 Delaware St SE, Minneapolis, MN 55414",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/DluFoF_qvOg\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
                         new PerUnitAmenities(true, false, true, true, false, false, true),
                         new CommonAmenities(false, true, false, true, true),
                         new SecurityFeatures(false, false, true, false),

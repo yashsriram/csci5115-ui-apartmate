@@ -80,18 +80,10 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
 
         final ConstraintLayout layout = findViewById(R.id.activity_view_apartment_listing);
 
-        String frameVideo = "<html>" +
-                "<body>" +
-                "<iframe width=\"400\" height=\"300\" src=\"" +
-                "https://www.youtube.com/embed/lY2H2ZP56K4" +
-                "\" frameborder=\"0\" allowfullscreen></iframe>" +
-                "</body>" +
-                "</html>";
-
         final WebView videoTour = layout.findViewById(R.id.videoTour);
         WebSettings webSettings = videoTour.getSettings();
         webSettings.setJavaScriptEnabled(true);
-        videoTour.loadData(frameVideo, "text/html", "utf-8");
+        videoTour.loadData(currentApartment.videoTourUrl, "text/html", "utf-8");
 
         final RecyclerView recyclerView = layout.findViewById(R.id.unitsList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

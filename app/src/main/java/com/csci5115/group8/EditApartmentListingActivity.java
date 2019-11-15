@@ -154,6 +154,7 @@ public class EditApartmentListingActivity extends AppCompatActivity {
                                 apartmentId,
                                 name.getText().toString(),
                                 address.getText().toString(),
+                                "",
                                 new PerUnitAmenities(
                                         refrigerator.isChecked(),
                                         oven.isChecked(),
