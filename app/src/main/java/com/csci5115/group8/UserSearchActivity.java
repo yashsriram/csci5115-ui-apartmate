@@ -17,6 +17,7 @@ import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.user.User;
 
 import com.csci5115.group8.ui.usersearch.UserSearchFragment;
+import com.csci5115.group8.ui.usersearch.UserSearchState;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
@@ -100,9 +101,7 @@ public class UserSearchActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Replace with your own action", Toast.LENGTH_LONG).show();
                 // Collect data, serialize and put in intent
-
                 Intent returnIntent = new Intent();
                 returnIntent.putExtra("searchText", searchText.getText().toString());
                 setResult(AppCompatActivity.RESULT_OK, returnIntent);
@@ -119,7 +118,6 @@ public class UserSearchActivity extends AppCompatActivity {
                 returnIntent.putExtra("canCook", toggleStatusToInt(canCook.getToggleStatus()));
                 returnIntent.putExtra("needsPrivateBedroom", toggleStatusToInt(needsPrivateBedroom.getToggleStatus()));
                 returnIntent.putExtra("hasCar", toggleStatusToInt(hasCar.getToggleStatus()));
-
 
                 finish();
             }
@@ -143,28 +141,25 @@ public class UserSearchActivity extends AppCompatActivity {
         String searchString = searchText.getText().toString();
 
         String ages = age.getText().toString();
-        int agei;
-        if (ages.length() < 1) agei = -1;
-        else agei = Integer.parseInt(ages);
+        int agei = ages.length() < 1 ? -1 : Integer.parseInt(ages);
 
         String maxBudgets = maxBudget.getText().toString();
-        int maxBudgeti;
-        if (maxBudgets.length() < 1) maxBudgeti = -1;
-        else maxBudgeti = Integer.parseInt(maxBudgets);
+        int maxBudgeti = maxBudgets.length() < 1 ? -1 : Integer.parseInt(maxBudgets);
 
         List<User> searchResults = UserSearchFragment.searchUsers(
-                searchString,
-                gender.getText().toString(),
-                agei,
-                maxBudgeti,
-                toggleStatusToInt(doesSmoke.getToggleStatus()),
-                toggleStatusToInt(drugsOkay.getToggleStatus()),
-                toggleStatusToInt(hasPets.getToggleStatus()),
-                toggleStatusToInt(partiesOkay.getToggleStatus()),
-                toggleStatusToInt(canCook.getToggleStatus()),
-                toggleStatusToInt(needsPrivateBedroom.getToggleStatus()),
-                toggleStatusToInt(hasCar.getToggleStatus()),
-                nativeLanguage.getText().toString()
+                new UserSearchState(searchString,
+                        gender.getText().toString(),
+                        agei,
+                        maxBudgeti,
+                        toggleStatusToInt(doesSmoke.getToggleStatus()),
+                        toggleStatusToInt(drugsOkay.getToggleStatus()),
+                        toggleStatusToInt(hasPets.getToggleStatus()),
+                        toggleStatusToInt(partiesOkay.getToggleStatus()),
+                        toggleStatusToInt(canCook.getToggleStatus()),
+                        toggleStatusToInt(needsPrivateBedroom.getToggleStatus()),
+                        toggleStatusToInt(hasCar.getToggleStatus()),
+                        nativeLanguage.getText().toString()
+                )
         );
         return searchResults.size();
     }

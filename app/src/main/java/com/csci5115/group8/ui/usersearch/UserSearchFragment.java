@@ -30,6 +30,7 @@ import java.util.regex.Pattern;
 public class UserSearchFragment extends Fragment {
 
     private UserSearchViewModel userSearchViewModel;
+    private UserSearchState userSearchState = new UserSearchState();
     private RecyclerView recyclerView;
     private List<User> userSearchResults = DataManager.users;
 
@@ -80,8 +81,7 @@ public class UserSearchFragment extends Fragment {
                     int hasCar = data.getIntExtra("hasCar", -1);
                     String nativeLanguage = data.getStringExtra("nativeLanguage");
 
-
-                    userSearchResults = searchUsers(
+                    userSearchState.set(
                             searchText,
                             gender,
                             age,
@@ -95,6 +95,8 @@ public class UserSearchFragment extends Fragment {
                             hasCar,
                             nativeLanguage
                     );
+
+                    userSearchResults = searchUsers(userSearchState);
                     recyclerView.setAdapter(new UserSearchResultsAdapter(getContext(), userSearchResults, null));
 
                     break;
@@ -106,36 +108,26 @@ public class UserSearchFragment extends Fragment {
         }
     }
 
-    public static List<User> searchUsers(String searchText,
-                                         String gender, int age,
-                                         int maxBudget,
-                                         int doesSmoke,
-                                         int drugsOkay,
-                                         int hasPets,
-                                         int partiesOkay,
-                                         int canCook,
-                                         int needsPrivateBedroom,
-                                         int hasCar,
-                                         String nativeLanguage) {
-        String regexString = ".*" + searchText + ".*";
+    public static List<User> searchUsers(UserSearchState state) {
+        String regexString = ".*" + state.searchText + ".*";
         Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
-        Pattern pattern2 = Pattern.compile(gender + ".*", Pattern.CASE_INSENSITIVE);
-        Pattern pattern3 = Pattern.compile(".*" + nativeLanguage + ".*", Pattern.CASE_INSENSITIVE);
+        Pattern pattern2 = Pattern.compile(".*" + state.gender + ".*", Pattern.CASE_INSENSITIVE);
+        Pattern pattern3 = Pattern.compile(".*" + state.nativeLanguage + ".*", Pattern.CASE_INSENSITIVE);
         List<User> results = new ArrayList<>();
         for (User user : DataManager.users) {
-            // If search matches name or address and all filters match then only add apt to search results
+            // If search matches name and all filters match then only add apt to search results
             if ((pattern.matcher(user.name).matches())
-                    && filterMatch(doesSmoke, user.preferences.doesSmoke)
-                    && filterMatch(drugsOkay, user.preferences.drugsOkay)
-                    && filterMatch(hasPets, user.preferences.hasPets)
-                    && filterMatch(partiesOkay, user.preferences.partiesOkay)
-                    && filterMatch(canCook, user.preferences.canCook)
-                    && filterMatch(needsPrivateBedroom, user.preferences.needsPrivateBedroom)
-                    && filterMatch(hasCar, user.preferences.hasCar)
-                    && (user.maxBudget == maxBudget || maxBudget == -1)
+                    && filterMatch(state.doesSmoke, user.preferences.doesSmoke)
+                    && filterMatch(state.drugsOkay, user.preferences.drugsOkay)
+                    && filterMatch(state.hasPets, user.preferences.hasPets)
+                    && filterMatch(state.partiesOkay, user.preferences.partiesOkay)
+                    && filterMatch(state.canCook, user.preferences.canCook)
+                    && filterMatch(state.needsPrivateBedroom, user.preferences.needsPrivateBedroom)
+                    && filterMatch(state.hasCar, user.preferences.hasCar)
+                    && (user.maxBudget == state.maxBudget || state.maxBudget == -1)
                     && pattern2.matcher(user.gender).matches()
                     && pattern3.matcher(user.nativeLanguage).matches()
-                    && (age == user.age || age == -1)
+                    && (state.age == user.age || state.age == -1)
             ) {
                 results.add(user);
             }
