@@ -4,12 +4,14 @@ import com.csci5115.group8.data.apartment.Apartment;
 import com.csci5115.group8.data.user.User;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ReviewManager {
     public List<Review> allReviews = new ArrayList<>();
 
-    public boolean setReview(int apartmentId, String userEmail, float rating) {
+    public boolean setReview(int apartmentId, String userEmail, int rating) {
         for (Review review : allReviews) {
             if (review.apartment.id == apartmentId && review.user.email.equals(userEmail)) {
                 review.rating = rating;
@@ -35,14 +37,26 @@ public class ReviewManager {
         return 0f;
     }
 
-    public List<Review> getReviews(int apartmentId) {
-        List<Review> reviews = new ArrayList<>();
+    public Map<Integer, Integer> getStarCountHistogram(int apartmentId) {
+        Map<Integer, Integer> starCountHistogram = new HashMap<>();
         for (Review review : allReviews) {
             if (review.apartment.id == apartmentId) {
-                reviews.add(review);
+                Integer count = starCountHistogram.get(review.rating);
+                if (count == null) {
+                    starCountHistogram.put(review.rating, 1);
+                } else {
+                    starCountHistogram.put(review.rating, count + 1);
+                }
             }
         }
-        return reviews;
+        // Ensure 1 - 5 ratings exist
+        for (int rating = 1; rating < 6; rating++) {
+            Integer count = starCountHistogram.get(rating);
+            if (count == null) {
+                starCountHistogram.put(rating, 0);
+            }
+        }
+        return starCountHistogram;
     }
 
 }

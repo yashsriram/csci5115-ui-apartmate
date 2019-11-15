@@ -7,20 +7,215 @@
     android:layout_height="match_parent"
     tools:context="com.csci5115.group8.ViewApartmentListingActivity">
 
-
-    <RatingBar
-        android:id="@+id/ratingBar"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/ratingsBlock"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:stepSize="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ratingBar">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:text="Average rating" />
+
+                <TextView
+                    style="@style/TextAppearance.AppCompat.Medium"
+                    android:id="@+id/averageRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:text="3.5" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:text="1 Star" />
+
+                <ProgressBar
+                    android:id="@+id/rating1Percentage"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:isIndicator="true"
+                    android:progress="21" />
+
+                <TextView
+                    android:id="@+id/rating1Count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:text="4 people" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:text="2 Stars" />
+
+                <ProgressBar
+                    android:id="@+id/rating2Percentage"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:isIndicator="true"
+                    android:progress="22" />
+
+                <TextView
+                    android:id="@+id/rating2Count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:text="4 people" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:text="3 Stars" />
+
+                <ProgressBar
+                    android:id="@+id/rating3Percentage"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:isIndicator="true"
+                    android:progress="23" />
+
+                <TextView
+                    android:id="@+id/rating3Count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:text="4 people" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:text="4 Stars" />
+
+                <ProgressBar
+                    android:id="@+id/rating4Percentage"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:isIndicator="true"
+                    android:progress="24" />
+
+                <TextView
+                    android:id="@+id/rating4Count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:text="4 people" />
+
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.1"
+                    android:gravity="center"
+                    android:text="5 Stars" />
+
+                <ProgressBar
+                    android:id="@+id/rating5Percentage"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.8"
+                    android:isIndicator="true"
+                    android:progress="25" />
+
+                <TextView
+                    android:id="@+id/rating5Count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.2"
+                    android:gravity="center"
+                    android:text="4 people" />
+
+            </TableRow>
+
+        </TableLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
         android:id="@+id/name"
         style="@style/TextAppearance.AppCompat.Large"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
@@ -28,15 +223,14 @@
         android:hint="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ratingBar" />
+        app:layout_constraintTop_toBottomOf="@id/ratingsBlock" />
 
     <TextView
         android:id="@+id/address"
         style="@style/TextAppearance.AppCompat.Large"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:ems="10"
         android:hint="Address"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,8 +310,7 @@
                         android:layout_weight="1"
                         android:editable="false"
                         android:padding="5dp"
-                        android:text="Dishwasher"
-                        app:layout_constraintTop_toTopOf="@id/microwave" />
+                        android:text="Dishwasher" />
 
                     <CheckBox
                         android:id="@+id/washingMachine"
@@ -126,8 +319,7 @@
                         android:layout_weight="1"
                         android:editable="false"
                         android:padding="5dp"
-                        android:text="Washing Machine"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        android:text="Washing Machine" />
 
                     <CheckBox
                         android:id="@+id/heating"
@@ -136,8 +328,7 @@
                         android:layout_weight="1"
                         android:editable="false"
                         android:padding="5dp"
-                        android:text="Heating"
-                        tools:layout_editor_absoluteX="150dp" />
+                        android:text="Heating" />
 
 
                 </TableRow>
@@ -192,8 +383,7 @@
                         android:layout_weight="1"
                         android:editable="false"
                         android:padding="5dp"
-                        android:text="Longue"
-                        app:layout_constraintTop_toTopOf="@id/refrigerator" />
+                        android:text="Longue" />
 
                     <CheckBox
                         android:id="@+id/printingService"
@@ -202,9 +392,7 @@
                         android:layout_weight="1"
                         android:editable="false"
                         android:padding="5dp"
-                        android:text="Printing Service"
-
-                        app:layout_constraintTop_toTopOf="@id/oven" />
+                        android:text="Printing Service" />
 
                 </TableRow>
 
@@ -219,8 +407,7 @@
                         android:layout_weight="1"
                         android:editable="false"
                         android:padding="5dp"
-                        android:text="Reception"
-                        app:layout_constraintTop_toTopOf="@id/microwave" />
+                        android:text="Reception" />
 
                     <CheckBox
                         android:id="@+id/parking"
@@ -229,8 +416,7 @@
                         android:layout_weight="1"
                         android:editable="false"
                         android:padding="5dp"
-                        android:text="Parking"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        android:text="Parking" />
 
                     <CheckBox
                         android:layout_width="wrap_content"
@@ -238,8 +424,7 @@
                         android:layout_weight="1"
                         android:editable="false"
                         android:padding="5dp"
-                        android:visibility="invisible"
-                        app:layout_constraintEnd_toEndOf="parent" />
+                        android:visibility="invisible" />
 
                 </TableRow>
 

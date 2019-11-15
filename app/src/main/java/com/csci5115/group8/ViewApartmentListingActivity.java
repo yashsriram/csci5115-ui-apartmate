@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.ProgressBar;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +22,11 @@ import com.csci5115.group8.data.user.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ViewApartmentListingActivity extends AppCompatActivity {
     int apartmentId = 0;
@@ -49,7 +54,7 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                boolean done = DataManager.reviewManager.setReview(apartmentId, DataManager.currentUser.email, rating);
+                boolean done = DataManager.reviewManager.setReview(apartmentId, DataManager.currentUser.email, (int) rating);
                 if (!done) {
                     Snackbar.make(ratingBar, "Rating could not be saved. Data might be outdated", Snackbar.LENGTH_LONG).show();
                 }
@@ -108,7 +113,8 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 if (fromUser) {
-                    DataManager.reviewManager.setReview(apartmentId, currentUser.email, rating);
+                    DataManager.reviewManager.setReview(apartmentId, currentUser.email, (int) rating);
+                    refreshRatingBlock();
                     Snackbar.make(ratingBar, "Rating updated", Snackbar.LENGTH_SHORT).show();
                 }
             }
@@ -150,6 +156,44 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         sprinklers.setEnabled(false);
         buildingLock.setChecked(currentApartment.securityFeatures.buildingLock);
         buildingLock.setEnabled(false);
+
+        refreshRatingBlock();
+    }
+
+    private void refreshRatingBlock() {
+        Map<Integer, Integer> starCountHistogram = DataManager.reviewManager.getStarCountHistogram(apartmentId);
+        int total = 0;
+        for (int rating = 1; rating < 6; rating++) {
+            total += starCountHistogram.get(rating);
+        }
+
+        final ConstraintLayout layout = findViewById(R.id.activity_view_apartment_listing);
+
+        List<ProgressBar> ratingPercentages = new ArrayList<>();
+        ratingPercentages.add((ProgressBar) layout.findViewById(R.id.rating1Percentage));
+        ratingPercentages.add((ProgressBar) layout.findViewById(R.id.rating2Percentage));
+        ratingPercentages.add((ProgressBar) layout.findViewById(R.id.rating3Percentage));
+        ratingPercentages.add((ProgressBar) layout.findViewById(R.id.rating4Percentage));
+        ratingPercentages.add((ProgressBar) layout.findViewById(R.id.rating5Percentage));
+
+        List<TextView> ratingCounts = new ArrayList<>();
+        ratingCounts.add((TextView) layout.findViewById(R.id.rating1Count));
+        ratingCounts.add((TextView) layout.findViewById(R.id.rating2Count));
+        ratingCounts.add((TextView) layout.findViewById(R.id.rating3Count));
+        ratingCounts.add((TextView) layout.findViewById(R.id.rating4Count));
+        ratingCounts.add((TextView) layout.findViewById(R.id.rating5Count));
+
+        float weightedRating = 0;
+        for (int i = 0; i < 5; i++) {
+            ratingPercentages.get(i).setProgress(total == 0 ? 0 : (int) ((float) starCountHistogram.get(i + 1) / total * 100));
+            ratingCounts.get(i).setText(starCountHistogram.get(i + 1) + " people");
+            weightedRating += (i + 1) * starCountHistogram.get(i + 1);
+        }
+
+        final TextView averageRating = layout.findViewById(R.id.averageRating);
+        DecimalFormat df = new DecimalFormat("#.#");
+        df.setRoundingMode(RoundingMode.CEILING);
+        averageRating.setText(total == 0 ? "No reviews yet" : df.format((weightedRating / total)) + " Stars / " + total + " People");
     }
 
 }
