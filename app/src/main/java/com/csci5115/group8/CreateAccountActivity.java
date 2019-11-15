@@ -54,7 +54,7 @@ public class CreateAccountActivity extends AppCompatActivity {
                     Snackbar.make(view, "Account with same email exists. Please try using another email", Snackbar.LENGTH_LONG).show();
                     return;
                 }
-                new User(_email, _password, _username, _gender, _age, "", -1, "", new UserPreferences(false, false, false, false, false, false)));
+                DataManager.users.add(new User(_email, _password, _username, _gender, Integer.parseInt(_age)));
                 Toast.makeText(CreateAccountActivity.this, "Account created successfully. Please log in", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
