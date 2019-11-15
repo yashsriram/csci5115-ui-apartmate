@@ -37,10 +37,12 @@ public class EditYourProfileActivity extends AppCompatActivity {
         final CheckBox canCook = findViewById(R.id.canCook);
         final CheckBox hasCar = findViewById(R.id.hasCar);
         final CheckBox needsPrivateBedroom = findViewById(R.id.needsPrivateBedroom);
+        final TextView level = findViewById(R.id.level);
         final ImageView image = findViewById(R.id.image);
 
         isVerified.setText(currentUser.isVerified ? "VERIFIED" : "NOT VERIFIED");
-        isVerified.setTextColor(currentUser.isVerified ? Color.GREEN : Color.RED);
+        isVerified.setTextColor(Color.WHITE);
+        isVerified.setBackgroundColor(currentUser.isVerified ? Color.GREEN : Color.RED);
         name.setText(currentUser.name);
         email.setText(currentUser.email);
         age.setText(String.format("%s", currentUser.age));
@@ -54,6 +56,7 @@ public class EditYourProfileActivity extends AppCompatActivity {
         canCook.setChecked(currentUser.preferences.canCook);
         needsPrivateBedroom.setChecked(currentUser.preferences.needsPrivateBedroom);
         hasCar.setChecked(currentUser.preferences.hasCar);
+        level.setText("Level " + currentUser.level);
 
         FloatingActionButton submit = findViewById(R.id.submit);
 

@@ -38,6 +38,7 @@ public class DataManager {
     private DataManager() {
     }
 
+    // Apartment
     public static Apartment getApartment(int apartmentId) {
         for (Apartment apt : DataManager.apartments) {
             if (apt.id == apartmentId) {
@@ -47,103 +48,35 @@ public class DataManager {
         return null;
     }
 
-    public static User getUser(String userEmail) {
-        for (User user : DataManager.users) {
-            if (user.email.equals(userEmail)) {
-                return user;
+    public static Apartment getApartment(String apartmentAddress) {
+        for (Apartment apt : DataManager.apartments) {
+            if (apt.address.equals(apartmentAddress)) {
+                return apt;
             }
         }
         return null;
     }
 
+    public static int getNumAparments() {
+        return apartments.size();
+    }
+
+    public static void createApartment(Apartment newApartment) {
+        if (DataManager.currentUser != null) {
+            DataManager.currentUser.level += 2;
+        }
+        DataManager.apartments.add(newApartment);
+    }
+
     public static void updateApartment(int apartmentId, Apartment newApartment) {
+        if (DataManager.currentUser != null) {
+            DataManager.currentUser.level += 1;
+        }
         for (int i = 0; i < DataManager.apartments.size(); ++i) {
             if (DataManager.apartments.get(i).id == apartmentId) {
                 DataManager.apartments.set(i, newApartment);
             }
         }
-    }
-
-    public static List<User> searchUsers(UserSearchState state) {
-        String regexString = ".*" + state.searchText + ".*";
-        Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
-        Pattern pattern2 = Pattern.compile(".*" + state.gender + ".*", Pattern.CASE_INSENSITIVE);
-        Pattern pattern3 = Pattern.compile(".*" + state.nativeLanguage + ".*", Pattern.CASE_INSENSITIVE);
-        List<User> results = new ArrayList<>();
-        for (User user : DataManager.users) {
-            // If search matches name and all filters match then only add apt to search results
-            if ((pattern.matcher(user.name).matches())
-                    && filterMatch(state.doesSmoke, user.preferences.doesSmoke)
-                    && filterMatch(state.drugsOkay, user.preferences.drugsOkay)
-                    && filterMatch(state.hasPets, user.preferences.hasPets)
-                    && filterMatch(state.partiesOkay, user.preferences.partiesOkay)
-                    && filterMatch(state.canCook, user.preferences.canCook)
-                    && filterMatch(state.needsPrivateBedroom, user.preferences.needsPrivateBedroom)
-                    && filterMatch(state.hasCar, user.preferences.hasCar)
-                    && (user.maxBudget == state.maxBudget || state.maxBudget == -1)
-                    && pattern2.matcher(user.gender).matches()
-                    && pattern3.matcher(user.nativeLanguage).matches()
-                    && (state.age == user.age || state.age == -1)
-            ) {
-                results.add(user);
-            }
-        }
-        return results;
-    }
-
-    public static List<Apartment> searchApartments(ApartmentSearchState state) {
-        String regexString = ".*" + state.searchText + ".*";
-        Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
-        List<Apartment> results = new ArrayList<>();
-        for (Apartment apt : DataManager.apartments) {
-            // If search matches name or address and all filters match then only add apt to search results
-            if ((pattern.matcher(apt.name).matches() || pattern.matcher(apt.address).matches())
-                    && filterMatch(state.refrigerator, apt.perUnitAmenities.refrigerator)
-                    && filterMatch(state.oven, apt.perUnitAmenities.oven)
-                    && filterMatch(state.microwave, apt.perUnitAmenities.microwave)
-                    && filterMatch(state.dishwasher, apt.perUnitAmenities.dishwasher)
-                    && filterMatch(state.washingMachine, apt.perUnitAmenities.washingMachine)
-                    && filterMatch(state.heating, apt.perUnitAmenities.heating)
-                    && filterMatch(state.cooling, apt.perUnitAmenities.cooling)
-                    && filterMatch(state.laundryRoom, apt.commonAmenities.laundryRoom)
-                    && filterMatch(state.longue, apt.commonAmenities.longue)
-                    && filterMatch(state.printingService, apt.commonAmenities.printingService)
-                    && filterMatch(state.reception, apt.commonAmenities.reception)
-                    && filterMatch(state.parking, apt.commonAmenities.parking)
-                    && filterMatch(state.securityCameras, apt.securityFeatures.securityCameras)
-                    && filterMatch(state.smokeDetectors, apt.securityFeatures.smokeDetectors)
-                    && filterMatch(state.sprinklers, apt.securityFeatures.sprinklers)
-                    && filterMatch(state.buildingLock, apt.securityFeatures.buildingLock)) {
-                results.add(apt);
-            }
-        }
-        return results;
-    }
-
-    public static void generateNotification(String message) {
-        notifications.add(new Notification(message));
-    }
-
-    public static int getUnreadNotifications() {
-        int num = 0;
-        for (Notification n : notifications) {
-            if (!n.read) num++;
-        }
-        return num;
-    }
-
-    private static boolean filterMatch(int filter, boolean field) {
-        if (filter == 0) {
-            return true;
-        } else if (filter == 1) {
-            return !field;
-        } else {
-            return field;
-        }
-    }
-
-    private static void createNotifications() {
-        notifications.add(new Notification("First notification!"));
     }
 
     private static void createApartmentData() {
@@ -218,16 +151,112 @@ public class DataManager {
                         oneUnit));
     }
 
+    public static List<Apartment> searchApartments(ApartmentSearchState state) {
+        String regexString = ".*" + state.searchText + ".*";
+        Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
+        List<Apartment> results = new ArrayList<>();
+        for (Apartment apt : DataManager.apartments) {
+            // If search matches name or address and all filters match then only add apt to search results
+            if ((pattern.matcher(apt.name).matches() || pattern.matcher(apt.address).matches())
+                    && filterMatch(state.refrigerator, apt.perUnitAmenities.refrigerator)
+                    && filterMatch(state.oven, apt.perUnitAmenities.oven)
+                    && filterMatch(state.microwave, apt.perUnitAmenities.microwave)
+                    && filterMatch(state.dishwasher, apt.perUnitAmenities.dishwasher)
+                    && filterMatch(state.washingMachine, apt.perUnitAmenities.washingMachine)
+                    && filterMatch(state.heating, apt.perUnitAmenities.heating)
+                    && filterMatch(state.cooling, apt.perUnitAmenities.cooling)
+                    && filterMatch(state.laundryRoom, apt.commonAmenities.laundryRoom)
+                    && filterMatch(state.longue, apt.commonAmenities.longue)
+                    && filterMatch(state.printingService, apt.commonAmenities.printingService)
+                    && filterMatch(state.reception, apt.commonAmenities.reception)
+                    && filterMatch(state.parking, apt.commonAmenities.parking)
+                    && filterMatch(state.securityCameras, apt.securityFeatures.securityCameras)
+                    && filterMatch(state.smokeDetectors, apt.securityFeatures.smokeDetectors)
+                    && filterMatch(state.sprinklers, apt.securityFeatures.sprinklers)
+                    && filterMatch(state.buildingLock, apt.securityFeatures.buildingLock)) {
+                results.add(apt);
+            }
+        }
+        return results;
+    }
+
+    // User
+    public static User getUser(String userEmail) {
+        for (User user : DataManager.users) {
+            if (user.email.equals(userEmail)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
+    public static List<User> searchUsers(UserSearchState state) {
+        String regexString = ".*" + state.searchText + ".*";
+        Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
+        Pattern pattern2 = Pattern.compile(".*" + state.gender + ".*", Pattern.CASE_INSENSITIVE);
+        Pattern pattern3 = Pattern.compile(".*" + state.nativeLanguage + ".*", Pattern.CASE_INSENSITIVE);
+        List<User> results = new ArrayList<>();
+        for (User user : DataManager.users) {
+            // If search matches name and all filters match then only add apt to search results
+            if ((pattern.matcher(user.name).matches())
+                    && filterMatch(state.doesSmoke, user.preferences.doesSmoke)
+                    && filterMatch(state.drugsOkay, user.preferences.drugsOkay)
+                    && filterMatch(state.hasPets, user.preferences.hasPets)
+                    && filterMatch(state.partiesOkay, user.preferences.partiesOkay)
+                    && filterMatch(state.canCook, user.preferences.canCook)
+                    && filterMatch(state.needsPrivateBedroom, user.preferences.needsPrivateBedroom)
+                    && filterMatch(state.hasCar, user.preferences.hasCar)
+                    && (user.maxBudget == state.maxBudget || state.maxBudget == -1)
+                    && pattern2.matcher(user.gender).matches()
+                    && pattern3.matcher(user.nativeLanguage).matches()
+                    && (state.age == user.age || state.age == -1)
+            ) {
+                results.add(user);
+            }
+        }
+        return results;
+    }
+
     private static void createUserData() {
         users.add(new User("john@apartmate.com", "john", "John Doe", "male", 20, 600, "English", true,
-                new UserPreferences(true, false, false, true, false, false, true))
+                new UserPreferences(true, false, false, true, false, false, true),
+                0)
         );
         users.add(new User("kate@apartmate.com", "kate", "Kate", "female", 23, 700, "Spanish", false,
-                new UserPreferences(true, false, true, true, true, false, true))
+                new UserPreferences(true, false, true, true, true, false, true),
+                0)
         );
         users.add(new User("nate@apartmate.com", "nate", "Nate", "female", 22, 620, "English", true,
-                new UserPreferences(true, true, false, true, true, true, true))
+                new UserPreferences(true, true, false, true, true, true, true),
+                0)
         );
+    }
+
+    private static boolean filterMatch(int filter, boolean field) {
+        if (filter == 0) {
+            return true;
+        } else if (filter == 1) {
+            return !field;
+        } else {
+            return field;
+        }
+    }
+
+    // Chat and notifications
+    public static void generateNotification(String message) {
+        notifications.add(new Notification(message));
+    }
+
+    public static int getUnreadNotifications() {
+        int num = 0;
+        for (Notification n : notifications) {
+            if (!n.read) num++;
+        }
+        return num;
+    }
+
+    private static void createNotifications() {
+        notifications.add(new Notification("First notification!"));
     }
 
     private static void createThreadData() {

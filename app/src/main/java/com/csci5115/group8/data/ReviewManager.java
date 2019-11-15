@@ -24,6 +24,7 @@ public class ReviewManager {
         User user = DataManager.getUser(userEmail);
         if (apartment != null && user != null) {
             allReviews.add(new Review(user, apartment, rating));
+            user.level += 5;
             return true;
         }
 

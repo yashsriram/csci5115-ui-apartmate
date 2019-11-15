@@ -10,8 +10,9 @@ public class User {
     public String nativeLanguage;
     public boolean isVerified;
     public UserPreferences preferences;
+    public int level;
 
-    public User(String email, String password, String name, String gender, int age, int maxBudget, String nativeLanguage, boolean isVerified, UserPreferences preferences) {
+    public User(String email, String password, String name, String gender, int age, int maxBudget, String nativeLanguage, boolean isVerified, UserPreferences preferences, int level) {
         this.email = email;
         this.password = password;
         this.name = name;
@@ -21,6 +22,7 @@ public class User {
         this.nativeLanguage = nativeLanguage;
         this.isVerified = isVerified;
         this.preferences = preferences;
+        this.level = level;
     }
 
     public User(String email, String password, String name, String gender, int age) {
@@ -33,6 +35,7 @@ public class User {
         this.nativeLanguage = "";
         this.isVerified = false;
         this.preferences = new UserPreferences(false, false, false, false, false, false, false);
+        this.level = 0;
     }
 
     @Override

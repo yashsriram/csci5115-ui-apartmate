@@ -145,7 +145,7 @@ public class ApartmentSearchActivity extends AppCompatActivity {
         });
 
         // Show number of matches using regex matching across all apartments by default == len of all apartments
-        numMatches.setText(DataManager.apartments.size() + " Matches");
+        numMatches.setText(getNumSearchResults() + " Matches");
     }
 
     private int toggleStatusToInt(TriStateToggleButton.ToggleStatus toggleStatus) {
