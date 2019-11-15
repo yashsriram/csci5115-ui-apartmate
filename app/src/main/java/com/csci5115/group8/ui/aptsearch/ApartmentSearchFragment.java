@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.csci5115.group8.ApartmentSearchActivity;
 import com.csci5115.group8.adapters.ApartmentSearchResultsAdapter;
@@ -28,9 +29,9 @@ import java.util.regex.Pattern;
 public class ApartmentSearchFragment extends Fragment {
 
     private ApartmentSearchViewModel apartmentSearchViewModel;
-    private ApartmentSearchState apartmentSearchState = new ApartmentSearchState();
     private RecyclerView recyclerView;
-    private List<Apartment> apartmentSearchResults = DataManager.apartments;
+    private ApartmentSearchState apartmentSearchState = new ApartmentSearchState();
+    private List<Apartment> apartmentSearchResults = searchApartments(apartmentSearchState);
     private ApartmentSearchResultsAdapter.ItemClickListener itemClickListener = new ApartmentSearchResultsAdapter.ItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
@@ -44,7 +45,15 @@ public class ApartmentSearchFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         apartmentSearchViewModel = ViewModelProviders.of(this).get(ApartmentSearchViewModel.class);
         View root = inflater.inflate(R.layout.fragment_apartment_search, container, false);
-
+        final SwipeRefreshLayout swipeRefreshLayout = root.findViewById(R.id.apartmentSearchResultsSwipeRefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                apartmentSearchResults = searchApartments(apartmentSearchState);
+                recyclerView.setAdapter(new ApartmentSearchResultsAdapter(getContext(), apartmentSearchResults, null));
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
         final FloatingActionButton searchApartments = root.findViewById(R.id.search_apartments);
         searchApartments.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +63,7 @@ public class ApartmentSearchFragment extends Fragment {
             }
         });
 
-        recyclerView = root.findViewById(R.id.apartment_search_results);
+        recyclerView = root.findViewById(R.id.apartmentSearchResults);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new ApartmentSearchResultsAdapter(getContext(), apartmentSearchResults, itemClickListener));
 

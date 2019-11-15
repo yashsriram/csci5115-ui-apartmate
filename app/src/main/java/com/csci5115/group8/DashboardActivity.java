@@ -34,7 +34,6 @@ public class DashboardActivity extends AppCompatActivity implements ChatThreadFr
     @Override
     public void onListFragmentInteraction(Thread item) {
         Intent threadIntent = new Intent(DashboardActivity.this, ThreadActivity.class);
-        // i cant believe there isn't an easier way to pass objects between activities
         threadIntent.putExtra("thread_fname", item.first_name);
         threadIntent.putExtra("thread_lname", item.last_name);
         startActivity(threadIntent);
