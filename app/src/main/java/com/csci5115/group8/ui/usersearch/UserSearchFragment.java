@@ -127,7 +127,7 @@ public class UserSearchFragment extends Fragment {
                                                String    nativeLanguage) {
         String regexString = ".*" + searchText + ".*";
         Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
-        Pattern pattern2 = Pattern.compile(".*"+gender+".*", Pattern.CASE_INSENSITIVE);
+        Pattern pattern2 = Pattern.compile(gender+".*", Pattern.CASE_INSENSITIVE);
         Pattern pattern3 = Pattern.compile(".*" +nativeLanguage+".*", Pattern.CASE_INSENSITIVE);
         Map<String,User> results = new HashMap<>();
         Map<String,User> mapa=DataManager.getInstance().users;
