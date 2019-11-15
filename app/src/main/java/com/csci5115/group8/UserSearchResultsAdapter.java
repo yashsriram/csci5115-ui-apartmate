@@ -97,7 +97,16 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
         holder.age.setVisibility(UserSRL.ageVisible ? View.VISIBLE : View.GONE);
         holder.gender.setText(truncate(user.gender, 15));
         holder.gender.setVisibility(UserSRL.genderVisible ? View.VISIBLE : View.GONE);
-        holder.commonAmenities.setText(truncate(user.gender.toString(), 50));
+        holder.commonAmenities.setText(truncate(
+                "Max budget: "+java.lang.Integer.toString(user.maxBudget)
+                +"\nSmoke?     "+yesOrNo(user.doesSmoke)
+                +"              Drugs Okay?    "+yesOrNo(user.drugsOkay)
+                +"\nHas pets?  "+yesOrNo(user.hasPets)
+                +"            Parties Okay? "+yesOrNo(user.partiesOkay)
+                +"\nCan cook? "+yesOrNo(user.canCook)
+                        +"            Has car?           "+yesOrNo(user.hasCar)
+                +"\nNeeds private bedroom? "+yesOrNo(user.needsPrivateBedroom)
+                +"\nNative Language:                "+user.nativeLanguage, 500));
         holder.commonAmenities.setVisibility(UserSRL.genderVisible ? View.VISIBLE : View.GONE);
         holder.commonAmenitiesHint.setVisibility(UserSRL.genderVisible ? View.VISIBLE : View.GONE);
     }
@@ -105,5 +114,10 @@ public class UserSearchResultsAdapter extends RecyclerView.Adapter<UserSearchRes
     @Override
     public int getItemCount() {
         return data.size();
+    }
+
+    private String yesOrNo(boolean a){
+        if(a)return " Yes";
+        else return " No";
     }
 }
