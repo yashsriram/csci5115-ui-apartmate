@@ -16,7 +16,7 @@ public class ReviewManager {
             }
         }
         Apartment apartment = DataManager.getApartment(apartmentId);
-        User user = DataManager.getInstance().users.get(userEmail);
+        User user = DataManager.getUser(userEmail);
         if (apartment != null && user != null) {
             reviews.add(new Review(user, apartment, rating));
             return true;

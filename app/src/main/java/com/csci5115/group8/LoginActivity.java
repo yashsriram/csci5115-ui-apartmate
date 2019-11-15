@@ -52,9 +52,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String _email = email.getText().toString();
-                Map<String, User> users = DataManager.getInstance().users;
-                if (users.containsKey(_email) && users.get(_email) != null && users.get(_email).password.equals(password.getText().toString())) {
-                    DataManager.getInstance().currentUser = DataManager.getInstance().users.get(_email);
+                User user = DataManager.getUser(_email);
+                if (user != null && user.password.equals(password.getText().toString())) {
+                    DataManager.getInstance().currentUser = user;
                     Intent intent = new Intent(getApplicationContext(), DashboardActivity.class);
                     startActivity(intent);
                 } else {

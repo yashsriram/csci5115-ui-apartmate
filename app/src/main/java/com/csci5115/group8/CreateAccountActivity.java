@@ -49,14 +49,11 @@ public class CreateAccountActivity extends AppCompatActivity {
                     Snackbar.make(view, "Passwords do not match. Please recheck", Snackbar.LENGTH_LONG).show();
                     return;
                 }
-                if (DataManager.getInstance().users.containsKey(email.getText().toString())) {
+                if (DataManager.getUser(email.getText().toString()) != null) {
                     Snackbar.make(view, "Account with same email exists. Please try using another email", Snackbar.LENGTH_LONG).show();
                     return;
                 }
-                DataManager.getInstance().users.put(
-                        _email,
-                        new User(_email, _password, _username, _gender, Integer.parseInt(_age))
-                );
+                DataManager.getInstance().users.add(new User(_email, _password, _username, _gender, Integer.parseInt(_age)));
                 Toast.makeText(CreateAccountActivity.this, "Account created successfully. Please log in", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);

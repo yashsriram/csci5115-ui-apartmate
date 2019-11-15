@@ -16,32 +16,21 @@ import java.util.Map;
 
 public class DataManager {
 
-    // Add public data to access here
-
     public User currentUser = null;
     public List<Apartment> apartments = new ArrayList<>();
     public List<Thread> threads = new ArrayList<>();
-    public Map<String, User> users = new HashMap<>();
+    public List<User> users = new ArrayList<>();
     public ReviewManager reviewManager = new ReviewManager();
     public List<Notification> notifications = new ArrayList<>();
-
-    // end public accessible data
-
 
     private static DataManager soleInstance;
 
     private DataManager() {
 
-        ////// START CREATE DEFAULT DATA
-
         createApartmentData();
         createUserData();
         createThreadData();
         createNotifications();
-
-
-        ////// END CREATE DEFAULT DATA
-
 
         if (soleInstance != null) {
             throw new RuntimeException("Use getInstance() method to get the single instance of this class.");
@@ -49,7 +38,7 @@ public class DataManager {
     }
 
     public static DataManager getInstance() {
-        if (soleInstance == null) { //if there is no instance available... create new one
+        if (soleInstance == null) {
             soleInstance = new DataManager();
         }
 
@@ -65,24 +54,21 @@ public class DataManager {
         return null;
     }
 
+    public static User getUser(String userEmail) {
+        for (User user : DataManager.getInstance().users) {
+            if (user.email.equals(userEmail)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     public static void updateApartment(int apartmentId, Apartment newApartment) {
         for (int i = 0; i < DataManager.getInstance().apartments.size(); ++i) {
             if (DataManager.getInstance().apartments.get(i).id == apartmentId) {
                 DataManager.getInstance().apartments.set(i, newApartment);
             }
         }
-    }
-
-    public static List<User> getAllUsersList(Map<String, User> users) {
-        List<User> usersList = new ArrayList<>();
-        for (Map.Entry<String, User> entry : users.entrySet()) {
-            usersList.add(entry.getValue());
-        }
-        return usersList;
-    }
-
-    public static List<User> getUserList() {
-        return getAllUsersList(DataManager.getInstance().users);
     }
 
     public void generateNotification(String message) {
@@ -174,20 +160,14 @@ public class DataManager {
     }
 
     private void createUserData() {
-        users.put("john@apartmate.com",
-                new User("john@apartmate.com", "john", "John Doe", "male", 20, 600, "English", true,
-                        new UserPreferences(true, false, false, true, false, false, true)
-                )
+        users.add(new User("john@apartmate.com", "john", "John Doe", "male", 20, 600, "English", true,
+                new UserPreferences(true, false, false, true, false, false, true))
         );
-        users.put("kate@apartmate.com",
-                new User("kate@apartmate.com", "kate", "Kate", "female", 23, 700, "Spanish", false,
-                        new UserPreferences(true, false, true, true, true, false, true)
-                )
+        users.add(new User("kate@apartmate.com", "kate", "Kate", "female", 23, 700, "Spanish", false,
+                new UserPreferences(true, false, true, true, true, false, true))
         );
-        users.put("nate@apartmate.com",
-                new User("nate@apartmate.com", "nate", "Nate", "female", 22, 620, "English", true,
-                        new UserPreferences(true, true, false, true, true, true, true)
-                )
+        users.add(new User("nate@apartmate.com", "nate", "Nate", "female", 22, 620, "English", true,
+                new UserPreferences(true, true, false, true, true, true, true))
         );
     }
 
