@@ -32,81 +32,121 @@
         android:id="@+id/image"
         android:layout_width="140dp"
         android:layout_height="140dp"
+        android:src="@mipmap/ic_launcher"
         android:background="@drawable/ic_black_border_rectangle"
         app:layout_constraintEnd_toEndOf="@id/level"
         app:layout_constraintStart_toStartOf="@id/level"
         app:layout_constraintTop_toBottomOf="@id/level" />
 
 
-    <EditText
-        android:id="@+id/name"
-        style="@style/TextAppearance.AppCompat.Large"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nameLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="name"
-        android:inputType="textPersonName"
+        android:hint="Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/isVerified"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/email"
-        style="@style/TextAppearance.AppCompat.Large"
+        <EditText
+            android:id="@+id/name"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/name"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        android:hint="Email"
+        app:layout_constraintStart_toEndOf="@id/nameLabel"
+        app:layout_constraintStart_toStartOf="@+id/nameLabel"
+        app:layout_constraintTop_toBottomOf="@+id/nameLabel">
 
+        <EditText
+            android:id="@+id/email"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/age"
-        style="@style/TextAppearance.AppCompat.Large"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ageLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="age"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/email"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        android:hint="Age"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/emailLabel"
+        app:layout_constraintTop_toBottomOf="@+id/emailLabel">
 
-    <EditText
-        android:id="@+id/gender"
-        style="@style/TextAppearance.AppCompat.Large"
+        <EditText
+            android:id="@+id/age"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/genderLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="gender"
-        android:inputType="textAutoCorrect"
-        app:layout_constraintStart_toStartOf="@+id/age"
-        app:layout_constraintTop_toBottomOf="@+id/age" />
+        android:hint="Gender"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ageLabel"
+        app:layout_constraintTop_toBottomOf="@+id/ageLabel">
 
-    <EditText
-        android:id="@+id/maxBudget"
-        style="@style/TextAppearance.AppCompat.Large"
+        <EditText
+            android:id="@+id/gender"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textAutoCorrect" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/maxBudgetLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="max budget"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="@+id/gender"
-        app:layout_constraintTop_toBottomOf="@+id/gender" />
+        android:hint="Max budget"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/genderLabel"
+        app:layout_constraintTop_toBottomOf="@+id/genderLabel">
 
-    <EditText
-        android:id="@+id/nativeLanguage"
-        style="@style/TextAppearance.AppCompat.Large"
+        <EditText
+            android:id="@+id/maxBudget"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/nativeLanguageLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="native language"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/maxBudget"
-        app:layout_constraintTop_toBottomOf="@+id/maxBudget" />
+        android:hint="Native language"
+        app:layout_constraintStart_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/maxBudgetLabel"
+        app:layout_constraintTop_toBottomOf="@+id/maxBudgetLabel">
 
+        <EditText
+            android:id="@+id/nativeLanguage"
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/preferencesHint"
@@ -117,7 +157,7 @@
         android:text="Personal Preferences"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nativeLanguage" />
+        app:layout_constraintTop_toBottomOf="@+id/nativeLanguageLabel" />
 
     <TableLayout
         android:id="@+id/tableLayout"
