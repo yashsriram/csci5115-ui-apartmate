@@ -18,7 +18,7 @@ import javax.net.ssl.SNIHostName;
 
 public class VerificationActivity extends AppCompatActivity {
 
-    public static final int VERIFICATION_ELIGIBILITY_THRESHOLD = 2;
+    public static final int VERIFICATION_ELIGIBILITY_THRESHOLD = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
