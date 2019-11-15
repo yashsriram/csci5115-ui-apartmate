@@ -8,6 +8,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.RatingBar;
@@ -37,7 +40,6 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_apartment_listing);
 
         apartmentId = getIntent().getIntExtra("apartmentId", -1);
-        refresh();
 
         final ConstraintLayout layout = findViewById(R.id.activity_view_apartment_listing);
         FloatingActionButton submit = layout.findViewById(R.id.submit_edit_apartment_listing);
@@ -50,7 +52,7 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
             }
         });
 
-        final RatingBar ratingBar = findViewById(R.id.ratingBar);
+        final RatingBar ratingBar = layout.findViewById(R.id.ratingBar);
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
@@ -77,6 +79,19 @@ public class ViewApartmentListingActivity extends AppCompatActivity {
         }
 
         final ConstraintLayout layout = findViewById(R.id.activity_view_apartment_listing);
+
+        String frameVideo = "<html>" +
+                "<body>" +
+                "<iframe width=\"400\" height=\"300\" src=\"" +
+                "https://www.youtube.com/embed/lY2H2ZP56K4" +
+                "\" frameborder=\"0\" allowfullscreen></iframe>" +
+                "</body>" +
+                "</html>";
+
+        final WebView videoTour = layout.findViewById(R.id.videoTour);
+        WebSettings webSettings = videoTour.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        videoTour.loadData(frameVideo, "text/html", "utf-8");
 
         final RecyclerView recyclerView = layout.findViewById(R.id.unitsList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

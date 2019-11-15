@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.csci5115.group8">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -21,6 +23,7 @@
             android:label="Update apartment listing" />
         <activity
             android:name=".ViewApartmentListingActivity"
+            android:hardwareAccelerated="true"
             android:label="View apartment details" />
         <activity
             android:name=".CreateAccountActivity"
