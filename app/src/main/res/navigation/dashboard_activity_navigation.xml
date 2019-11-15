@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/dashboard_notifications"
-        android:name="com.csci5115.group8.NotificationsActivityFragment"
+        android:name="com.csci5115.group8.ui.notificationList.NotificationsListFragment"
         android:label="Notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_notificationslist" />
 </navigation>

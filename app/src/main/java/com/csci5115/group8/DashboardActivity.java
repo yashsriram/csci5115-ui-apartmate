@@ -14,11 +14,14 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.csci5115.group8.data.Notification;
 import com.csci5115.group8.data.Thread;
 import com.csci5115.group8.ui.chatThread.ChatThreadFragment;
+import com.csci5115.group8.ui.dummy.DummyContent;
+import com.csci5115.group8.ui.notificationList.NotificationsListFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class DashboardActivity extends AppCompatActivity implements ChatThreadFragment.OnListFragmentInteractionListener {
+public class DashboardActivity extends AppCompatActivity implements ChatThreadFragment.OnListFragmentInteractionListener, NotificationsListFragment.OnListFragmentInteractionListener {
 
     private boolean firstExitTry = true;
 
@@ -29,6 +32,11 @@ public class DashboardActivity extends AppCompatActivity implements ChatThreadFr
         threadIntent.putExtra("thread_fname", item.first_name);
         threadIntent.putExtra("thread_lname", item.last_name);
         startActivity(threadIntent);
+    }
+
+    @Override
+    public void onListFragmentInteraction(Notification item) {
+
     }
 
     @Override

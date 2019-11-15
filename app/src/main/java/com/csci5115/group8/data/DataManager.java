@@ -20,6 +20,7 @@ public class DataManager {
     public List<Apartment> apartments = new ArrayList<>();
     public List<Thread> threads = new ArrayList<>();
     public Map<String, User> users = new HashMap<>();
+    public List<Notification> notifications = new ArrayList<>();
 
 
     // end public accessible data
@@ -34,6 +35,7 @@ public class DataManager {
         createApartmentData();
         createUserData();
         createThreadData();
+        createNotifications();
 
 
         ////// END CREATE DEFAULT DATA
@@ -79,6 +81,14 @@ public class DataManager {
 
     public static List<User> getUserList() {
         return getUsersList(DataManager.getInstance().users);
+    }
+
+    public void generateNotification(String message) {
+        this.notifications.add(new Notification(message));
+    }
+
+    private void createNotifications() {
+        this.notifications.add(new Notification("First notification!"));
     }
 
     private void createApartmentData() {
