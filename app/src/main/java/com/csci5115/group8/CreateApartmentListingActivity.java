@@ -80,6 +80,7 @@ public class CreateApartmentListingActivity extends AppCompatActivity {
 
         final EditText name = layout.findViewById(R.id.name);
         final EditText address = layout.findViewById(R.id.address);
+        final EditText videoTourUrl = layout.findViewById(R.id.videoTourUrl);
         final CheckBox refrigerator = layout.findViewById(R.id.refrigerator);
         final CheckBox oven = layout.findViewById(R.id.oven);
         final CheckBox microwave = layout.findViewById(R.id.microwave);
@@ -112,6 +113,10 @@ public class CreateApartmentListingActivity extends AppCompatActivity {
                     Snackbar.make(view, "Please enter the apartment building address", Snackbar.LENGTH_LONG).show();
                     return;
                 }
+                if (videoTourUrl.getText().toString().isEmpty()) {
+                    Snackbar.make(view, "Please enter the video tour embed code", Snackbar.LENGTH_LONG).show();
+                    return;
+                }
                 if (apartmentUnits.size() == 0) {
                     Snackbar.make(view, "Please add at least one unit to", Snackbar.LENGTH_LONG).show();
                     return;
@@ -128,7 +133,7 @@ public class CreateApartmentListingActivity extends AppCompatActivity {
                                 DataManager.getNumAparments(),
                                 name.getText().toString(),
                                 address.getText().toString(),
-                                "",
+                                videoTourUrl.getText().toString(),
                                 new PerUnitAmenities(
                                         refrigerator.isChecked(),
                                         oven.isChecked(),
