@@ -43,7 +43,8 @@ public class UserSearchFragment extends Fragment {
         @Override
         public void onItemClick(View view, int position) {
             Intent i = new Intent(getContext(), UserSRLCustomizationActivity.class);
-            i.putExtra("userName", userSearchResults.get(position).name);
+            //add user detail page
+
             startActivity(i);
         }
     };
