@@ -108,9 +108,8 @@ public class ViewUserListingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //send message
-                //Intent i = new Intent(getApplicationContext(), ThreadActivity.class);
-                //i.putExtra("email", email);
-                //startActivity(i);
+                //target user email is "email_"
+
             }
         });
 
