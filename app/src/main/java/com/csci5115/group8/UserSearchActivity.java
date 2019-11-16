@@ -117,6 +117,7 @@ public class UserSearchActivity extends AppCompatActivity {
         nativeLanguage.addTextChangedListener(updateNumberOfMatchesCB2);
 
         searchText.setText(userSearchState.searchText);
+        nativeLanguage.setText(userSearchState.nativeLanguage);
         if(userSearchState.gender_male==1){
             gender_male.setChecked(true);
         }else if(userSearchState.gender_male==0){
@@ -151,8 +152,8 @@ public class UserSearchActivity extends AppCompatActivity {
         canCook.setToggleStatus(IntToToggleStatus(userSearchState.canCook));
         needsPrivateBedroom.setToggleStatus(IntToToggleStatus(userSearchState.needsPrivateBedroom));
         hasCar.setToggleStatus(IntToToggleStatus(userSearchState.hasCar));
-        System.out.println(IntToToggleStatus(userSearchState.hasCar).toString());
-        nativeLanguage.setText(userSearchState.nativeLanguage);
+
+
 
 
 
@@ -167,8 +168,8 @@ public class UserSearchActivity extends AppCompatActivity {
 
 
                 returnIntent.putExtra("gender_male",gender_male.isChecked()?1:0 );
-                returnIntent.putExtra("gender_female",gender_male.isChecked()?1:0  );
-                returnIntent.putExtra("gender_other",gender_male.isChecked()?1:0  );
+                returnIntent.putExtra("gender_female",gender_female.isChecked()?1:0  );
+                returnIntent.putExtra("gender_other",gender_other.isChecked()?1:0  );
                 returnIntent.putExtra("age", toInt(age.getText().toString()));
                 returnIntent.putExtra("maxBudget", toInt(maxBudget.getText().toString()));
                 returnIntent.putExtra("age2", toInt(age2.getText().toString()));
