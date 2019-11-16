@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@android:color/black"
     android:orientation="horizontal"
     android:padding="10dp">
 
@@ -17,12 +18,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/numBedroomsHolder"
+        android:id="@+id/isLeasedHolder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/unitNumberHolder" />
+
+    <Button
+        android:id="@+id/deleteUnit"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:text="del"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/numBedroomsHolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:text="TextView"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toStartOf="@id/deleteUnit"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -31,7 +52,8 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/numBedroomsHolder"
+        app:layout_constraintEnd_toEndOf="@id/numBedroomsHolder"
         app:layout_constraintTop_toBottomOf="@+id/numBedroomsHolder" />
 
     <TextView
@@ -40,15 +62,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/numBathroomsHolder"
+        app:layout_constraintEnd_toEndOf="@id/numBathroomsHolder"
         app:layout_constraintTop_toBottomOf="@id/numBathroomsHolder" />
-
-    <TextView
-        android:id="@+id/isLeasedHolder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/unitNumberHolder" />
 </androidx.constraintlayout.widget.ConstraintLayout>

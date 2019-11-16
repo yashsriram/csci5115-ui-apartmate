@@ -5,6 +5,8 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +24,7 @@ public class ApartmentUnitAdapter extends RecyclerView.Adapter<ApartmentUnitAdap
         TextView numBathrooms;
         TextView areaInSqFt;
         TextView isLeased;
+        Button deleteUnit;
 
         ViewHolder(View itemView) {
             super(itemView);
@@ -31,7 +34,8 @@ public class ApartmentUnitAdapter extends RecyclerView.Adapter<ApartmentUnitAdap
             numBathrooms = itemView.findViewById(R.id.numBathroomsHolder);
             areaInSqFt = itemView.findViewById(R.id.areaInSqFtHolder);
             isLeased = itemView.findViewById(R.id.isLeasedHolder);
-            itemView.setOnClickListener(this);
+            deleteUnit = itemView.findViewById(R.id.deleteUnit);
+            deleteUnit.setOnClickListener(this);
         }
 
         @Override
@@ -74,6 +78,9 @@ public class ApartmentUnitAdapter extends RecyclerView.Adapter<ApartmentUnitAdap
         holder.areaInSqFt.setText(apartmentUnit.areaInSqFt + "SqFt");
         holder.isLeased.setText(apartmentUnit.isLeased ? "Leased" : "Available");
         holder.parent.setBackgroundColor(apartmentUnit.isLeased ? Color.rgb(128, 0, 0) : Color.rgb(0, 128, 0));
+        if (itemClickListener == null) {
+            holder.deleteUnit.setVisibility(View.GONE);
+        }
     }
 
     @Override

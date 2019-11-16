@@ -28,6 +28,16 @@ import java.util.List;
 public class CreateApartmentListingActivity extends AppCompatActivity {
 
     List<ApartmentUnit> apartmentUnits = new ArrayList<>();
+    RecyclerView recyclerView;
+    ApartmentUnitAdapter.ItemClickListener itemClickListener = new ApartmentUnitAdapter.ItemClickListener() {
+        @Override
+        public void onItemClick(View view, int position) {
+            Toast.makeText(CreateApartmentListingActivity.this, "Del " + position, Toast.LENGTH_SHORT).show();
+            apartmentUnits.remove(position);
+            final RecyclerView.Adapter adapter = new ApartmentUnitAdapter(getApplicationContext(), apartmentUnits, itemClickListener);
+            recyclerView.setAdapter(adapter);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +46,9 @@ public class CreateApartmentListingActivity extends AppCompatActivity {
 
         final ConstraintLayout layout = findViewById(R.id.activity_create_apartment_listing);
 
-        final RecyclerView recyclerView = layout.findViewById(R.id.unitsList);
+        recyclerView = layout.findViewById(R.id.unitsList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        final RecyclerView.Adapter adapter = new ApartmentUnitAdapter(this, apartmentUnits, null);
+        final RecyclerView.Adapter adapter = new ApartmentUnitAdapter(this, apartmentUnits, itemClickListener);
         recyclerView.setAdapter(adapter);
         recyclerView.setNestedScrollingEnabled(false);
 
@@ -73,7 +83,8 @@ public class CreateApartmentListingActivity extends AppCompatActivity {
                 }
                 // Add a unit
                 apartmentUnits.add(new ApartmentUnit(_unitNumber, _numBedrooms, _numBathrooms, _areaSqFt, isLeased.isChecked()));
-                adapter.notifyDataSetChanged();
+                final RecyclerView.Adapter adapter = new ApartmentUnitAdapter(getApplicationContext(), apartmentUnits, itemClickListener);
+                recyclerView.setAdapter(adapter);
                 Snackbar.make(view, "Unit created", Snackbar.LENGTH_SHORT).show();
             }
         });
