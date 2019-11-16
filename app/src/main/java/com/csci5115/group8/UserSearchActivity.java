@@ -149,16 +149,16 @@ public class UserSearchActivity extends AppCompatActivity {
             gender_other.setChecked(false);
         }
         if(userSearchState.age!=-1){
-            age.setText(userSearchState.age);
+            age.setText(Integer.toString(userSearchState.age));
         }
         if(userSearchState.age2!=-1){
-            age2.setText(userSearchState.age2);
+            age2.setText(Integer.toString(userSearchState.age2));
         }
         if(userSearchState.maxBudget!=-1){
-            maxBudget.setText(userSearchState.maxBudget);
+            maxBudget.setText(Integer.toString(userSearchState.maxBudget));
         }
         if(userSearchState.maxBudget2!=-1){
-            maxBudget2.setText(userSearchState.maxBudget2);
+            maxBudget2.setText(Integer.toString(userSearchState.maxBudget2));
         }
         doesSmoke.setToggleStatus(IntToToggleStatus(userSearchState.doesSmoke));
         drugsOkay.setToggleStatus(IntToToggleStatus(userSearchState.drugsOkay));
