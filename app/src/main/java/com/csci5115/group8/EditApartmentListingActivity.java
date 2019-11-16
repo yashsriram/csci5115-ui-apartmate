@@ -28,6 +28,15 @@ import java.util.List;
 public class EditApartmentListingActivity extends AppCompatActivity {
 
     List<ApartmentUnit> apartmentUnits = new ArrayList<>();
+    RecyclerView recyclerView;
+    ApartmentUnitAdapter.ItemClickListener itemClickListener = new ApartmentUnitAdapter.ItemClickListener() {
+        @Override
+        public void onItemClick(View view, int position) {
+            apartmentUnits.remove(position);
+            final RecyclerView.Adapter adapter = new ApartmentUnitAdapter(getApplicationContext(), apartmentUnits, itemClickListener);
+            recyclerView.setAdapter(adapter);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +49,14 @@ public class EditApartmentListingActivity extends AppCompatActivity {
             Toast.makeText(this, "It seems that the information of this apartment is removed from our system", Toast.LENGTH_LONG).show();
             finish();
         }
-        apartmentUnits = apartment.units;
+        apartmentUnits = new ArrayList<>(apartment.units);
 
 
         final ConstraintLayout layout = findViewById(R.id.activity_edit_apartment_listing);
 
-        final RecyclerView recyclerView = layout.findViewById(R.id.unitsList);
+        recyclerView = layout.findViewById(R.id.unitsList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        final RecyclerView.Adapter adapter = new ApartmentUnitAdapter(this, apartmentUnits, null);
+        final RecyclerView.Adapter adapter = new ApartmentUnitAdapter(this, apartmentUnits, itemClickListener);
         recyclerView.setAdapter(adapter);
         recyclerView.setNestedScrollingEnabled(false);
 
@@ -82,7 +91,8 @@ public class EditApartmentListingActivity extends AppCompatActivity {
                 }
                 // Add a unit
                 apartmentUnits.add(new ApartmentUnit(_unitNumber, _numBedrooms, _numBathrooms, _areaSqFt, isLeased.isChecked()));
-                adapter.notifyDataSetChanged();
+                final RecyclerView.Adapter adapter = new ApartmentUnitAdapter(getApplicationContext(), apartmentUnits, itemClickListener);
+                recyclerView.setAdapter(adapter);
                 Snackbar.make(view, "Unit created", Snackbar.LENGTH_SHORT).show();
             }
         });

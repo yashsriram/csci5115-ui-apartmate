@@ -32,7 +32,6 @@ public class CreateApartmentListingActivity extends AppCompatActivity {
     ApartmentUnitAdapter.ItemClickListener itemClickListener = new ApartmentUnitAdapter.ItemClickListener() {
         @Override
         public void onItemClick(View view, int position) {
-            Toast.makeText(CreateApartmentListingActivity.this, "Del " + position, Toast.LENGTH_SHORT).show();
             apartmentUnits.remove(position);
             final RecyclerView.Adapter adapter = new ApartmentUnitAdapter(getApplicationContext(), apartmentUnits, itemClickListener);
             recyclerView.setAdapter(adapter);
