@@ -241,6 +241,7 @@ public class DataManager {
                     && checkGender(user.gender,state.gender_male,state.gender_female,state.gender_other)
                     && pattern3.matcher(user.nativeLanguage).matches()
                     && checkAge(user.age,state.age,state.age2)
+                    && !user.email.equals(currentUser.email)
             ) {
                 results.add(user);
             }
