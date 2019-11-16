@@ -25,6 +25,8 @@ import java.util.List;
 
 import it.beppi.tristatetogglebutton_library.TriStateToggleButton;
 
+import static com.csci5115.group8.data.DataManager.userSearchState;
+
 public class UserSearchActivity extends AppCompatActivity {
 
     EditText searchText;
@@ -75,8 +77,9 @@ public class UserSearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_search);
 
         final ConstraintLayout layout = findViewById(R.id.activity_user_search);
-        searchText = layout.findViewById(R.id.searchText2);
         numMatches = layout.findViewById(R.id.numMatches2);
+
+        searchText = layout.findViewById(R.id.searchText2);
         gender_male= layout.findViewById(R.id.male);
         gender_female = layout.findViewById(R.id.female);
         gender_other = layout.findViewById(R.id.otherSex);
@@ -85,20 +88,14 @@ public class UserSearchActivity extends AppCompatActivity {
         maxBudget = layout.findViewById(R.id.maxBudget);
         maxBudget2 = layout.findViewById(R.id.maxBudget2);
         doesSmoke = layout.findViewById(R.id.doesSmoke);
-        doesSmoke.setOnToggleChanged(updateNumberOfMatchesCB1);
         drugsOkay = layout.findViewById(R.id.drugsOkay);
-        drugsOkay.setOnToggleChanged(updateNumberOfMatchesCB1);
         hasPets = layout.findViewById(R.id.hasPets);
-        hasPets.setOnToggleChanged(updateNumberOfMatchesCB1);
         partiesOkay = layout.findViewById(R.id.partiesOkay);
-        partiesOkay.setOnToggleChanged(updateNumberOfMatchesCB1);
         canCook = layout.findViewById(R.id.canCook);
-        canCook.setOnToggleChanged(updateNumberOfMatchesCB1);
         needsPrivateBedroom = layout.findViewById(R.id.needsPrivateBedroom);
-        needsPrivateBedroom.setOnToggleChanged(updateNumberOfMatchesCB1);
-        nativeLanguage = layout.findViewById(R.id.nativeLanguage);
         hasCar = layout.findViewById(R.id.hasCar);
-        hasCar.setOnToggleChanged(updateNumberOfMatchesCB1);
+        nativeLanguage = layout.findViewById(R.id.nativeLanguage);
+
         searchText.addTextChangedListener(updateNumberOfMatchesCB2);
         gender_other.setOnClickListener(new View.OnClickListener() {@Override
         public void onClick(View view) {numMatches.setText(getNumSearchResults() + " Matches");}});
@@ -110,7 +107,54 @@ public class UserSearchActivity extends AppCompatActivity {
         age2.addTextChangedListener(updateNumberOfMatchesCB2);
         maxBudget.addTextChangedListener(updateNumberOfMatchesCB2);
         maxBudget2.addTextChangedListener(updateNumberOfMatchesCB2);
+        doesSmoke.setOnToggleChanged(updateNumberOfMatchesCB1);
+        drugsOkay.setOnToggleChanged(updateNumberOfMatchesCB1);
+        hasPets.setOnToggleChanged(updateNumberOfMatchesCB1);
+        partiesOkay.setOnToggleChanged(updateNumberOfMatchesCB1);
+        canCook.setOnToggleChanged(updateNumberOfMatchesCB1);
+        needsPrivateBedroom.setOnToggleChanged(updateNumberOfMatchesCB1);
+        hasCar.setOnToggleChanged(updateNumberOfMatchesCB1);
         nativeLanguage.addTextChangedListener(updateNumberOfMatchesCB2);
+
+        searchText.setText(userSearchState.searchText);
+        if(userSearchState.gender_male==1){
+            gender_male.setChecked(true);
+        }else if(userSearchState.gender_male==0){
+            gender_male.setChecked(false);
+        }
+        if(userSearchState.gender_female==1){
+            gender_female.setChecked(true);
+        }else if(userSearchState.gender_female==0){
+            gender_female.setChecked(false);
+        }
+        if(userSearchState.gender_other==1){
+            gender_other.setChecked(true);
+        }else if(userSearchState.gender_other==0){
+            gender_other.setChecked(false);
+        }
+        if(userSearchState.age!=-1){
+            age.setText(userSearchState.age);
+        }
+        if(userSearchState.age2!=-1){
+            age2.setText(userSearchState.age2);
+        }
+        if(userSearchState.maxBudget!=-1){
+            maxBudget.setText(userSearchState.maxBudget);
+        }
+        if(userSearchState.maxBudget2!=-1){
+            maxBudget2.setText(userSearchState.maxBudget2);
+        }
+        doesSmoke.setToggleStatus(IntToToggleStatus(userSearchState.doesSmoke));
+        drugsOkay.setToggleStatus(IntToToggleStatus(userSearchState.drugsOkay));
+        hasPets.setToggleStatus(IntToToggleStatus(userSearchState.hasPets));
+        partiesOkay.setToggleStatus(IntToToggleStatus(userSearchState.partiesOkay));
+        canCook.setToggleStatus(IntToToggleStatus(userSearchState.canCook));
+        needsPrivateBedroom.setToggleStatus(IntToToggleStatus(userSearchState.needsPrivateBedroom));
+        hasCar.setToggleStatus(IntToToggleStatus(userSearchState.hasCar));
+        System.out.println(IntToToggleStatus(userSearchState.hasCar).toString());
+        nativeLanguage.setText(userSearchState.nativeLanguage);
+
+
 
         FloatingActionButton submit = layout.findViewById(R.id.submit_user_search);
         submit.setOnClickListener(new View.OnClickListener() {
@@ -122,13 +166,13 @@ public class UserSearchActivity extends AppCompatActivity {
                 setResult(AppCompatActivity.RESULT_OK, returnIntent);
 
 
-                returnIntent.putExtra("gender_male",gender_male.isChecked()?"1":"0" );
-                returnIntent.putExtra("gender_female",gender_male.isChecked()?"1":"0"  );
-                returnIntent.putExtra("gender_other",gender_male.isChecked()?"1":"0"  );
-                returnIntent.putExtra("age", age.getText().toString());
-                returnIntent.putExtra("maxBudget", maxBudget.getText().toString());
-                returnIntent.putExtra("age2", age2.getText().toString());
-                returnIntent.putExtra("maxBudget2", maxBudget2.getText().toString());
+                returnIntent.putExtra("gender_male",gender_male.isChecked()?1:0 );
+                returnIntent.putExtra("gender_female",gender_male.isChecked()?1:0  );
+                returnIntent.putExtra("gender_other",gender_male.isChecked()?1:0  );
+                returnIntent.putExtra("age", toInt(age.getText().toString()));
+                returnIntent.putExtra("maxBudget", toInt(maxBudget.getText().toString()));
+                returnIntent.putExtra("age2", toInt(age2.getText().toString()));
+                returnIntent.putExtra("maxBudget2", toInt(maxBudget2.getText().toString()));
                 returnIntent.putExtra("nativeLanguage", nativeLanguage.getText().toString());
                 returnIntent.putExtra("doesSmoke", toggleStatusToInt(doesSmoke.getToggleStatus()));
                 returnIntent.putExtra("drugsOkay", toggleStatusToInt(drugsOkay.getToggleStatus()));
@@ -141,7 +185,25 @@ public class UserSearchActivity extends AppCompatActivity {
                 finish();
             }
         });
-        numMatches.setText(DataManager.users.size() + " Matches");
+        numMatches.setText(getNumSearchResults() + " Matches");
+    }
+
+    private int toInt(String s){
+        if(s.length()>0)
+        return Integer.parseInt(s);
+        else return -1;
+    }
+
+    private TriStateToggleButton.ToggleStatus IntToToggleStatus(int i) {
+        switch (i) {
+            case 2:
+                return TriStateToggleButton.ToggleStatus.on;
+            case 1:
+                return TriStateToggleButton.ToggleStatus.mid;
+            case 0:
+                return TriStateToggleButton.ToggleStatus.off;
+        }
+        return TriStateToggleButton.ToggleStatus.off;
     }
 
     private int toggleStatusToInt(TriStateToggleButton.ToggleStatus toggleStatus) {

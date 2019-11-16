@@ -222,6 +222,7 @@ public class DataManager {
     }
 
     public static List<User> searchUsers(UserSearchState state) {
+        userSearchState =state;
         String regexString = ".*" + state.searchText + ".*";
         Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
         Pattern pattern3 = Pattern.compile(".*" + state.nativeLanguage + ".*", Pattern.CASE_INSENSITIVE);
