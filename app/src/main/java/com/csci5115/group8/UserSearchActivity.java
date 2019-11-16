@@ -201,7 +201,7 @@ public class UserSearchActivity extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton clear = layout.findViewById(R.id.clear_user_search);
+        View clear = layout.findViewById(R.id.clear_user_search);
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
