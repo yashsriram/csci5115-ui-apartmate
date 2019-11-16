@@ -78,6 +78,18 @@ public class UserSearchActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_search);
 
+        //recommended search option
+        if(!first_initalized) {
+            DataManager.userSearchState.set(
+                    "", 1, 1, 1, currentUser.age - 5, currentUser.age + 5, currentUser.maxBudget - 200, currentUser.maxBudget + 200,
+                    currentUser.preferences.doesSmoke ? 2 : 1, currentUser.preferences.drugsOkay ? 2 : 1,
+                    currentUser.preferences.hasPets ? 2 : 1, currentUser.preferences.partiesOkay ? 2 : 1,
+                    currentUser.preferences.canCook ? 2 : 1, currentUser.preferences.needsPrivateBedroom ? 2 : 1,
+                    currentUser.preferences.hasCar ? 2 : 1, currentUser.nativeLanguage
+            );
+            first_initalized=true;
+        }
+
         final ConstraintLayout layout = findViewById(R.id.activity_user_search);
         numMatches = layout.findViewById(R.id.numMatches2);
 
@@ -188,8 +200,36 @@ public class UserSearchActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        FloatingActionButton clear = layout.findViewById(R.id.clear_user_search);
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                userSearchState=new UserSearchState();
+                searchText.setText(userSearchState.searchText);
+                nativeLanguage.setText(userSearchState.nativeLanguage);
+                gender_male.setChecked(true);
+                gender_female.setChecked(true);
+                gender_other.setChecked(true);
+                age.setText("");
+                age2.setText("");
+                maxBudget.setText("");
+                maxBudget2.setText("");
+                doesSmoke.setToggleStatus(IntToToggleStatus(userSearchState.doesSmoke));
+                drugsOkay.setToggleStatus(IntToToggleStatus(userSearchState.drugsOkay));
+                hasPets.setToggleStatus(IntToToggleStatus(userSearchState.hasPets));
+                partiesOkay.setToggleStatus(IntToToggleStatus(userSearchState.partiesOkay));
+                canCook.setToggleStatus(IntToToggleStatus(userSearchState.canCook));
+                needsPrivateBedroom.setToggleStatus(IntToToggleStatus(userSearchState.needsPrivateBedroom));
+                hasCar.setToggleStatus(IntToToggleStatus(userSearchState.hasCar));
+                numMatches.setText(getNumSearchResults() + " Matches");
+
+            }
+        });
         numMatches.setText(getNumSearchResults() + " Matches");
     }
+
+
 
     private int toInt(String s){
         if(s.length()>0)

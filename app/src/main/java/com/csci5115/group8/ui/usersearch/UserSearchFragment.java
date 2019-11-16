@@ -74,17 +74,6 @@ public class UserSearchFragment extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(new UserSearchResultsAdapter(getContext(), userSearchResults, itemClickListener));
 
-        //recommended search option
-        if(!first_initalized) {
-            DataManager.userSearchState.set(
-                    "", 1, 1, 1, currentUser.age - 5, currentUser.age + 5, currentUser.maxBudget - 200, currentUser.maxBudget + 200,
-                    currentUser.preferences.doesSmoke ? 2 : 1, currentUser.preferences.drugsOkay ? 2 : 1,
-                    currentUser.preferences.hasPets ? 2 : 1, currentUser.preferences.partiesOkay ? 2 : 1,
-                    currentUser.preferences.canCook ? 2 : 1, currentUser.preferences.needsPrivateBedroom ? 2 : 1,
-                    currentUser.preferences.hasCar ? 2 : 1, currentUser.nativeLanguage
-            );
-            first_initalized=true;
-        }
         return root;
     }
 
