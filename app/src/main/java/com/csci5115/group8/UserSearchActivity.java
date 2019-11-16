@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,9 +29,13 @@ public class UserSearchActivity extends AppCompatActivity {
 
     EditText searchText;
     TextView numMatches;
-    EditText gender;
+    CheckBox gender_male;
+    CheckBox gender_female;
+    CheckBox gender_other;
     EditText age;
+    EditText age2;
     EditText maxBudget;
+    EditText maxBudget2;
     TriStateToggleButton doesSmoke;
     TriStateToggleButton drugsOkay;
     TriStateToggleButton hasPets;
@@ -72,10 +77,13 @@ public class UserSearchActivity extends AppCompatActivity {
         final ConstraintLayout layout = findViewById(R.id.activity_user_search);
         searchText = layout.findViewById(R.id.searchText2);
         numMatches = layout.findViewById(R.id.numMatches2);
-
-        gender = layout.findViewById(R.id.gender2);
-        age = layout.findViewById(R.id.age2);
+        gender_male= layout.findViewById(R.id.male);
+        gender_female = layout.findViewById(R.id.female);
+        gender_other = layout.findViewById(R.id.otherSex);
+        age = layout.findViewById(R.id.age);
+        age2 = layout.findViewById(R.id.age2);
         maxBudget = layout.findViewById(R.id.maxBudget);
+        maxBudget2 = layout.findViewById(R.id.maxBudget2);
         doesSmoke = layout.findViewById(R.id.doesSmoke);
         doesSmoke.setOnToggleChanged(updateNumberOfMatchesCB1);
         drugsOkay = layout.findViewById(R.id.drugsOkay);
@@ -92,9 +100,16 @@ public class UserSearchActivity extends AppCompatActivity {
         hasCar = layout.findViewById(R.id.hasCar);
         hasCar.setOnToggleChanged(updateNumberOfMatchesCB1);
         searchText.addTextChangedListener(updateNumberOfMatchesCB2);
-        gender.addTextChangedListener(updateNumberOfMatchesCB2);
+        gender_other.setOnClickListener(new View.OnClickListener() {@Override
+        public void onClick(View view) {numMatches.setText(getNumSearchResults() + " Matches");}});
+        gender_male.setOnClickListener(new View.OnClickListener() {@Override
+        public void onClick(View view) {numMatches.setText(getNumSearchResults() + " Matches");}});
+        gender_female.setOnClickListener(new View.OnClickListener() {@Override
+        public void onClick(View view) {numMatches.setText(getNumSearchResults() + " Matches");}});
         age.addTextChangedListener(updateNumberOfMatchesCB2);
+        age2.addTextChangedListener(updateNumberOfMatchesCB2);
         maxBudget.addTextChangedListener(updateNumberOfMatchesCB2);
+        maxBudget2.addTextChangedListener(updateNumberOfMatchesCB2);
         nativeLanguage.addTextChangedListener(updateNumberOfMatchesCB2);
 
         FloatingActionButton submit = layout.findViewById(R.id.submit_user_search);
@@ -107,9 +122,13 @@ public class UserSearchActivity extends AppCompatActivity {
                 setResult(AppCompatActivity.RESULT_OK, returnIntent);
 
 
-                returnIntent.putExtra("gender", gender.getText().toString());
+                returnIntent.putExtra("gender_male",gender_male.isChecked()?"1":"0" );
+                returnIntent.putExtra("gender_female",gender_male.isChecked()?"1":"0"  );
+                returnIntent.putExtra("gender_other",gender_male.isChecked()?"1":"0"  );
                 returnIntent.putExtra("age", age.getText().toString());
                 returnIntent.putExtra("maxBudget", maxBudget.getText().toString());
+                returnIntent.putExtra("age2", age2.getText().toString());
+                returnIntent.putExtra("maxBudget2", maxBudget2.getText().toString());
                 returnIntent.putExtra("nativeLanguage", nativeLanguage.getText().toString());
                 returnIntent.putExtra("doesSmoke", toggleStatusToInt(doesSmoke.getToggleStatus()));
                 returnIntent.putExtra("drugsOkay", toggleStatusToInt(drugsOkay.getToggleStatus()));
@@ -146,11 +165,21 @@ public class UserSearchActivity extends AppCompatActivity {
         String maxBudgets = maxBudget.getText().toString();
         int maxBudgeti = maxBudgets.length() < 1 ? -1 : Integer.parseInt(maxBudgets);
 
+        String ages2 = age2.getText().toString();
+        int agei2 = ages2.length() < 1 ? -1 : Integer.parseInt(ages2);
+
+        String maxBudgets2 = maxBudget2.getText().toString();
+        int maxBudgeti2 = maxBudgets2.length() < 1 ? -1 : Integer.parseInt(maxBudgets2);
+
         List<User> searchResults = DataManager.searchUsers(
                 new UserSearchState(searchString,
-                        gender.getText().toString(),
+                        gender_male.isChecked()?1:0,
+                        gender_female.isChecked()?1:0,
+                        gender_other.isChecked()?1:0,
                         agei,
+                        agei2,
                         maxBudgeti,
+                        maxBudgeti2,
                         toggleStatusToInt(doesSmoke.getToggleStatus()),
                         toggleStatusToInt(drugsOkay.getToggleStatus()),
                         toggleStatusToInt(hasPets.getToggleStatus()),

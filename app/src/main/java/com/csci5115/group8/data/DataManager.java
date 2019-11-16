@@ -196,10 +196,34 @@ public class DataManager {
         return null;
     }
 
+    private static boolean checkGender(String gender,int gender_male,int gender_female,int gender_other){
+        if(gender.equals("male")){
+            if(gender_male==0) return false;
+        }else if(gender.equals("female")){
+            if(gender_female==0) return false;
+        }else {
+            if(gender_other==0)
+                return false;
+        }
+        System.out.println(gender+" "+gender_male+" "+gender_female+" "+gender_other+"@@@@@@@@@");
+        return  true;
+    }
+    private static boolean checkMaxBudget(int m0,int m1,int m2){
+        if(m1==-1&&m2==-1){return true;}
+        if(m2==-1){m2=999999999;}
+        if(m0>m1&&m0<m2){return true;}
+        return  false;
+    }
+    private static boolean checkAge(int a0,int a1,int a2){
+        if(a1==-1&&a2==-1){return true;}
+        if(a2==-1){a2=999;}
+        if(a0>a1&&a0<a2){return true;}
+        return  false;
+    }
+
     public static List<User> searchUsers(UserSearchState state) {
         String regexString = ".*" + state.searchText + ".*";
         Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
-        Pattern pattern2 = Pattern.compile(".*" + state.gender + ".*", Pattern.CASE_INSENSITIVE);
         Pattern pattern3 = Pattern.compile(".*" + state.nativeLanguage + ".*", Pattern.CASE_INSENSITIVE);
         List<User> results = new ArrayList<>();
         for (User user : DataManager.users) {
@@ -212,10 +236,10 @@ public class DataManager {
                     && filterMatch(state.canCook, user.preferences.canCook)
                     && filterMatch(state.needsPrivateBedroom, user.preferences.needsPrivateBedroom)
                     && filterMatch(state.hasCar, user.preferences.hasCar)
-                    && (user.maxBudget == state.maxBudget || state.maxBudget == -1)
-                    && pattern2.matcher(user.gender).matches()
+                    && checkMaxBudget(user.maxBudget,state.maxBudget,state.maxBudget2)
+                    && checkGender(user.gender,state.gender_male,state.gender_female,state.gender_other)
                     && pattern3.matcher(user.nativeLanguage).matches()
-                    && (state.age == user.age || state.age == -1)
+                    && checkAge(user.age,state.age,state.age2)
             ) {
                 results.add(user);
             }

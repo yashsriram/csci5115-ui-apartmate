@@ -79,9 +79,13 @@ public class UserSearchFragment extends Fragment {
             switch (resultCode) {
                 case AppCompatActivity.RESULT_OK:
                     String searchText = data.getStringExtra("searchText");
-                    String gender = data.getStringExtra("gender");
+                    int gender_male = data.getIntExtra("gender_male", -1);
+                    int gender_female = data.getIntExtra("gender_female", -1);
+                    int gender_other = data.getIntExtra("gender_other", -1);
                     int age = data.getIntExtra("age", -1);
                     int maxBudget = data.getIntExtra("maxBudget", -1);
+                    int age2 = data.getIntExtra("age2", -1);
+                    int maxBudget2 = data.getIntExtra("maxBudget2", -1);
                     int doesSmoke = data.getIntExtra("doesSmoke", -1);
                     int drugsOkay = data.getIntExtra("drugsOkay", -1);
                     int hasPets = data.getIntExtra("hasPets", -1);
@@ -93,9 +97,13 @@ public class UserSearchFragment extends Fragment {
 
                     DataManager.userSearchState.set(
                             searchText,
-                            gender,
+                            gender_male,
+                            gender_female,
+                            gender_other,
                             age,
+                            age2,
                             maxBudget,
+                            maxBudget2,
                             doesSmoke,
                             drugsOkay,
                             hasPets,

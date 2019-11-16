@@ -123,6 +123,7 @@
                 android:layout_gravity="center"
                 android:padding="20dp">
 
+
                 <TextView
                     style="@style/TextAppearance.AppCompat.Large"
                     android:layout_width="wrap_content"
@@ -139,18 +140,35 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
-                        android:layout_weight="0.9"
+                        android:layout_weight="300"
                         android:text="gender" />
-
-
-                    <EditText
-                        android:id="@+id/gender2"
+                    <CheckBox
+                        android:id="@+id/male"
                         android:layout_weight="0.1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint=""
-                        android:text=""
-                        android:textColorHint="#95A1AA" />
+                        android:text="male"
+                        android:checked="true"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/female"
+                        android:layout_weight="0.1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="female"
+                        android:checked="true"
+                        />
+                    <CheckBox
+                        android:id="@+id/otherSex"
+                        android:layout_weight="0.1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="other"
+                        android:checked="true"
+                        />
+
+
 
                 </TableRow>
 
@@ -168,13 +186,23 @@
                         android:text="age" />
 
                     <EditText
+                        android:id="@+id/age"
+                        android:layout_width="68dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:layout_weight="0.1"
+                        android:inputType="number"
+                        android:text=""
+                        android:hint="from"/>
+                    <EditText
                         android:id="@+id/age2"
                         android:layout_width="68dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:layout_weight="0.1"
                         android:inputType="number"
-                        android:text="" />
+                        android:text=""
+                        android:hint="to"/>
 
 
                 </TableRow>
@@ -191,7 +219,6 @@
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
                         android:text="max budget" />
-
                     <EditText
                         android:id="@+id/maxBudget"
                         android:layout_width="68dp"
@@ -199,7 +226,17 @@
                         android:ems="10"
                         android:layout_weight="0.1"
                         android:inputType="number"
-                        android:text="" />
+                        android:text=""
+                        android:hint="from"/>
+                    <EditText
+                        android:id="@+id/maxBudget2"
+                        android:layout_width="68dp"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:layout_weight="0.1"
+                        android:inputType="number"
+                        android:text=""
+                        android:hint="to"/>
                 </TableRow>
 
                 <TableRow
