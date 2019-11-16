@@ -254,7 +254,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
-                        android:text="nativeLanguage" />
+                        android:text="native language" />
 
                     <EditText
                         android:id="@+id/nativeLanguage"
@@ -278,7 +278,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
-                        android:text="does smoke" />
+                        android:text="smoke okay?" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
                         android:id="@+id/doesSmoke"
@@ -299,7 +299,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
-                        android:text="drugs okay" />
+                        android:text="drugs okay?" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
                         android:id="@+id/drugsOkay"
@@ -322,7 +322,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
-                        android:text="has pets" />
+                        android:text="pets okay?" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
                         android:id="@+id/hasPets"
@@ -345,7 +345,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
-                        android:text="parties okay" />
+                        android:text="parties okay?" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
                         android:id="@+id/partiesOkay"
@@ -368,7 +368,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
-                        android:text="can cook" />
+                        android:text="can cook?" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
                         android:id="@+id/canCook"
@@ -392,7 +392,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
-                        android:text="needs private bedroom" />
+                        android:text="needs private bedroom?" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
                         android:id="@+id/needsPrivateBedroom"
@@ -415,7 +415,7 @@
                         android:layout_height="match_parent"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
-                        android:text="has car" />
+                        android:text="has car?" />
 
                     <it.beppi.tristatetogglebutton_library.TriStateToggleButton
                         android:id="@+id/hasCar"
