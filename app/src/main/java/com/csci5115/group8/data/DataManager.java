@@ -205,7 +205,6 @@ public class DataManager {
             if(gender_other==0)
                 return false;
         }
-        System.out.println(gender+" "+gender_male+" "+gender_female+" "+gender_other+"@@@@@@@@@");
         return  true;
     }
     private static boolean checkMaxBudget(int m0,int m1,int m2){
@@ -221,8 +220,9 @@ public class DataManager {
         return  false;
     }
 
+    public static boolean first_initalized=false;
     public static List<User> searchUsers(UserSearchState state) {
-        userSearchState =state;
+        //System.out.println("state ==============================================="+userSearchState.age+"  "+userSearchState.doesSmoke);
         String regexString = ".*" + state.searchText + ".*";
         Pattern pattern = Pattern.compile(regexString, Pattern.CASE_INSENSITIVE);
         Pattern pattern3 = Pattern.compile(".*" + state.nativeLanguage + ".*", Pattern.CASE_INSENSITIVE);

@@ -25,6 +25,8 @@ import java.util.List;
 
 import it.beppi.tristatetogglebutton_library.TriStateToggleButton;
 
+import static com.csci5115.group8.data.DataManager.currentUser;
+import static com.csci5115.group8.data.DataManager.first_initalized;
 import static com.csci5115.group8.data.DataManager.userSearchState;
 
 public class UserSearchActivity extends AppCompatActivity {
@@ -75,6 +77,19 @@ public class UserSearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_search);
+
+        //recommended search option
+        /*if(first_initalized) {
+            DataManager.userSearchState.set(
+                    "", 1, 1, 1, currentUser.age - 5, currentUser.age + 5, currentUser.maxBudget - 200, currentUser.maxBudget + 200,
+                    currentUser.preferences.doesSmoke ? 2 : 1, currentUser.preferences.drugsOkay ? 2 : 1,
+                    currentUser.preferences.hasPets ? 2 : 1, currentUser.preferences.partiesOkay ? 2 : 1,
+                    currentUser.preferences.canCook ? 2 : 1, currentUser.preferences.needsPrivateBedroom ? 2 : 1,
+                    currentUser.preferences.hasCar ? 2 : 1, currentUser.nativeLanguage
+            );
+            first_initalized=true;
+        }*/
+
 
         final ConstraintLayout layout = findViewById(R.id.activity_user_search);
         numMatches = layout.findViewById(R.id.numMatches2);
