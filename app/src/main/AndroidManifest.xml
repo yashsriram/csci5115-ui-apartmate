@@ -26,6 +26,10 @@
             android:hardwareAccelerated="true"
             android:label="View apartment details" />
         <activity
+            android:name=".ViewUserListingActivity"
+            android:hardwareAccelerated="true"
+            android:label="View user details" />
+        <activity
             android:name=".CreateAccountActivity"
             android:label="Create Account"
             android:parentActivityName=".LoginActivity" />

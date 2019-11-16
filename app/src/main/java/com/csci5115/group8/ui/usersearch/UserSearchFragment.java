@@ -14,13 +14,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.csci5115.group8.CreateAccountActivity;
 import com.csci5115.group8.R;
 import com.csci5115.group8.UserSearchActivity;
+import com.csci5115.group8.ViewUserListingActivity;
 import com.csci5115.group8.adapters.UserSearchResultsAdapter;
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.user.User;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
 
 import java.util.List;
 
@@ -34,7 +37,9 @@ public class UserSearchFragment extends Fragment {
         @Override
         public void onItemClick(View view, int position) {
             //add user detail page
-            Snackbar.make(getView(), "TODO", Snackbar.LENGTH_SHORT).show();
+            Intent i = new Intent(getContext(), ViewUserListingActivity.class);
+            i.putExtra("email", userSearchResults.get(position).email);
+            startActivity(i);
         }
     };
 
