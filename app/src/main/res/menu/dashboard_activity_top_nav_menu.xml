@@ -21,4 +21,9 @@
         android:icon="@drawable/ic_group_black_24dp"
         android:title="Customize user search result"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/help"
+        android:icon="@android:drawable/ic_menu_help"
+        android:title="Help"
+        app:showAsAction="ifRoom" />
 </menu>

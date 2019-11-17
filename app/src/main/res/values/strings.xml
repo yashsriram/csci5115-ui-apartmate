@@ -6,4 +6,12 @@
     <string name="title_activity_thread">ThreadActivity</string>
     <string name="title_activity_notifications">NotificationsActivity</string>
     <string name="action_settings">Settings</string>
+    <string name="documentation">ApartMate is a community for people by people.
+        Search for apartments from a crowd sourced and crowd verified collection of apartment listings.
+        Contribute back to the community by adding/updating/correcting apartment listing.
+        Up your level while contribution.
+        After achieving a certain level, apply for verification processs and get review previlages for apartment.
+        Find suitable roommates using your profile.
+        Start your conversations with a suitable roommate with a single click.
+    </string>
 </resources>

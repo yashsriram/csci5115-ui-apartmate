@@ -104,6 +104,10 @@ public class DashboardActivity extends AppCompatActivity implements ChatThreadFr
                 intent = new Intent(this, UserSRLCustomizationActivity.class);
                 startActivity(intent);
                 return true;
+            case R.id.help:
+                intent = new Intent(this, HelpActivity.class);
+                startActivity(intent);
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
