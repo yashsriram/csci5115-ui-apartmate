@@ -121,14 +121,14 @@ public class DataManager {
                         new SecurityFeatures(true, true, true, true),
                         twoUnits));
         apartments.add(
-                new Apartment(2, "Bierman place", "1401 6th St SE, Minneapolis, MN 55414",
+                new Apartment(2, "Bierman Place", "1401 6th St SE, Minneapolis, MN 55414",
                         "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/3Wy4G924V2I\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
                         new PerUnitAmenities(true, true, false, true, true, true, true),
                         new CommonAmenities(true, false, true, true, true),
                         new SecurityFeatures(true, true, false, true),
                         manyUnits));
         apartments.add(
-                new Apartment(3, "Elysian apts", "711 4th St SE, Minneapolis, MN 55414",
+                new Apartment(3, "Elysian Apts", "711 4th St SE, Minneapolis, MN 55414",
                         "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/p_SaeH1qpng\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
                         new PerUnitAmenities(true, true, true, true, false, true, true),
                         new CommonAmenities(true, true, true, true, false),
@@ -149,12 +149,321 @@ public class DataManager {
                         new SecurityFeatures(false, true, true, false),
                         twoUnits));
         apartments.add(
-                new Apartment(6, "Quad on delaware", "2508 Delaware St SE, Minneapolis, MN 55414",
+                new Apartment(6, "Quad on Delaware", "2508 Delaware St SE, Minneapolis, MN 55414",
                         "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/DluFoF_qvOg\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
                         new PerUnitAmenities(true, false, true, true, false, false, true),
                         new CommonAmenities(false, true, false, true, true),
                         new SecurityFeatures(false, false, true, false),
                         oneUnit));
+        apartments.add(
+                new Apartment(7, "44 North", "2701 4th St SE, Minneapolis, MN 55414",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/uyIVi9is7Dk\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, true, true, true, true, false, false),
+                        new CommonAmenities(true, true, false, true, true),
+                        new SecurityFeatures(true, true, false, true),
+                        twoUnits));
+        apartments.add(
+                new Apartment(8, "4th Street Co-op", "1227 4th St SE, Minneapolis, MN 55414",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/2K5Sq_sKPGA\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, false, false, true, true),
+                        new CommonAmenities(false, false, false, true, true),
+                        new SecurityFeatures(false, false, true, false),
+                        manyUnits));
+        apartments.add(
+                new Apartment(9, "Chateau", "425 13th Ave SE, Minneapolis, MN 55414",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/udAsbaQDPII\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, true, false, false, true),
+                        new CommonAmenities(true, true, true, false, true),
+                        new SecurityFeatures(true, false, false, false),
+                        threeUnits));
+        apartments.add(
+                new Apartment(10, "FloCo Fusion", "1000 University Ave SE, Minneapolis, MN 55414",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/IYaFOWxw1Eg\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, false, false, true, true, false),
+                        new CommonAmenities(false, true, false, true, true),
+                        new SecurityFeatures(true, true, true, false),
+                        twoUnits));
+        apartments.add(
+                new Apartment(11, "Dinnaken", "900 Washington Ave SE, Minneapolis, MN 55414",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/ED847h71QDs\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, false, false, true, true),
+                        new CommonAmenities(true, false, false, false, true),
+                        new SecurityFeatures(true, true, true, false),
+                        oneUnit));
+        apartments.add(
+                new Apartment(12, "The Pavilion", "5441 East River Rd NE, Chicago, IL 60656",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/qSsajCHJH5k\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, true, false, false, true),
+                        new CommonAmenities(true, true, false, true, true),
+                        new SecurityFeatures(false, true, true, true),
+                        twoUnits));
+        apartments.add(
+                new Apartment(13, "200 Squared", "210 Wells St N, Chicago, IL 60606",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/L15P58c-pQk\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, true, true, true, false, false, true),
+                        new CommonAmenities(true, true, true, true, false),
+                        new SecurityFeatures(false, true, true, false),
+                        threeUnits));
+        apartments.add(
+                new Apartment(14, "Park View Apts", "1936 Clark St N, Chicago, IL 60614",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/0y4rXoWrJlw\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, true, false, true, true, false, true),
+                        new CommonAmenities(false, false, false, true, true),
+                        new SecurityFeatures(false, true, true, true),
+                        oneUnit));
+        apartments.add(
+                new Apartment(15, "Lofts at River East", "401 Illinois St E, Chicago, IL 60611",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/OhPTNCVMznY\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, true, true, true, false, true, true),
+                        new CommonAmenities(false, true, true, true, true),
+                        new SecurityFeatures(true, false, true, false),
+                        manyUnits));
+        apartments.add(
+                new Apartment(16, "Aurelien", "833 Clark St N, Chicago, IL 60610",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/siBj-vWuSOU\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, false, true, false, false, false),
+                        new CommonAmenities(true, false, false, false, true),
+                        new SecurityFeatures(true, true, true, false),
+                        oneUnit));
+        apartments.add(
+                new Apartment(17, "Tanner Flats", "2004 Jefferson St SW, Portland, OR 97201",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/siBj-vWuSOU\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(false, false, false, true, false, true, true),
+                        new CommonAmenities(false, true, true, true, false),
+                        new SecurityFeatures(true, false, true, true),
+                        threeUnits));
+        apartments.add(
+                new Apartment(18, "The Cordelia", "777 19th Ave NW, Portland, OR 97209",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/iJw5Ug49SBg\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, true, true, true, false, false, false),
+                        new CommonAmenities(true, false, false, true, false),
+                        new SecurityFeatures(true, true, true, false),
+                        twoUnits));
+        apartments.add(
+                new Apartment(19, "Harrison Tower", "222 Harrison St SW, Portland, OR 97201",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/4B7vs7tPRpQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, true, true, true, false, false, true),
+                        new CommonAmenities(false, true, false, false, false),
+                        new SecurityFeatures(false, true, true, true),
+                        oneUnit));
+        apartments.add(
+                new Apartment(20, "Northwood", "8338 Interstate Ave N, Portland, OR 97217",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/oGt3t6crCMY\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, false, true, false, true, true),
+                        new CommonAmenities(false, true, false, true, true),
+                        new SecurityFeatures(true, false, true, false),
+                        manyUnits));
+        apartments.add(
+                new Apartment(21, "Tower 12", "2015 2nd Ave, Seattle, WA 98121",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/3BKpGtLjTsY\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, true, true, false, false, false, true),
+                        new CommonAmenities(true, true, false, true, true),
+                        new SecurityFeatures(false, true, true, false),
+                        oneUnit));
+        apartments.add(
+                new Apartment(22, "Via 6", "2121 6th Ave, Seattle, WA 98121",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/QYxXksVUVIw\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, false, false, false, false),
+                        new CommonAmenities(false, true, true, true, true),
+                        new SecurityFeatures(false, true, true, false),
+                        twoUnits));
+        apartments.add(
+                new Apartment(23, "Stratus", "820 Lenora St, Seattle, WA 98121",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/nU9v22xv44E\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, true, true, true, false, false, false),
+                        new CommonAmenities(false, true, false, true, false),
+                        new SecurityFeatures(false, true, false, true),
+                        threeUnits));
+        apartments.add(
+                new Apartment(24, "Guinevere Apts", "522 85th St N, Seattle, WA 98103",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/-yMqgyYkNyc\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(false, false, true, false, true, true, true),
+                        new CommonAmenities(false, true, false, true, true),
+                        new SecurityFeatures(false, false, true, false),
+                        twoUnits));
+        apartments.add(
+                new Apartment(25, "Helios", "1600 2nd Ave, Seattle, WA, 98101",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/lLuiDUMKoFI\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, true, false, true, false, true, true),
+                        new CommonAmenities(true, true, false, true, false),
+                        new SecurityFeatures(true, true, false, false),
+                        threeUnits));
+        apartments.add(
+                new Apartment(26, "SoMa Square", "1 Saint Francis Pl, San Francisco, CA 94107",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/z_mt1CQyJ-I\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, true, true, true, false, true, false),
+                        new CommonAmenities(true, false, false, false, true),
+                        new SecurityFeatures(false, false, true, true),
+                        twoUnits));
+        apartments.add(
+                new Apartment(27, "The Paramount", "680 Mission St, San Francisco, CA 94105",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/iPnDBbGQnqY\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(false, true, false, true, true, false, true),
+                        new CommonAmenities(false, true, true, false, true),
+                        new SecurityFeatures(false, true, true, true),
+                        threeUnits));
+        apartments.add(
+                new Apartment(28, "L Seven Apts", "1222 Harrison St, San Francisco, CA 94103",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/FA_JZL1iUJw\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, true, false, true, false, true, true),
+                        new CommonAmenities(false, true, false, false, true),
+                        new SecurityFeatures(true, false, true, false),
+                        manyUnits));
+        apartments.add(
+                new Apartment(29, "Edgewater", "355 Berry St, San Francisco, CA 94158",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/sYRQwIik0oA\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, true, false, true, true),
+                        new CommonAmenities(false, true, false, true, false),
+                        new SecurityFeatures(false, false, true, true),
+                        twoUnits));
+        apartments.add(
+                new Apartment(30, "Presidio Residences", "222 Holleck St, San Francisco, CA 94129",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/KtAfaik7NKY\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, true, true, false, true),
+                        new CommonAmenities(false, true, true, true, true),
+                        new SecurityFeatures(false, true, true, false),
+                        manyUnits));
+        apartments.add(
+                new Apartment(31, "East Vue Ranch Apts", "460 Bastrop Hwy SE, Austin, TX 78741",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/uTybaFjhcsI\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, false, true, false, false, true),
+                        new CommonAmenities(true, true, true, true, true),
+                        new SecurityFeatures(true, true, true, false),
+                        oneUnit));
+        apartments.add(
+                new Apartment(32, "Urbana", "9005 Alderman Dr, Austin, TX 78747",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/RocQ8p6Z2XA\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(false, false, true, true, true, true, true),
+                        new CommonAmenities(false, true, false, true, false),
+                        new SecurityFeatures(false, true, true, true),
+                        manyUnits));
+        apartments.add(
+                new Apartment(33, "The Hendrix", "9811 Copper Crk, Austin, TX 78729",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/mC_hO9ku24g\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, false, true, true, true),
+                        new CommonAmenities(false, true, true, false, true),
+                        new SecurityFeatures(false, true, false, true),
+                        twoUnits));
+        apartments.add(
+                new Apartment(34, "Lamar Union", "1100 Lamar Blvd S, Austin, TX 78704",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/an78l92eHjY\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, false, true, false, true, true),
+                        new CommonAmenities(false, true, false, true, false),
+                        new SecurityFeatures(false, true, true, true),
+                        manyUnits));
+        apartments.add(
+                new Apartment(35, "Mosaic at Mueller", "4600 Mueller Blvd, Austin, TX 78738",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/Qg3QQZ5L0FU\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, true, true, false, true),
+                        new CommonAmenities(true, true, true, true, true),
+                        new SecurityFeatures(false, false, true, false),
+                        oneUnit));
+        apartments.add(
+                new Apartment(36, "Stuyvesant Town", "409 14th St E, New York, NY 10009",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/tJebDDFr4Ug\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, false, false, false, true),
+                        new CommonAmenities(true, false, false, true, false),
+                        new SecurityFeatures(false, true, true, true),
+                        oneUnit));
+        apartments.add(
+                new Apartment(37, "Peter Cooper Village", "360 1st Ave, New York, NY 10009",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/_TQqHac2cu8\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, true, true, true, true, true, true),
+                        new CommonAmenities(false, false, true, false, false),
+                        new SecurityFeatures(false, false, true, false),
+                        manyUnits));
+        apartments.add(
+                new Apartment(38, "The Helena", "601 57th St W, New York, NY 10019",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/-zHGSUM2KEs\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, true, false, true, true),
+                        new CommonAmenities(false, true, false, true, false),
+                        new SecurityFeatures(true, true, true, false),
+                        twoUnits));
+        apartments.add(
+                new Apartment(39, "19 Dutch", "118 Fulton St, New York, NY 10038",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/UrbQvYt3zxw\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(false, false, true, true, true, true, true),
+                        new CommonAmenities(false, true, true, false, true),
+                        new SecurityFeatures(false, true, false, false),
+                        manyUnits));
+        apartments.add(
+                new Apartment(40, "Avalon West Chelsea", "282 11th Ave, New York, NY 10001",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/lVjHJ1ICc8E\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, true, true, false, true),
+                        new CommonAmenities(false, true, true, true, true),
+                        new SecurityFeatures(false, true, true, false),
+                        threeUnits));
+        apartments.add(
+                new Apartment(41, "Dunwoody Village", "2311 Dunwoody Xing, Atlanta, GA 30338",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/E4gL3_SrP-o\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, true, true, true, true),
+                        new CommonAmenities(false, true, false, true, true),
+                        new SecurityFeatures(false, true, false, false),
+                        twoUnits));
+        apartments.add(
+                new Apartment(42, "Tower Hamlets", "12 Barnsley St, London, UK 25103",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/5BdBt7iQXeM\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, false, true, true, true),
+                        new CommonAmenities(false, true, true, false, true),
+                        new SecurityFeatures(false, true, false, false),
+                        oneUnit));
+        apartments.add(
+                new Apartment(43, "Hardwicks Square", "259 Hardwicks Sq, London, UK 25126",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/D6aS2IE3mz8\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(false, true, true, true, true, false, true),
+                        new CommonAmenities(true, false, false, true, true),
+                        new SecurityFeatures(false, true, true, false),
+                        twoUnits));
+        apartments.add(
+                new Apartment(44, "Finsbury Park Apts", "351 Holbrook Rd, London, UK 25127",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/OAxrOszJX28\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(false, false, true, true, true, false, true),
+                        new CommonAmenities(false, true, true, true, true),
+                        new SecurityFeatures(true, true, true, false),
+                        manyUnits));
+        apartments.add(
+                new Apartment(45, "Prenzlauer Berg Apts", "15 Wilmersdorf St, Berlin, Germany 94129",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/FwGyeelBhDQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, true, false, false, true),
+                        new CommonAmenities(true, true, true, false, false),
+                        new SecurityFeatures(false, true, true, false),
+                        oneUnit));
+        apartments.add(
+                new Apartment(46, "Kreuzberg", "1 Stresemannstabe, Berlin, Germany 94129",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/rIhfdVJ8mnQ\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(false, false, false, false, true, false, true),
+                        new CommonAmenities(false, true, false, true, true),
+                        new SecurityFeatures(false, false, true, false),
+                        twoUnits));
+        apartments.add(
+                new Apartment(47, "Akasaka Hinemachi Tower", "9-4-1 Akasaka Minato-ku, Tokyo, Japan 100-0014",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/G7jkFNUoNu8\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, true, true, false, true),
+                        new CommonAmenities(true, true, true, true, true),
+                        new SecurityFeatures(false, false, true, false),
+                        manyUnits));
+        apartments.add(
+                new Apartment(48, "Park Cube Atagoyama Tower", "3-17-7 Nishi-Shinbashi Minato-Ku, Tokyo, Japan 100-0013",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/rFkcwg84XMo\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(false, false, true, false, true, false, true),
+                        new CommonAmenities(false, true, false, false, true),
+                        new SecurityFeatures(false, true, true, true),
+                        twoUnits));
+        apartments.add(
+                new Apartment(49, "Ubora Tower", "15 Marasi Dr, Dubai, UAE 00000",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/pe8X1Zgg-vk\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, true, false, true, true),
+                        new CommonAmenities(false, false, true, true, true),
+                        new SecurityFeatures(true, true, true, false),
+                        oneUnit));
+        apartments.add(
+                new Apartment(50, "Tifolia/Callia", "East Pulo Gadung, Jakarta, Indonesia 10110",
+                        "<iframe width=\"400\" height=\"300\" src=\"https://www.youtube.com/embed/BmFMj0mpg8E\" frameborder=\"0\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+                        new PerUnitAmenities(true, false, true, true, true, true, true),
+                        new CommonAmenities(false, true, false, true, false),
+                        new SecurityFeatures(false, false, true, false),
+                        twoUnits));
+
     }
 
     public static List<Apartment> searchApartments(ApartmentSearchState state) {
