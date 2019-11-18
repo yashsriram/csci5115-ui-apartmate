@@ -23,10 +23,9 @@ public class ThreadActivity extends AppCompatActivity implements threadMessagesF
 
     public Thread getThread() {
         if (thread == null) {
-            String thread_fname = getIntent().getStringExtra("thread_fname");
-            String thread_lname = getIntent().getStringExtra("thread_lname");
+            String email = getIntent().getStringExtra("email");
             for(Thread t : DataManager.threads) {
-                if(t.first_name.equals(thread_fname) && t.last_name.equals(thread_lname)) {
+                if(t.user.email.equals(email)) {
                     this.thread = t;
                     break;
                 }
@@ -51,9 +50,9 @@ public class ThreadActivity extends AppCompatActivity implements threadMessagesF
 //        Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
-        System.out.println("GOT");
-        System.out.println(this.getThread().first_name);
-        setTitle("Chat - " + this.getThread().first_name + " " + this.getThread().last_name);
+//        System.out.println("GOT");
+//        System.out.println(this.getThread().first_name);
+        setTitle("Chat - " + this.getThread().user.name);
 
         final TextView textView = findViewById(R.id.editText4);
 

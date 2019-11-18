@@ -34,8 +34,7 @@ public class DashboardActivity extends AppCompatActivity implements ChatThreadFr
     @Override
     public void onListFragmentInteraction(Thread item) {
         Intent threadIntent = new Intent(DashboardActivity.this, ThreadActivity.class);
-        threadIntent.putExtra("thread_fname", item.first_name);
-        threadIntent.putExtra("thread_lname", item.last_name);
+        threadIntent.putExtra("email", item.user.email);
         startActivity(threadIntent);
     }
 
