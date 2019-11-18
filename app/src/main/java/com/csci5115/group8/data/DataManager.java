@@ -565,11 +565,203 @@ public class DataManager {
         );
         users.add(new User("kate@apartmate.com", "kate", "Kate", "female", 23, 700, "Spanish", false,
                 new UserPreferences(true, false, true, true, true, false, true),
-                0)
+                7)
         );
         users.add(new User("nate@apartmate.com", "nate", "Nate", "female", 22, 620, "English", true,
                 new UserPreferences(true, true, false, true, true, true, true),
-                0)
+                3)
+        );
+        users.add(new User("julio@apartmate.com", "julio", "Julio", "male", 19, 850, "English", true,
+                new UserPreferences(true, true, true, false, false, true, true),
+                2)
+        );
+        users.add(new User("priya@apartmate.com", "priya", "Priya", "female", 24, 900, "Bengali", false,
+                new UserPreferences(false, false, false, false, true, true, false),
+                6)
+        );
+        users.add(new User("imran@apartmate.com", "imran", "Imran", "male", 18, 580, "Somali", true,
+                new UserPreferences(true, true, false, true, true, false, true),
+                10)
+        );
+        users.add(new User("ines@apartmate.com", "ines", "Ines", "nonbinary", 20, 700, "Spanish", true,
+                new UserPreferences(false, true, true, true, true, false, false),
+                8)
+        );
+        users.add(new User("tchalla@apartmate.com", "tchalla", "T'Challa", "male", 28, 1000, "Wakandan", true,
+                new UserPreferences(true, false, false, true, false, true, true),
+                11)
+        );
+        users.add(new User("eleanor@apartmate.com", "eleanor", "Eleanor", "female", 26, 500, "English", true,
+                new UserPreferences(true, true, true, true, false, false, false),
+                12)
+        );
+        users.add(new User("chidi@apartmate.com", "chidi", "Chidi", "male", 32, 650, "French", true,
+                new UserPreferences(false, false, false, false, false, true, true),
+                6)
+        );
+        users.add(new User("jason@apartmate.com", "jason", "Jason", "male", 23, 450, "Tagalog", false,
+                new UserPreferences(true, true, false, false, false, false, true),
+                1)
+        );
+        users.add(new User("tahani@apartmate.com", "tahani", "Tahani", "female", 29, 1200, "English", false,
+                new UserPreferences(false, false, false, false, true, true, true),
+                9)
+        );
+        users.add(new User("janet@apartmate.com", "janet", "Janet", "nonbinary", 30, 700, "English", true,
+                new UserPreferences(false, false, true, true, true, true, false),
+                17)
+        );
+        users.add(new User("michael@apartmate.com", "michael", "Michael", "male", 31, 570, "English", false,
+                new UserPreferences(false, true, false, true, true, false, true),
+                3)
+        );
+        users.add(new User("anya@apartmate.com", "anya", "Anya", "female", 20, 750, "Russian", false,
+                new UserPreferences(true, true, true, false, false, true, true),
+                9)
+        );
+        users.add(new User("jamal@apartmate.com", "jamal", "Jamal", "male", 25, 650, "English", true,
+                new UserPreferences(false, false, false, false, true, false, true),
+                6)
+        );
+        users.add(new User("omar@apartmate.com", "omar", "Omar", "male", 24, 800, "Arabic", true,
+                new UserPreferences(false, false, true, false, true, true, true),
+                14)
+        );
+        users.add(new User("chris@apartmate.com", "chris", "Chris", "male", 19, 600, "English", true,
+                new UserPreferences(false, true, true, false, false, false, true),
+                13)
+        );
+        users.add(new User("stacy@apartmate.com", "stacy", "Stacy", "female", 27, 500, "English", false,
+                new UserPreferences(true, false, true, false, true, true, false),
+                8)
+        );
+        users.add(new User("jameela@apartmate.com", "jameela", "Jameela", "female", 21, 580, "Urdu", true,
+                new UserPreferences(false, true, false, true, false, true, true),
+                7)
+        );
+        users.add(new User("eduardo@apartmate.com", "eduardo", "Eduardo", "nonbinary", 22, 700, "Portuguese", false,
+                new UserPreferences(false, false, true, false, false, true, false),
+                4)
+        );
+        users.add(new User("dmitri@apartmate.com", "dmitri", "Dmitri", "male", 20, 300, "Greek", true,
+                new UserPreferences(false, true, true, true, false, true, true),
+                1)
+        );
+        users.add(new User("mohamed@apartmate.com", "mohamed", "Mohamed", "male", 26, 700, "Farsi", true,
+                new UserPreferences(false, false, false, false, true, true, false),
+                4)
+        );
+        users.add(new User("fatima@apartmate.com", "fatima", "Fatima", "female", 19, 600, "English", false,
+                new UserPreferences(false, true, false, true, false, true, false),
+                6)
+        );
+        users.add(new User("tom@apartmate.com", "tom", "Tom", "male", 28, 800, "English", true,
+                new UserPreferences(false, true, true, true, true, true, true),
+                7)
+        );
+        users.add(new User("yash@apartmate.com", "yash", "Yash", "male", 24, 700, "Hindi", true,
+                new UserPreferences(false, true, false, false, true, true, false),
+                8)
+        );
+        users.add(new User("tommy@apartmate.com", "tommy", "Tommy", "male", 23, 900, "Mandarin", false,
+                new UserPreferences(false, false, false, true, false, false, false),
+                6)
+        );
+        users.add(new User("salma@apartmate.com", "salma", "Salma", "female", 20, 700, "Arabic", true,
+                new UserPreferences(false, false, false, false, true, true, false),
+                6)
+        );
+        users.add(new User("miguel@apartmate.com", "miguel", "Miguel", "male", 21, 650, "English", true,
+                new UserPreferences(false, false, true, true, true, false, true),
+                10)
+        );
+        users.add(new User("liam@apartmate.com", "liam", "Liam", "male", 26, 380, "English", false,
+                new UserPreferences(true, true, false, false, false, true, false),
+                2)
+        );
+        users.add(new User("george@apartmate.com", "george", "George", "male", 22, 450, "English", false,
+                new UserPreferences(false, true, false, true, true, true, true),
+                5)
+        );
+        users.add(new User("adam@apartmate.com", "adam", "Adam", "nonbinary", 21, 500, "French", true,
+                new UserPreferences(false, false, true, true, false, false, true),
+                7)
+        );
+        users.add(new User("ren@apartmate.com", "ren", "Ren", "male", 18, 800, "Japanese", false,
+                new UserPreferences(false, false, true, false, true, true, false),
+                9)
+        );
+        users.add(new User("itsuki@apartmate.com", "itsuki", "Itsuki", "male", 19, 700, "Japanese", true,
+                new UserPreferences(false, true, false, true, true, true, true),
+                8)
+        );
+        users.add(new User("joowon@apartmate.com", "priya", "Julio", "male", 21, 900, "Korean", true,
+                new UserPreferences(true, true, true, false, true, false, false),
+                7)
+        );
+        users.add(new User("gabriel@apartmate.com", "priya", "Julio", "male", 25, 800, "Malay", false,
+                new UserPreferences(true, true, false, false, false, true, false),
+                11)
+        );
+        users.add(new User("neo@apartmate.com", "neo", "Neo", "nonbinary", 26, 670, "English", false,
+                new UserPreferences(false, false, false, false, true, true, false),
+                13)
+        );
+        users.add(new User("trinity@apartmate.com", "trinity", "Trinity", "female", 23, 1000, "English", true,
+                new UserPreferences(false, false, true, false, false, true, true),
+                15)
+        );
+        users.add(new User("mikhail@apartmate.com", "mikhail", "Mikhail", "male", 22, 900, "Polish", false,
+                new UserPreferences(false, true, false, true, true, false, true),
+                17)
+        );
+        users.add(new User("lucas@apartmate.com", "lucas", "Lucas", "male", 27, 680, "Italian", true,
+                new UserPreferences(false, false, true, true, false, true, false),
+                19)
+        );
+        users.add(new User("oliver@apartmate.com", "oliver", "Oliver", "male", 19, 800, "English", false,
+                new UserPreferences(false, true, false, false, true, true, true),
+                6)
+        );
+        users.add(new User("yusuf@apartmate.com", "yusuf", "Yusuf", "male", 18, 700, "Turkish", false,
+                new UserPreferences(false, false, false, true, false, true, false),
+                3)
+        );
+        users.add(new User("andrea@apartmate.com", "andrea", "Andrea", "female", 26, 450, "Spanish", true,
+                new UserPreferences(false, true, true, false, true, true, true),
+                2)
+        );
+        users.add(new User("leslie@apartmate.com", "leslie", "Leslie", "female", 19, 500, "English", false,
+                new UserPreferences(false, true, false, true, true, true, false),
+                21)
+        );
+        users.add(new User("ron@apartmate.com", "ron", "Ron", "male", 30, 800, "English", false,
+                new UserPreferences(false, true, true, false, true, true, true),
+                18)
+        );
+        users.add(new User("seoyun@apartmate.com", "seoyun", "Seo-yun", "female", 23, 1100, "Korean", true,
+                new UserPreferences(true, true, false, true, false, true, false),
+                23)
+        );
+        users.add(new User("donna@apartmate.com", "donna", "Donna", "female", 24, 800, "English", true,
+                new UserPreferences(true, true, false, false, true, false, true),
+                24)
+        );
+        users.add(new User("ann@apartmate.com", "ann", "Ann", "female", 23, 1000, "English", true,
+                new UserPreferences(true, true, false, false, true, true, false),
+                22)
+        );
+        users.add(new User("april@apartmate.com", "april", "April", "female", 22, 400, "Spanish", false,
+                new UserPreferences(false, true, true, false, false, false, true),
+                17)
+        );
+        users.add(new User("ben@apartmate.com", "ben", "Ben", "male", 26, 500, "English", false,
+                new UserPreferences(false, true, false, false, false, false, false),
+                5)
+        );
+        users.add(new User("andy@apartmate.com", "andy", "Andy", "male", 29, 300, "English", true,
+                new UserPreferences(false, false, false, true, true, false, true),
+                2)
         );
     }
 
