@@ -557,6 +557,27 @@ public class DataManager {
         }
         return results;
     }
+    
+    private static void createReviewData(){
+        reviewManager.setReview(3, "kate@apartmate.com", 4);
+        reviewManager.setReview(3, "julio@apartmate.com", 2);
+        reviewManager.setReview(3, "ron@apartmate.com", 5);
+        reviewManager.setReview(3, "michael@apartmate.com", 4);
+        reviewManager.setReview(3, "salma@apartmate.com", 5);
+        reviewManager.setReview(3, "fatima@apartmate.com", 4);
+        reviewManager.setReview(3, "donna@apartmate.com", 2);
+        reviewManager.setReview(3, "jamal@apartmate.com", 5);
+        reviewManager.setReview(3, "imran@apartmate.com", 2);
+        reviewManager.setReview(3, "liam@apartmate.com", 3);
+        reviewManager.setReview(4, "nate@apartmate.com", 3);
+        reviewManager.setReview(4, "chidi@apartmate.com", 1);
+        reviewManager.setReview(4, "jason@apartmate.com", 5);
+        reviewManager.setReview(4, "janet@apartmate.com", 4);
+        reviewManager.setReview(4, "tahani@apartmate.com", 3);
+        reviewManager.setReview(4, "leslie@apartmate.com", 5);
+        reviewManager.setReview(1, "ben@apartmate.com", 2);
+        reviewManager.setReview(1, "chris@apartmate.com", 1);
+    }
 
     private static void createUserData() {
         users.add(new User("john@apartmate.com", "john", "John Doe", "male", 20, 600, "English", false,
