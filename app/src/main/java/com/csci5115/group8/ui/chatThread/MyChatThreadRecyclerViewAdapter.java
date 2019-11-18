@@ -47,7 +47,7 @@ public class MyChatThreadRecyclerViewAdapter extends RecyclerView.Adapter<MyChat
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
         holder.mContentView.setText(mValues.get(position).user.name + " " + mValues.get(position).user.name);
-        mValues.get(position).setUserImage(holder.userImage);
+        mValues.get(position).user.setProfileImage(holder.userImage);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override

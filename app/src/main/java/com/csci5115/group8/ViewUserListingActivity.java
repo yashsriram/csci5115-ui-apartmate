@@ -77,6 +77,8 @@ public class ViewUserListingActivity extends AppCompatActivity {
         final TextView level = findViewById(R.id.level);
         final ImageView image = findViewById(R.id.image);
 
+        currentUser.setProfileImage(image);
+
 
         isVerified.setText(currentUser.isVerified ? "VERIFIED" : "NOT VERIFIED");
         isVerified.setTextColor(Color.WHITE);
