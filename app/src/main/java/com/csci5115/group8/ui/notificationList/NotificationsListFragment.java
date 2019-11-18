@@ -13,9 +13,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.csci5115.group8.R;
+import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.Notification;
 import com.csci5115.group8.ui.dummy.DummyContent;
 import com.csci5115.group8.ui.dummy.DummyContent.DummyItem;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * A fragment representing a list of Items.
@@ -65,7 +69,7 @@ public class NotificationsListFragment extends Fragment {
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
+            final RecyclerView recyclerView = (RecyclerView) view;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager(new LinearLayoutManager(context));
             } else {
@@ -73,6 +77,8 @@ public class NotificationsListFragment extends Fragment {
             }
             recyclerView.setAdapter(new MyNotificationsListRecyclerViewAdapter(DummyContent.ITEMS, mListener));
         }
+
+
         return view;
     }
 

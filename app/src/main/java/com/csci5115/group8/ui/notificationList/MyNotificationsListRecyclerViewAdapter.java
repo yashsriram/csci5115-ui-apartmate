@@ -2,6 +2,7 @@ package com.csci5115.group8.ui.notificationList;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,12 @@ public class MyNotificationsListRecyclerViewAdapter extends RecyclerView.Adapter
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = DataManager.notifications.get(position);
         holder.mContentView.setText(DataManager.notifications.get(position).message);
+
+        if (holder.mItem.read) {
+            holder.mContentView.setTextColor(Color.parseColor("black"));
+        } else {
+            holder.mContentView.setTextColor(Color.parseColor("blue"));
+        }
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override

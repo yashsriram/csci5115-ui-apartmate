@@ -802,6 +802,9 @@ public class DataManager {
 
     private static void createNotifications() {
         notifications.add(new Notification("Sarah has sent you a message!"));
+        Notification notif = new Notification("Bob has sent you a message");
+        notif.read = true;
+        notifications.add(notif);
     }
 
     private static void createThreadData() {
