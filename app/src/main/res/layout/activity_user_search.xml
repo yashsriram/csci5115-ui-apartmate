@@ -275,7 +275,7 @@
                     <TextView
                         style="@style/TextAppearance.AppCompat.Medium"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
                         android:text="smoke okay?" />
@@ -296,7 +296,7 @@
                     <TextView
                         style="@style/TextAppearance.AppCompat.Medium"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
                         android:text="drugs okay?" />
@@ -319,7 +319,7 @@
                     <TextView
                         style="@style/TextAppearance.AppCompat.Medium"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
                         android:text="pets okay?" />
@@ -342,7 +342,7 @@
                     <TextView
                         style="@style/TextAppearance.AppCompat.Medium"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
                         android:text="parties okay?" />
@@ -365,7 +365,7 @@
                     <TextView
                         style="@style/TextAppearance.AppCompat.Medium"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
                         android:text="can cook?" />
@@ -389,7 +389,7 @@
                     <TextView
                         style="@style/TextAppearance.AppCompat.Medium"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
                         android:text="needs private bedroom?" />
@@ -412,7 +412,7 @@
                     <TextView
                         style="@style/TextAppearance.AppCompat.Medium"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_margin="5dp"
                         android:layout_weight="0.9"
                         android:text="has car?" />
