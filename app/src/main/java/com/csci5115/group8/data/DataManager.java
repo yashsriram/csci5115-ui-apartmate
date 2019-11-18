@@ -772,12 +772,12 @@ public class DataManager {
                 new UserPreferences(true, true, false, false, true, true, false),
                 22)
         );
-        users.add(new User("april@apartmate.com", "april", "April", "female", 22, 400, "Spanish", false,
-                new UserPreferences(false, true, true, false, false, false, true),
+        users.add(new User("april@apartmate.com", "april", "April", "female", 22, 450, "English", false,
+                new UserPreferences(true, false, false, true, false, false, true),
                 17)
         );
-        users.add(new User("ben@apartmate.com", "ben", "Ben", "male", 26, 500, "English", false,
-                new UserPreferences(false, true, false, false, false, false, false),
+        users.add(new User("ben@apartmate.com", "ben", "Ben", "male", 24, 500, "English", false,
+                new UserPreferences(true, false, false, true, false, false, true),
                 5)
         );
         users.add(new User("andy@apartmate.com", "andy", "Andy", "male", 29, 300, "English", true,
