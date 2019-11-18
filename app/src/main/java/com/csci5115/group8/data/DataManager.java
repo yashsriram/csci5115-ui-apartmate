@@ -1,5 +1,7 @@
 package com.csci5115.group8.data;
 
+import android.util.Log;
+
 import com.csci5115.group8.data.apartment.Apartment;
 import com.csci5115.group8.data.apartment.ApartmentUnit;
 import com.csci5115.group8.data.apartment.CommonAmenities;
@@ -30,6 +32,7 @@ public class DataManager {
     static {
         createApartmentData();
         createUserData();
+        createReviewData();
         createThreadData();
         createNotifications();
 
@@ -498,6 +501,7 @@ public class DataManager {
     // User
     public static User getUser(String userEmail) {
         for (User user : DataManager.users) {
+            Log.d("POLO", "getUser: " + userEmail + user.email);
             if (user.email.equals(userEmail)) {
                 return user;
             }
@@ -505,31 +509,46 @@ public class DataManager {
         return null;
     }
 
-    private static boolean checkGender(String gender,int gender_male,int gender_female,int gender_other){
-        if(gender.equals("male")){
-            if(gender_male==0) return false;
-        }else if(gender.equals("female")){
-            if(gender_female==0) return false;
-        }else {
-            if(gender_other==0)
+    private static boolean checkGender(String gender, int gender_male, int gender_female, int gender_other) {
+        if (gender.equals("male")) {
+            if (gender_male == 0) return false;
+        } else if (gender.equals("female")) {
+            if (gender_female == 0) return false;
+        } else {
+            if (gender_other == 0)
                 return false;
         }
-        return  true;
-    }
-    private static boolean checkMaxBudget(int m0,int m1,int m2){
-        if(m1==-1&&m2==-1){return true;}
-        if(m2==-1){m2=999999999;}
-        if(m0>m1&&m0<m2){return true;}
-        return  false;
-    }
-    private static boolean checkAge(int a0,int a1,int a2){
-        if(a1==-1&&a2==-1){return true;}
-        if(a2==-1){a2=999;}
-        if(a0>a1&&a0<a2){return true;}
-        return  false;
+        return true;
     }
 
-    public static boolean first_initalized=false;
+    private static boolean checkMaxBudget(int m0, int m1, int m2) {
+        if (m1 == -1 && m2 == -1) {
+            return true;
+        }
+        if (m2 == -1) {
+            m2 = 999999999;
+        }
+        if (m0 > m1 && m0 < m2) {
+            return true;
+        }
+        return false;
+    }
+
+    private static boolean checkAge(int a0, int a1, int a2) {
+        if (a1 == -1 && a2 == -1) {
+            return true;
+        }
+        if (a2 == -1) {
+            a2 = 999;
+        }
+        if (a0 > a1 && a0 < a2) {
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean first_initalized = false;
+
     public static List<User> searchUsers(UserSearchState state) {
         //System.out.println("state ==============================================="+userSearchState.age+"  "+userSearchState.doesSmoke);
         String regexString = ".*" + state.searchText + ".*";
@@ -546,10 +565,10 @@ public class DataManager {
                     && filterMatch(state.canCook, user.preferences.canCook)
                     && filterMatch(state.needsPrivateBedroom, user.preferences.needsPrivateBedroom)
                     && filterMatch(state.hasCar, user.preferences.hasCar)
-                    && checkMaxBudget(user.maxBudget,state.maxBudget,state.maxBudget2)
-                    && checkGender(user.gender,state.gender_male,state.gender_female,state.gender_other)
+                    && checkMaxBudget(user.maxBudget, state.maxBudget, state.maxBudget2)
+                    && checkGender(user.gender, state.gender_male, state.gender_female, state.gender_other)
                     && pattern3.matcher(user.nativeLanguage).matches()
-                    && checkAge(user.age,state.age,state.age2)
+                    && checkAge(user.age, state.age, state.age2)
                     && !user.email.equals(currentUser.email)
             ) {
                 results.add(user);
@@ -557,15 +576,15 @@ public class DataManager {
         }
         return results;
     }
-    
-    private static void createReviewData(){
-        reviewManager.setReview(3, "kate@apartmate.com", 4);
-        reviewManager.setReview(3, "julio@apartmate.com", 2);
-        reviewManager.setReview(3, "ron@apartmate.com", 5);
-        reviewManager.setReview(3, "michael@apartmate.com", 4);
-        reviewManager.setReview(3, "salma@apartmate.com", 5);
-        reviewManager.setReview(3, "fatima@apartmate.com", 4);
-        reviewManager.setReview(3, "donna@apartmate.com", 2);
+
+    private static void createReviewData() {
+        reviewManager.setReview(2, "kate@apartmate.com", 4);
+        reviewManager.setReview(2, "julio@apartmate.com", 2);
+        reviewManager.setReview(2, "ron@apartmate.com", 5);
+        reviewManager.setReview(2, "michael@apartmate.com", 4);
+        reviewManager.setReview(2, "salma@apartmate.com", 5);
+        reviewManager.setReview(2, "fatima@apartmate.com", 4);
+        reviewManager.setReview(2, "donna@apartmate.com", 2);
         reviewManager.setReview(3, "jamal@apartmate.com", 5);
         reviewManager.setReview(3, "imran@apartmate.com", 2);
         reviewManager.setReview(3, "liam@apartmate.com", 3);

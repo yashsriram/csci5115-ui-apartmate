@@ -1,5 +1,6 @@
 package com.csci5115.group8.data;
 
+import android.util.Log;
 import android.util.Pair;
 
 import com.csci5115.group8.data.apartment.Apartment;
