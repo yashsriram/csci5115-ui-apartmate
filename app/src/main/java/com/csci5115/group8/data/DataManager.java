@@ -801,18 +801,18 @@ public class DataManager {
     }
 
     private static void createNotifications() {
-        notifications.add(new Notification("First notification!"));
+        notifications.add(new Notification("Sarah has sent you a message!"));
     }
 
     private static void createThreadData() {
         Thread thread1 = new Thread(users.get(0));
-        thread1.addMessage("Hi hows it going, BOB", true);
-        thread1.addMessage("not too bad", false);
+        thread1.addMessage("Hi hows it going, Bob? Are you still looking for a roommate?", true);
+        thread1.addMessage("Yea I am!", false);
         threads.add(thread1);
 
         Thread thread2 = new Thread(users.get(1));
-        thread2.addMessage("Hi hows it going, JIM", true);
-        thread2.addMessage("pretty good yo", false);
+        thread2.addMessage("Hey Jim, are you still looking for roommates?", true);
+        thread2.addMessage("Yes, still looking in the campus area!", false);
         threads.add(thread2);
     }
 }
