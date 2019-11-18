@@ -57,7 +57,7 @@ public class EditYourProfileActivity extends AppCompatActivity {
 
         currentUser.setProfileImage(image);
 
-        isVerified.setText(currentUser.isVerified ? "VERIFIED" : "NOT VERIFIED\nClick to verify\nAnd get\nrating previlages");
+        isVerified.setText(currentUser.isVerified ? "VERIFIED" : "NOT VERIFIED\nClick to verify\nAnd get\nrating privileges");
         if (!currentUser.isVerified) {
             isVerified.setOnClickListener(new View.OnClickListener() {
                 @Override
