@@ -111,7 +111,9 @@ public class ViewUserListingActivity extends AppCompatActivity {
             public void onClick(View view) {
                 //send message
                 //target user email is "email_"
-
+                Intent threadIntent = new Intent(ViewUserListingActivity.this, ThreadActivity.class);
+                threadIntent.putExtra("email", email_);
+                startActivity(threadIntent);
             }
         });
 

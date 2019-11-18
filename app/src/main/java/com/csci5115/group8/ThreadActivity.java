@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.csci5115.group8.data.DataManager;
 import com.csci5115.group8.data.Thread;
 import com.csci5115.group8.data.ThreadMessage;
+import com.csci5115.group8.data.user.User;
 import com.csci5115.group8.ui.threadMessage.threadMessagesFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,9 +28,14 @@ public class ThreadActivity extends AppCompatActivity implements threadMessagesF
             for(Thread t : DataManager.threads) {
                 if(t.user.email.equals(email)) {
                     this.thread = t;
-                    break;
+                    return this.thread;
                 }
             }
+            // create thread if none available
+            User u = DataManager.getUser(email);
+            Thread newThread = new Thread(u);
+            DataManager.threads.add(newThread);
+            this.thread = newThread;
         }
         return this.thread;
     }
