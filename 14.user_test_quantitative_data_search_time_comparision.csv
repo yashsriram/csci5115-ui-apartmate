@@ -1,0 +1,12 @@
+,Time for searching apts,,Time for searching roommates,,
+,Baseline (apartments.com),ApartMate,Baseline (roomster.com),ApartMate,
+Participant 1,4:00,4:57,3:00,4:03,
+Participant 2,3:22,3:03,3:27,3:12,
+Participant 3,2:55,3:13,4:03,3:14,
+Participant 4,3:43,4:03,5:33,4:45,
+Participant 5,3:36,4:18,4:47,3:13,
+Participant 6,3:14,3:27,5:12,3:48,
+Participant 7,4:48,3:08,4:21,2:57,"Data difference, familiarity difference - cracks in comparision"
+Participant 8,2:02,1:38,1:59,0:57,
+Mean,3:27,3:28,4:02,3:16,
+Std,0.03364192474,0.04149756941,0.04963595147,0.04611272095,

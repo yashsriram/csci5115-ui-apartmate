@@ -1,0 +1,85 @@
+,,Raters,,,,,
+Idea Cluster,Idea Description,Tom,Tommy,Lee,Fatima,Yash,Total rating (out of 25)
+Administration/Communication,Can ask a question to current residents at large,3,5,4,5,5,22
+Administration/Communication,Notify when listing available,3,5,4,5,5,22
+Administration/Communication,Notify when someone is interested in being a roommate,4,5,4,4,5,22
+Administration/Communication,Schedule a tour for the user (we’re intermediaries),4,3,4,4,5,20
+Administration/Communication,Chat system with apartment lessor,4,4,4,4,4,20
+Administration/Communication,App shows rules/regulations of apartment,3,4,3,3,5,18
+Apartment Details,Floor plans,5,5,3,4,5,22
+Apartment Details,Amenities,3,4,3,4,5,19
+Apartment Details,Leasing timeline,4,3,3,4,5,19
+Apartment Details,Parking information,3,4,3,4,5,19
+Apartment Details,Users upload their own apartment pictures & videos,3,4,4,4,4,19
+Apartment Details,Rent history graphs,3,5,3,4,3,18
+Apartment Details,Safety features,2,5,3,3,5,18
+Apartment Details,Floor hardwood/carpet,3,4,3,3,5,18
+Apartment Details,Subletting information/allowed/fees,3,3,3,4,5,18
+Apartment Details,"Safety, cleanliness of surroundings",2,5,3,3,5,18
+Apartment Details,Lounge/shared space in apartment,3,4,2,3,5,17
+Apartment Details,The speed of WIFI,4,3,2,3,5,17
+Apartment Details,Pest problem history,2,3,3,3,5,16
+Apartment Details,Signifier for apartment (“popular with students from your school”),3,4,3,3,2,15
+Apartment Details,Response time of management,3,2,3,2,5,15
+Apartment Details,Terrace/balcony,3,2,2,3,5,15
+Apartment Details,Estimate of time spent commuting/walking from location to a destination,2,4,4,4,1,15
+Apartment Details,"Package (Amazon, fedex) drop area facility",2,2,3,2,5,14
+Apartment Details,"Entry features (key, card)",3,1,3,2,5,14
+Apartment Details,Apartment can be modified ? (nails in wall),2,1,3,2,5,13
+Apartment Details,Printing services?,2,3,3,2,3,13
+Apartment Details,"If there is coin operated laundry, show where to get coins",2,1,2,2,5,12
+Apartment Details,Printing/Computer use at location,2,1,3,2,3,11
+Apartment Details,Measure amount of sunlight for a particular room,1,1,2,1,5,10
+Apartment Details,Elevators information,2,1,2,2,3,10
+Apartment Feedback,Like/dislike apartments,5,4,5,5,4,23
+Apartment Feedback,Verification system for reviews,3,4,4,4,5,20
+Apartment Feedback,Show rating of management,4,5,4,4,3,20
+Apartment Feedback,Like/dislike managements,5,3,4,4,4,20
+Apartment Surroundings,Crime rate map of area,4,5,4,4,5,22
+Apartment Surroundings,Nearby bus/public transportation routes,3,5,4,5,5,22
+Apartment Surroundings,Users should be able to add new apartments,3,5,4,5,5,22
+Apartment Surroundings,"Restaurants, supermarkets nearby",4,4,4,4,5,21
+Apartment Surroundings,Utilities cost map of area,4,3,4,4,5,20
+Apartment Surroundings,Demographic summary of residents (party/quiet),2,5,3,3,4,17
+Apartment Surroundings,Rent map of area,3,2,4,2,5,16
+Apartment Surroundings,Night activities map,3,2,3,4,4,16
+Apartment Surroundings,Safe U alerts on average of an area (issue counter),2,2,3,3,4,14
+Apartment Tour,Video tour of apartment,3,4,3,3,5,18
+Encouraging App Usage,Get bonus when you invite friends,3,5,3,4,5,20
+Encouraging App Usage,Residents get points on the app for responses,2,5,3,4,4,18
+Encouraging App Usage,Get bonus when you ask/answer questions,3,5,3,3,3,17
+Encouraging App Usage,Get bonus everyday when you check in the app,2,3,3,3,3,14
+Encouraging App Usage,Get bonus when you upload videos about the apartments,2,2,3,2,5,14
+Encouraging App Usage,Get bonus when you watch the videos about the apartments,2,2,3,3,1,11
+Apartment Recommendation/Search,Search for apartments with a filter,5,5,5,5,5,25
+Apartment Recommendation/Search,App Recommendation/Search,5,5,4,5,5,24
+Apartment Recommendation/Search,Customize search results (“cards” of the apartments),4,5,4,4,5,22
+Apartment Recommendation/Search,Comparison view of apartment,3,5,3,4,5,20
+Apartment Recommendation/Search,Recommend by search history/user profile,3,5,3,3,5,19
+Apartment Recommendation/Search,Filter by company,3,3,3,4,5,18
+Roommate Communication,Chat system with roommates,4,5,3,5,3,20
+Roommate Communication,Organize meeting for prospective roommate,3,3,3,3,1,13
+Roommate Matching,Allow “dealbreakers” when searching for roommates,4,5,4,5,5,23
+Roommate Matching,Percentage match to roommate,3,5,4,4,5,21
+Roommate Matching,Roommate polling and waiting list,3,5,3,3,5,19
+Roommate Matching,Survey of preferences and follow up with recommendations,3,5,4,4,3,19
+Roommate Matching,"Allow user to just slot in anywhere at an apartment, no preferences",3,4,4,3,5,19
+Roommate Matching,Upload intro videos about themselves,2,5,3,3,3,16
+Roommate Matching,"Signifier denoting what school someone’s from (ex. UMN, Augsburg)",3,3,3,4,1,14
+Roommate Matching,"Find/merge with another group of people, not just find a single person",3,2,4,3,2,14
+Culled,Smoking allowed,4,3,3,2,5,17
+Culled,App manages paperwork related to rental application,3,3,4,4,1,15
+Culled,VR tour of the apartment,3,2,3,2,5,15
+Culled,Calendar system (apartment + user) — see where it aligns,1,5,3,4,1,14
+Culled,Postings from apartment companies could be verified as posted by reputable company,3,2,3,4,2,14
+Culled,Show the rating of the apartments on other platform,1,5,3,4,1,14
+Culled,Get bonus when you do some tasks in the app,2,3,3,3,3,14
+Culled,Can meet with a current resident to ask questions,1,3,3,3,3,13
+Culled,Traffic map of area,3,3,3,3,1,13
+Culled,Sign a lease through the app,3,2,4,2,1,12
+Culled,Roommate meetup blind date — Organize an event so you meet people in person,2,3,3,3,1,12
+Culled,Trash/Recycling,2,1,3,3,2,11
+Culled,Type of lighting in the unit,2,1,2,1,4,10
+Culled,Get bonus when you do the virtual tour,2,2,3,2,1,10
+Culled,Get bonus when you share your ideas about apartments,2,2,3,2,1,10
+Culled,“Wild card” roommate system (randomly assign and then meet up & see how it goes),2,1,3,2,1,9
